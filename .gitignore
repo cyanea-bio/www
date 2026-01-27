@@ -1,0 +1,22 @@
+# Build output
+public/
+
+# Zola
+.zola-cache/
+
+# mise
+.mise.local.toml
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (if using any build tools)
+node_modules/

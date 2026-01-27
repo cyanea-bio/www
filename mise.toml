@@ -1,0 +1,5 @@
+[tools]
+zola = "0.19"
+
+[env]
+ZOLA_ENV = "development"

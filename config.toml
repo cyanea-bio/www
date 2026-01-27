@@ -1,0 +1,67 @@
+# Cyanea Marketing Website
+# https://www.getzola.org/documentation/getting-started/configuration/
+
+base_url = "https://cyanea.io"
+title = "Cyanea"
+description = "Modern bioinformatics platform for genomic data management and analysis"
+default_language = "en"
+
+# Compilation settings
+compile_sass = true
+minify_html = false
+build_search_index = true
+
+# Feed settings
+generate_feeds = true
+feed_filenames = ["rss.xml", "atom.xml"]
+
+[[taxonomies]]
+name = "tags"
+feed = true
+
+[markdown]
+highlight_code = true
+highlight_theme = "css"
+smart_punctuation = true
+
+[search]
+include_title = true
+include_description = true
+include_path = true
+include_content = true
+
+[extra]
+# Site-wide variables
+author = "Cyanea Team"
+github_url = "https://github.com/cyanea-io"
+twitter_handle = "cyanea_io"
+
+# Navigation
+[[extra.nav]]
+name = "Features"
+url = "/features"
+
+[[extra.nav]]
+name = "Pricing"
+url = "/pricing"
+
+[[extra.nav]]
+name = "Docs"
+url = "/docs"
+
+[[extra.nav]]
+name = "Blog"
+url = "/blog"
+
+# Footer links
+[[extra.footer_links]]
+name = "Privacy"
+url = "/privacy"
+
+[[extra.footer_links]]
+name = "Terms"
+url = "/terms"
+
+[[extra.footer_links]]
+name = "Contact"
+url = "/contact"

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-container">
+        <h1 class="hero-title">{{ section.extra.hero_title | default(value="Modern Bioinformatics Platform") }}</h1>
+        <p class="hero-subtitle">{{ section.extra.hero_subtitle | default(value="Manage, analyze, and share genomic data with a platform built for modern research teams.") }}</p>
+        <div class="hero-actions">
+            <a href="/signup" class="btn btn-primary btn-large">Start Free Trial</a>
+            <a href="/demo" class="btn btn-secondary btn-large">Request Demo</a>
+        </div>
+    </div>
+</section>
+
+<section class="features-overview">
+    <div class="section-container">
+        <h2 class="section-title">Why Cyanea?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                </div>
+                <h3>High Performance</h3>
+                <p>Process large genomic datasets with blazing-fast Rust-powered analysis pipelines.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                </div>
+                <h3>Team Collaboration</h3>
+                <p>Share datasets, analyses, and insights across your research organization.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                    </svg>
+                </div>
+                <h3>Secure by Default</h3>
+                <p>Enterprise-grade security with encryption at rest and in transit.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="section-container">
+        <h2>Ready to accelerate your research?</h2>
+        <p>Join hundreds of research teams already using Cyanea.</p>
+        <a href="/signup" class="btn btn-primary btn-large">Get Started Free</a>
+    </div>
+</section>
+{% endblock %}

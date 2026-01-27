@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Blog | {{ config.title }}{% endblock %}
+{% block description %}Latest news, updates, and insights from the Cyanea team.{% endblock %}
+
+{% block content %}
+<section class="blog-listing">
+    <header class="section-header">
+        <h1>Blog</h1>
+        <p class="section-description">Latest news, updates, and insights from our team.</p>
+    </header>
+
+    <div class="blog-grid">
+        {% for page in section.pages %}
+        <article class="blog-card">
+            {% if page.extra.image %}
+            <img src="{{ page.extra.image }}" alt="{{ page.title }}" class="blog-card-image">
+            {% endif %}
+            <div class="blog-card-content">
+                <time datetime="{{ page.date }}">{{ page.date | date(format="%B %d, %Y") }}</time>
+                <h2><a href="{{ page.permalink }}">{{ page.title }}</a></h2>
+                {% if page.description %}
+                <p>{{ page.description }}</p>
+                {% endif %}
+                {% if page.taxonomies.tags %}
+                <div class="tags">
+                    {% for tag in page.taxonomies.tags %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+
+    {% if paginator %}
+    <nav class="pagination">
+        {% if paginator.previous %}
+        <a href="{{ paginator.previous }}" class="btn btn-secondary">Previous</a>
+        {% endif %}
+        <span class="pagination-info">Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</span>
+        {% if paginator.next %}
+        <a href="{{ paginator.next }}" class="btn btn-secondary">Next</a>
+        {% endif %}
+    </nav>
+    {% endif %}
+</section>
+{% endblock %}
