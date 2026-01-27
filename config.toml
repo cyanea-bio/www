@@ -20,9 +20,11 @@ name = "tags"
 feed = true
 
 [markdown]
-highlight_code = true
-highlight_theme = "css"
 smart_punctuation = true
+
+[markdown.highlighting]
+enabled = true
+theme = "css"
 
 [search]
 include_title = true
