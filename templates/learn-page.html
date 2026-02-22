@@ -6,6 +6,14 @@
 {% block og_title %}{{ page.title }}{% endblock %}
 {% block og_description %}{{ page.description | default(value=config.description) }}{% endblock %}
 
+{% block head %}
+<link rel="preload" href="/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/KaTeX_Main-Italic.woff2" as="font" type="font/woff2" crossorigin>
+{% if page.slug == "protein-structure-viewer" %}
+<script src="https://3dmol.csb.pitt.edu/build/3Dmol-min.js"></script>
+{% endif %}
+{% endblock %}
+
 {% block content %}
 <div class="learn-detail">
     <div class="learn-detail-header">
@@ -27,8 +35,8 @@
         </div>
     </div>
 
-    <div class="learn-detail-preview">
-        <span>{{ page.extra.preview_label | default(value="Simulation preview") }}</span>
+    <div class="learn-detail-preview" id="sim-container">
+        <div class="sim-loading">Loading simulation&hellip;</div>
     </div>
 
     {% if page.description %}
@@ -62,4 +70,8 @@
         <a href="/learn/" class="btn btn-outline">&larr; Back to all simulations</a>
     </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script type="module" src="/js/sims/{{ page.slug }}.js"></script>
 {% endblock %}
