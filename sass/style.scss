@@ -906,6 +906,26 @@ p { margin: 0; color: $gray-600; }
         margin: 1.5rem 0; padding: 1rem 1.5rem;
         background: $off-white; border-radius: 0 $radius-sm $radius-sm 0;
     }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+        font-size: 0.9375rem;
+    }
+    th {
+        text-align: left;
+        font-weight: 600;
+        color: $gray-900;
+        padding: 0.625rem 0.75rem;
+        border-bottom: 2px solid $gray-200;
+    }
+    td {
+        padding: 0.5rem 0.75rem;
+        color: $gray-600;
+        border-bottom: 1px solid $gray-100;
+    }
+    tr:last-child td { border-bottom: none; }
 }
 
 .section-content { @extend .page-content; }
@@ -2000,11 +2020,8 @@ p { margin: 0; color: $gray-600; }
 }
 
 .learn-detail-content {
+    @extend .page-content;
     margin-bottom: 2rem;
-    color: $gray-600;
-    line-height: 1.8;
-
-    p { margin-bottom: 1rem; }
 }
 
 .learn-detail-crates {
