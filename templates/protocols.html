@@ -1,0 +1,224 @@
+{% extends "base.html" %}
+
+{% block title %}Protocols | {{ config.title }}{% endblock %}
+{% block description %}Browse reproducible bioinformatics and wet lab protocols shared by the community.{% endblock %}
+
+{% block content %}
+<div class="hub-page">
+    <header class="hub-header">
+        <h1>Protocols</h1>
+        <p>Reproducible, version-controlled protocols for wet lab and computational biology. Fork, adapt, and share with your team.</p>
+        <div class="hub-search">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <span>Search protocols by name, technique, or category...</span>
+        </div>
+    </header>
+
+    <div class="hub-stats">
+        <div class="hub-stat">
+            <div class="hub-stat-value">3,200+</div>
+            <div class="hub-stat-label">Protocols</div>
+        </div>
+        <div class="hub-stat">
+            <div class="hub-stat-value">180+</div>
+            <div class="hub-stat-label">Contributors</div>
+        </div>
+        <div class="hub-stat">
+            <div class="hub-stat-value">12k+</div>
+            <div class="hub-stat-label">Forks</div>
+        </div>
+    </div>
+
+    <div class="hub-filters">
+        <span class="hub-filter-pill active">All</span>
+        <span class="hub-filter-pill">Wet Lab</span>
+        <span class="hub-filter-pill">Computational</span>
+        <span class="hub-filter-pill">Library Prep</span>
+        <span class="hub-filter-pill">Extraction</span>
+        <span class="hub-filter-pill">Imaging</span>
+        <span class="hub-filter-pill">Assay</span>
+    </div>
+
+    <div class="hub-layout">
+        <aside class="hub-sidebar">
+            <div class="hub-sidebar-section">
+                <h4>Category</h4>
+                <ul>
+                    <li class="hub-sidebar-item active"><span>Molecular Biology</span> <span class="count">842</span></li>
+                    <li class="hub-sidebar-item"><span>Cell Culture</span> <span class="count">531</span></li>
+                    <li class="hub-sidebar-item"><span>Sequencing</span> <span class="count">489</span></li>
+                    <li class="hub-sidebar-item"><span>Computational</span> <span class="count">412</span></li>
+                    <li class="hub-sidebar-item"><span>Imaging</span> <span class="count">287</span></li>
+                </ul>
+            </div>
+            <div class="hub-sidebar-section">
+                <h4>Difficulty</h4>
+                <ul>
+                    <li class="hub-sidebar-item"><span>Beginner</span> <span class="count">1,204</span></li>
+                    <li class="hub-sidebar-item"><span>Intermediate</span> <span class="count">1,421</span></li>
+                    <li class="hub-sidebar-item"><span>Advanced</span> <span class="count">575</span></li>
+                </ul>
+            </div>
+            <div class="hub-sidebar-section">
+                <h4>Duration</h4>
+                <ul>
+                    <li class="hub-sidebar-item"><span>&lt;1 hour</span> <span class="count">892</span></li>
+                    <li class="hub-sidebar-item"><span>1-4 hours</span> <span class="count">1,103</span></li>
+                    <li class="hub-sidebar-item"><span>Full day</span> <span class="count">784</span></li>
+                    <li class="hub-sidebar-item"><span>Multi-day</span> <span class="count">421</span></li>
+                </ul>
+            </div>
+        </aside>
+
+        <div>
+            <div class="hub-sort-bar">
+                <span class="hub-sort-label">3,200 protocols</span>
+                <div class="hub-sort-options">
+                    <span class="active">Trending</span>
+                    <span>Most forked</span>
+                    <span>Recently updated</span>
+                </div>
+            </div>
+
+            <div class="hub-grid">
+                <div class="hub-card">
+                    <div class="hub-card-header">
+                        <div class="hub-card-icon">&#x1F9EA;</div>
+                        <div class="hub-card-title-group">
+                            <h3><span class="hub-card-org">broad-institute/</span><span class="hub-card-name">rna-extraction-trizol</span></h3>
+                            <span class="hub-badge badge-popular">Popular</span>
+                        </div>
+                    </div>
+                    <p class="hub-card-description">Total RNA extraction using TRIzol reagent. Optimized for mammalian tissue samples with high RNA integrity scores.</p>
+                    <div class="hub-card-tags">
+                        <span class="hub-card-tag">Wet Lab</span>
+                        <span class="hub-card-tag">Extraction</span>
+                        <span class="hub-card-tag">Beginner</span>
+                    </div>
+                    <div class="hub-card-meta">
+                        <span>12 steps</span>
+                        <span>~3 hrs</span>
+                        <span>Forked 234x</span>
+                        <span>v4.2</span>
+                    </div>
+                </div>
+
+                <div class="hub-card">
+                    <div class="hub-card-header">
+                        <div class="hub-card-icon">&#x1F52C;</div>
+                        <div class="hub-card-title-group">
+                            <h3><span class="hub-card-org">10x-genomics/</span><span class="hub-card-name">chromium-scrnaseq-v4</span></h3>
+                            <span class="hub-badge badge-featured">Featured</span>
+                        </div>
+                    </div>
+                    <p class="hub-card-description">Single-cell RNA-seq library preparation using the Chromium Next GEM Single Cell 3' Kit v4. Full workflow from cell suspension to sequencing-ready libraries.</p>
+                    <div class="hub-card-tags">
+                        <span class="hub-card-tag">Library Prep</span>
+                        <span class="hub-card-tag">scRNA-seq</span>
+                        <span class="hub-card-tag">Advanced</span>
+                    </div>
+                    <div class="hub-card-meta">
+                        <span>24 steps</span>
+                        <span>~2 days</span>
+                        <span>Forked 189x</span>
+                        <span>v4.0</span>
+                    </div>
+                </div>
+
+                <div class="hub-card">
+                    <div class="hub-card-header">
+                        <div class="hub-card-icon">&#x1F9EC;</div>
+                        <div class="hub-card-title-group">
+                            <h3><span class="hub-card-org">addgene/</span><span class="hub-card-name">gibson-assembly</span></h3>
+                        </div>
+                    </div>
+                    <p class="hub-card-description">Gibson Assembly for seamless DNA cloning. One-step, isothermal assembly of multiple overlapping DNA fragments.</p>
+                    <div class="hub-card-tags">
+                        <span class="hub-card-tag">Molecular Biology</span>
+                        <span class="hub-card-tag">Cloning</span>
+                        <span class="hub-card-tag">Intermediate</span>
+                    </div>
+                    <div class="hub-card-meta">
+                        <span>8 steps</span>
+                        <span>~2 hrs</span>
+                        <span>Forked 412x</span>
+                        <span>v3.1</span>
+                    </div>
+                </div>
+
+                <div class="hub-card">
+                    <div class="hub-card-header">
+                        <div class="hub-card-icon">&#x1F4BB;</div>
+                        <div class="hub-card-title-group">
+                            <h3><span class="hub-card-org">sanger-protocols/</span><span class="hub-card-name">whole-genome-illumina</span></h3>
+                        </div>
+                    </div>
+                    <p class="hub-card-description">Complete whole genome sequencing library preparation for Illumina platforms. Covers DNA extraction through to sequencing QC.</p>
+                    <div class="hub-card-tags">
+                        <span class="hub-card-tag">Library Prep</span>
+                        <span class="hub-card-tag">WGS</span>
+                        <span class="hub-card-tag">Intermediate</span>
+                    </div>
+                    <div class="hub-card-meta">
+                        <span>18 steps</span>
+                        <span>~1 day</span>
+                        <span>Forked 156x</span>
+                        <span>v5.0</span>
+                    </div>
+                </div>
+
+                <div class="hub-card">
+                    <div class="hub-card-header">
+                        <div class="hub-card-icon">&#x2702;&#xFE0F;</div>
+                        <div class="hub-card-title-group">
+                            <h3><span class="hub-card-org">openplant/</span><span class="hub-card-name">crispr-cas9-plant</span></h3>
+                            <span class="hub-badge badge-new">New</span>
+                        </div>
+                    </div>
+                    <p class="hub-card-description">CRISPR-Cas9 genome editing in plant systems. Covers guide RNA design, Agrobacterium transformation, and screening strategies.</p>
+                    <div class="hub-card-tags">
+                        <span class="hub-card-tag">Molecular Biology</span>
+                        <span class="hub-card-tag">CRISPR</span>
+                        <span class="hub-card-tag">Advanced</span>
+                    </div>
+                    <div class="hub-card-meta">
+                        <span>15 steps</span>
+                        <span>~5 days</span>
+                        <span>Forked 98x</span>
+                        <span>v2.3</span>
+                    </div>
+                </div>
+
+                <div class="hub-card">
+                    <div class="hub-card-header">
+                        <div class="hub-card-icon">&#x1F9F0;</div>
+                        <div class="hub-card-title-group">
+                            <h3><span class="hub-card-org">neb/</span><span class="hub-card-name">end-repair-a-tailing</span></h3>
+                        </div>
+                    </div>
+                    <p class="hub-card-description">End repair and A-tailing for NGS library preparation. Compatible with NEBNext Ultra II and similar library prep kits.</p>
+                    <div class="hub-card-tags">
+                        <span class="hub-card-tag">Library Prep</span>
+                        <span class="hub-card-tag">NGS</span>
+                        <span class="hub-card-tag">Beginner</span>
+                    </div>
+                    <div class="hub-card-meta">
+                        <span>6 steps</span>
+                        <span>~45 min</span>
+                        <span>Forked 67x</span>
+                        <span>v2.0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hub-cta">
+        <div class="hub-cta-card">
+            <h3>Share your protocols</h3>
+            <p>Publish version-controlled protocols that others can fork, adapt, and cite. Make your methods reproducible.</p>
+            <a href="/signup" class="btn btn-primary">Publish a Protocol</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

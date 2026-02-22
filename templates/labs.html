@@ -1,0 +1,204 @@
+{% extends "base.html" %}
+
+{% block title %}Labs | {{ config.title }}{% endblock %}
+{% block description %}The Cyanea Rust crate ecosystem for bioinformatics.{% endblock %}
+
+{% block content %}
+<div class="hub-page">
+    <header class="hub-header">
+        <h1>The Cyanea Crate Ecosystem</h1>
+        <p>13 Rust crates for high-performance bioinformatics. From sequence parsing to GPU-accelerated analysis, built for correctness and speed.</p>
+    </header>
+
+    <div class="hub-stats">
+        <div class="hub-stat">
+            <div class="hub-stat-value">13</div>
+            <div class="hub-stat-label">Crates</div>
+        </div>
+        <div class="hub-stat">
+            <div class="hub-stat-value">100%</div>
+            <div class="hub-stat-label">Rust</div>
+        </div>
+        <div class="hub-stat">
+            <div class="hub-stat-value">MIT</div>
+            <div class="hub-stat-label">License</div>
+        </div>
+    </div>
+
+    <div class="labs-architecture">
+        <div class="labs-layer">
+            <span class="labs-layer-label">Platform</span>
+            <div class="labs-layer-crates">
+                <span class="labs-crate-pill">cyanea-wasm</span>
+                <span class="labs-crate-pill">cyanea-py</span>
+                <span class="labs-crate-pill">cyanea-gpu</span>
+            </div>
+        </div>
+        <div class="labs-layer">
+            <span class="labs-layer-label">Analysis</span>
+            <div class="labs-layer-crates">
+                <span class="labs-crate-pill">cyanea-align</span>
+                <span class="labs-crate-pill">cyanea-omics</span>
+                <span class="labs-crate-pill">cyanea-stats</span>
+                <span class="labs-crate-pill">cyanea-ml</span>
+                <span class="labs-crate-pill">cyanea-phylo</span>
+            </div>
+        </div>
+        <div class="labs-layer">
+            <span class="labs-layer-label">I/O</span>
+            <div class="labs-layer-crates">
+                <span class="labs-crate-pill">cyanea-io</span>
+                <span class="labs-crate-pill">cyanea-struct</span>
+                <span class="labs-crate-pill">cyanea-chem</span>
+            </div>
+        </div>
+        <div class="labs-layer">
+            <span class="labs-layer-label">Core</span>
+            <div class="labs-layer-crates">
+                <span class="labs-crate-pill">cyanea-core</span>
+                <span class="labs-crate-pill">cyanea-seq</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="labs-grid">
+        <div class="labs-card">
+            <h3>cyanea-core <span class="hub-badge badge-popular">v0.4.2</span></h3>
+            <p>Foundation types and traits shared across the ecosystem. Alphabets, coordinate systems, error types, and memory-efficient collections.</p>
+            <div class="labs-card-links">
+                <a href="{{ config.extra.github_url }}">Source</a>
+                <a href="/docs">Docs</a>
+                <a href="https://crates.io">crates.io</a>
+            </div>
+        </div>
+
+        <div class="labs-card">
+            <h3>cyanea-seq <span class="hub-badge badge-popular">v0.3.8</span></h3>
+            <p>Biological sequence types — DNA, RNA, protein. 2-bit encoding, k-mer generation, reverse complement, and translation tables.</p>
+            <div class="labs-card-links">
+                <a href="{{ config.extra.github_url }}">Source</a>
+                <a href="/docs">Docs</a>
+                <a href="https://crates.io">crates.io</a>
+            </div>
+        </div>
+
+        <div class="labs-card">
+            <h3>cyanea-io <span class="hub-badge badge-new">v0.3.5</span></h3>
+            <p>High-performance parsers and writers for bioinformatics formats. FASTA, FASTQ, VCF, BAM/SAM, GFF3, BED, and more.</p>
+            <div class="labs-card-links">
+                <a href="{{ config.extra.github_url }}">Source</a>
+                <a href="/docs">Docs</a>
+                <a href="https://crates.io">crates.io</a>
+            </div>
+        </div>
+
+        <div class="labs-card">
+            <h3>cyanea-align <span class="hub-badge badge-featured">v0.2.4</span></h3>
+            <p>Sequence alignment algorithms — Smith-Waterman, Needleman-Wunsch, minimap2-compatible chaining, and banded alignment with SIMD.</p>
+            <div class="labs-card-links">
+                <a href="{{ config.extra.github_url }}">Source</a>
+                <a href="/docs">Docs</a>
+                <a href="https://crates.io">crates.io</a>
+            </div>
+        </div>
+
+        <div class="labs-card">
+            <h3>cyanea-omics <span class="hub-badge badge-new">v0.2.1</span></h3>
+            <p>Multi-omics data structures. Sparse and dense expression matrices, AnnData-compatible objects, and differential expression utilities.</p>
+            <div class="labs-card-links">
+                <a href="{{ config.extra.github_url }}">Source</a>
+                <a href="/docs">Docs</a>
+                <a href="https://crates.io">crates.io</a>
+            </div>
+        </div>
+
+        <div class="labs-card">
+            <h3>cyanea-stats <span class="hub-badge badge-popular">v0.3.0</span></h3>
+            <p>Statistical computing for bioinformatics. Hypothesis testing, multiple testing correction, survival analysis, and Bayesian inference.</p>
+            <div class="labs-card-links">
+                <a href="{{ config.extra.github_url }}">Source</a>
+                <a href="/docs">Docs</a>
+                <a href="https://crates.io">crates.io</a>
+            </div>
+        </div>
+
+        <div class="labs-card">
+            <h3>cyanea-ml <span class="hub-badge badge-new">v0.1.3</span></h3>
+            <p>Machine learning primitives for biological data. Dimensionality reduction (PCA, UMAP, t-SNE), clustering, and classification.</p>
+            <div class="labs-card-links">
+                <a href="{{ config.extra.github_url }}">Source</a>
+                <a href="/docs">Docs</a>
+                <a href="https://crates.io">crates.io</a>
+            </div>
+        </div>
+
+        <div class="labs-card">
+            <h3>cyanea-chem <span class="hub-badge badge-featured">v0.2.0</span></h3>
+            <p>Chemical informatics — molecular fingerprints, SMILES parsing, substructure search, and molecular descriptor calculation.</p>
+            <div class="labs-card-links">
+                <a href="{{ config.extra.github_url }}">Source</a>
+                <a href="/docs">Docs</a>
+                <a href="https://crates.io">crates.io</a>
+            </div>
+        </div>
+
+        <div class="labs-card">
+            <h3>cyanea-struct <span class="hub-badge badge-new">v0.1.7</span></h3>
+            <p>Biological structure handling — PDB/mmCIF parsing, 3D coordinate systems, secondary structure annotation, and contact maps.</p>
+            <div class="labs-card-links">
+                <a href="{{ config.extra.github_url }}">Source</a>
+                <a href="/docs">Docs</a>
+                <a href="https://crates.io">crates.io</a>
+            </div>
+        </div>
+
+        <div class="labs-card">
+            <h3>cyanea-phylo <span class="hub-badge badge-popular">v0.2.6</span></h3>
+            <p>Phylogenetic tree construction and manipulation. Newick/Nexus parsing, distance matrices, neighbor-joining, and tree comparison metrics.</p>
+            <div class="labs-card-links">
+                <a href="{{ config.extra.github_url }}">Source</a>
+                <a href="/docs">Docs</a>
+                <a href="https://crates.io">crates.io</a>
+            </div>
+        </div>
+
+        <div class="labs-card">
+            <h3>cyanea-gpu <span class="hub-badge badge-featured">v0.1.0</span></h3>
+            <p>GPU-accelerated compute kernels via wgpu. Pairwise alignment, k-mer counting, and matrix operations on GPU hardware.</p>
+            <div class="labs-card-links">
+                <a href="{{ config.extra.github_url }}">Source</a>
+                <a href="/docs">Docs</a>
+                <a href="https://crates.io">crates.io</a>
+            </div>
+        </div>
+
+        <div class="labs-card">
+            <h3>cyanea-wasm <span class="hub-badge badge-popular">v0.3.1</span></h3>
+            <p>WebAssembly bindings for browser-based bioinformatics. Powers Cyanea Spaces with near-native performance in the browser.</p>
+            <div class="labs-card-links">
+                <a href="{{ config.extra.github_url }}">Source</a>
+                <a href="/docs">Docs</a>
+                <a href="https://crates.io">crates.io</a>
+            </div>
+        </div>
+
+        <div class="labs-card">
+            <h3>cyanea-py <span class="hub-badge badge-new">v0.2.0</span></h3>
+            <p>Python bindings via PyO3. Use the full Cyanea ecosystem from Python with zero-copy data exchange and NumPy/Polars interop.</p>
+            <div class="labs-card-links">
+                <a href="{{ config.extra.github_url }}">Source</a>
+                <a href="/docs">Docs</a>
+                <a href="https://pypi.org">PyPI</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="hub-cta">
+        <div class="hub-cta-card">
+            <h3>Contribute to the ecosystem</h3>
+            <p>The Cyanea crate ecosystem is open source. Report issues, submit pull requests, or build something new on top of it.</p>
+            <a href="{{ config.extra.github_url }}" class="btn btn-primary">View on GitHub</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

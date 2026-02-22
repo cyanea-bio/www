@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+
+{% block title %}Spaces | {{ config.title }}{% endblock %}
+{% block description %}Interactive bioinformatics tools running entirely in your browser via WebAssembly.{% endblock %}
+
+{% block content %}
+<div class="hub-page">
+    <header class="hub-header">
+        <h1>Spaces</h1>
+        <p>Interactive bioinformatics tools running entirely in your browser. No installation, no uploads to external servers — powered by WebAssembly.</p>
+        <div class="hub-search">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <span>Search spaces by name or category...</span>
+        </div>
+    </header>
+
+    <div class="hub-stats">
+        <div class="hub-stat">
+            <div class="hub-stat-value">840+</div>
+            <div class="hub-stat-label">Spaces</div>
+        </div>
+        <div class="hub-stat">
+            <div class="hub-stat-value">120+</div>
+            <div class="hub-stat-label">Contributors</div>
+        </div>
+        <div class="hub-stat">
+            <div class="hub-stat-value">100%</div>
+            <div class="hub-stat-label">Client-side</div>
+        </div>
+    </div>
+
+    <div class="hub-filters">
+        <span class="hub-filter-pill active">All</span>
+        <span class="hub-filter-pill">Viewers</span>
+        <span class="hub-filter-pill">Aligners</span>
+        <span class="hub-filter-pill">Converters</span>
+        <span class="hub-filter-pill">Visualizations</span>
+        <span class="hub-filter-pill">Analysis</span>
+        <span class="hub-filter-pill">Education</span>
+    </div>
+
+    <div class="hub-layout">
+        <aside class="hub-sidebar">
+            <div class="hub-sidebar-section">
+                <h4>Runtime</h4>
+                <ul>
+                    <li class="hub-sidebar-item active"><span>WASM</span> <span class="count">542</span></li>
+                    <li class="hub-sidebar-item"><span>Python/Pyodide</span> <span class="count">198</span></li>
+                    <li class="hub-sidebar-item"><span>R/WebR</span> <span class="count">100</span></li>
+                </ul>
+            </div>
+            <div class="hub-sidebar-section">
+                <h4>Category</h4>
+                <ul>
+                    <li class="hub-sidebar-item"><span>Sequence Viewer</span> <span class="count">124</span></li>
+                    <li class="hub-sidebar-item"><span>Alignment</span> <span class="count">98</span></li>
+                    <li class="hub-sidebar-item"><span>File Conversion</span> <span class="count">87</span></li>
+                    <li class="hub-sidebar-item"><span>Plotting</span> <span class="count">156</span></li>
+                    <li class="hub-sidebar-item"><span>QC</span> <span class="count">73</span></li>
+                    <li class="hub-sidebar-item"><span>Education</span> <span class="count">62</span></li>
+                </ul>
+            </div>
+        </aside>
+
+        <div>
+            <div class="hub-sort-bar">
+                <span class="hub-sort-label">840 spaces</span>
+                <div class="hub-sort-options">
+                    <span class="active">Trending</span>
+                    <span>Most liked</span>
+                    <span>Recently updated</span>
+                </div>
+            </div>
+
+            <div class="hub-grid">
+                <div class="hub-card">
+                    <div class="space-card-preview">Sequence viewer preview</div>
+                    <div class="hub-card-header">
+                        <div class="hub-card-title-group">
+                            <h3><span class="hub-card-org">cyanea/</span><span class="hub-card-name">sequence-viewer</span></h3>
+                            <span class="hub-badge badge-wasm">WASM</span>
+                        </div>
+                    </div>
+                    <p class="hub-card-description">View and inspect FASTA/FASTQ files directly in your browser. Syntax highlighting, search, and quality score visualization.</p>
+                    <div class="hub-card-tags">
+                        <span class="hub-card-tag">Viewer</span>
+                        <span class="hub-card-tag">FASTA</span>
+                        <span class="hub-card-tag">FASTQ</span>
+                    </div>
+                    <div class="hub-card-meta">
+                        <span>&#9829; 342</span>
+                        <span>Updated 1d ago</span>
+                    </div>
+                </div>
+
+                <div class="hub-card">
+                    <div class="space-card-preview">Alignment viewer preview</div>
+                    <div class="hub-card-header">
+                        <div class="hub-card-title-group">
+                            <h3><span class="hub-card-org">cyanea/</span><span class="hub-card-name">alignment-viewer</span></h3>
+                            <span class="hub-badge badge-wasm">WASM</span>
+                            <span class="hub-badge badge-popular">Popular</span>
+                        </div>
+                    </div>
+                    <p class="hub-card-description">Interactive BAM/SAM alignment viewer with pileup visualization, variant highlighting, and coverage plots. Zero server needed.</p>
+                    <div class="hub-card-tags">
+                        <span class="hub-card-tag">Viewer</span>
+                        <span class="hub-card-tag">BAM</span>
+                        <span class="hub-card-tag">SAM</span>
+                    </div>
+                    <div class="hub-card-meta">
+                        <span>&#9829; 521</span>
+                        <span>Updated 3d ago</span>
+                    </div>
+                </div>
+
+                <div class="hub-card">
+                    <div class="space-card-preview">VCF explorer preview</div>
+                    <div class="hub-card-header">
+                        <div class="hub-card-title-group">
+                            <h3><span class="hub-card-org">cyanea/</span><span class="hub-card-name">vcf-explorer</span></h3>
+                            <span class="hub-badge badge-wasm">WASM</span>
+                        </div>
+                    </div>
+                    <p class="hub-card-description">Explore VCF files with filtering, sorting, and annotation lookups. Supports multi-sample VCFs with genotype visualization.</p>
+                    <div class="hub-card-tags">
+                        <span class="hub-card-tag">Viewer</span>
+                        <span class="hub-card-tag">VCF</span>
+                        <span class="hub-card-tag">Variants</span>
+                    </div>
+                    <div class="hub-card-meta">
+                        <span>&#9829; 287</span>
+                        <span>Updated 5d ago</span>
+                    </div>
+                </div>
+
+                <div class="hub-card">
+                    <div class="space-card-preview">Phylogenetic tree preview</div>
+                    <div class="hub-card-header">
+                        <div class="hub-card-title-group">
+                            <h3><span class="hub-card-org">community/</span><span class="hub-card-name">phylo-tree</span></h3>
+                            <span class="hub-badge badge-wasm">WASM</span>
+                            <span class="hub-badge badge-featured">Featured</span>
+                        </div>
+                    </div>
+                    <p class="hub-card-description">Interactive phylogenetic tree viewer with support for Newick and Nexus formats. Circular, radial, and rectangular layouts.</p>
+                    <div class="hub-card-tags">
+                        <span class="hub-card-tag">Visualization</span>
+                        <span class="hub-card-tag">Phylogenetics</span>
+                        <span class="hub-card-tag">Newick</span>
+                    </div>
+                    <div class="hub-card-meta">
+                        <span>&#9829; 198</span>
+                        <span>Updated 1w ago</span>
+                    </div>
+                </div>
+
+                <div class="hub-card">
+                    <div class="space-card-preview">FASTQ QC preview</div>
+                    <div class="hub-card-header">
+                        <div class="hub-card-title-group">
+                            <h3><span class="hub-card-org">community/</span><span class="hub-card-name">fastq-qc</span></h3>
+                            <span class="hub-badge badge-wasm">WASM</span>
+                            <span class="hub-badge badge-new">New</span>
+                        </div>
+                    </div>
+                    <p class="hub-card-description">Browser-based FASTQ quality control reports. Generate per-base quality, adapter content, and GC distribution plots client-side.</p>
+                    <div class="hub-card-tags">
+                        <span class="hub-card-tag">QC</span>
+                        <span class="hub-card-tag">FASTQ</span>
+                        <span class="hub-card-tag">Analysis</span>
+                    </div>
+                    <div class="hub-card-meta">
+                        <span>&#9829; 156</span>
+                        <span>Updated 2d ago</span>
+                    </div>
+                </div>
+
+                <div class="hub-card">
+                    <div class="space-card-preview">Format converter preview</div>
+                    <div class="hub-card-header">
+                        <div class="hub-card-title-group">
+                            <h3><span class="hub-card-org">cyanea/</span><span class="hub-card-name">format-converter</span></h3>
+                            <span class="hub-badge badge-wasm">WASM</span>
+                        </div>
+                    </div>
+                    <p class="hub-card-description">Convert between bioinformatics file formats in your browser. Supports FASTA, FASTQ, SAM, VCF, BED, GFF3, and more.</p>
+                    <div class="hub-card-tags">
+                        <span class="hub-card-tag">Converter</span>
+                        <span class="hub-card-tag">Multi-format</span>
+                    </div>
+                    <div class="hub-card-meta">
+                        <span>&#9829; 234</span>
+                        <span>Updated 4d ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hub-cta">
+        <div class="hub-cta-card">
+            <h3>Build a Space</h3>
+            <p>Create interactive bioinformatics tools that run entirely in the browser. Publish to the community or keep them private.</p>
+            <a href="/docs" class="btn btn-primary">Get Started</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

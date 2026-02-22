@@ -1,27 +1,34 @@
 +++
 title = "About"
-description = "Learn about our mission to accelerate scientific discovery."
+description = "Cyanea is an open-source, federated platform for bioinformatics."
 template = "page.html"
 +++
 
-## Our Mission
+## Named After a Jellyfish
 
-Cyanea exists to accelerate scientific discovery by making genomic data management simple, fast, and collaborative.
+Cyanea takes its name from *Cyanea capillata*, the lion's mane jellyfish — one of the largest known organisms, with tentacles spanning over 30 meters. Like its namesake, Cyanea the platform is designed to extend its reach across a vast network while remaining a single, coherent organism.
 
-We believe that researchers should spend their time on science, not wrestling with data infrastructure. That's why we built Cyanea: a modern platform that handles the complexity so you can focus on what matters.
+## What We're Building
 
-## Our Story
+Cyanea is an open-source, federated platform for bioinformatics. Think of it as what you'd get if HuggingFace, protocols.io, and Galaxy had an open-source baby built with modern tools.
 
-Founded by researchers who experienced firsthand the challenges of managing large-scale genomic data, Cyanea was born from the frustration of outdated tools and fragmented workflows.
+The platform lets researchers **share datasets**, **publish protocols**, and **run tools in the browser** — all connected through a federated network where each institution can host its own instance while remaining part of a larger community.
 
-We set out to build the platform we wished existed: fast, intuitive, and designed for modern research teams.
+## How It's Built
+
+The platform runs on **Elixir** (Phoenix/LiveView) for the web layer and real-time collaboration, with a **Rust** crate ecosystem for high-performance bioinformatics computation. Browser-based tools are powered by **WebAssembly**, so they run at near-native speed without uploading data to any server.
+
+- **13 Rust crates** for sequence analysis, alignment, I/O, and more
+- **Elixir/Phoenix** for the federated platform layer
+- **WebAssembly** for client-side bioinformatics tools (Spaces)
+- **ActivityPub** for cross-instance federation
 
 ## Our Values
 
-**Speed matters.** In research, time is everything. We obsess over performance so you get results faster.
+**Open by default.** Code, data, and protocols are shared openly. The platform itself is open source under a permissive license.
 
-**Collaboration is key.** Science advances through sharing. We build tools that make collaboration frictionless.
+**Federated, not centralized.** Your data stays on your servers. You choose what to share and with whom. No vendor lock-in.
 
-**Security is non-negotiable.** We treat your data with the same care you do.
+**Community-driven.** Built by and for the bioinformatics community. Contributions are welcome — from bug reports to new crates.
 
-**Simplicity wins.** Powerful doesn't have to mean complicated.
+**Performance matters.** Rust and WebAssembly aren't just buzzwords. They're the right tools for processing gigabytes of genomic data efficiently.

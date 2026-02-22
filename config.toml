@@ -40,30 +40,21 @@ twitter_handle = "cyanea_io"
 
 # Navigation
 [[extra.nav]]
-name = "Features"
-url = "/features"
+name = "Datasets"
+url = "/datasets"
 
 [[extra.nav]]
-name = "Pricing"
-url = "/pricing"
+name = "Protocols"
+url = "/protocols"
+
+[[extra.nav]]
+name = "Spaces"
+url = "/spaces"
+
+[[extra.nav]]
+name = "Labs"
+url = "/labs"
 
 [[extra.nav]]
 name = "Docs"
 url = "/docs"
-
-[[extra.nav]]
-name = "Blog"
-url = "/blog"
-
-# Footer links
-[[extra.footer_links]]
-name = "Privacy"
-url = "/privacy"
-
-[[extra.footer_links]]
-name = "Terms"
-url = "/terms"
-
-[[extra.footer_links]]
-name = "Contact"
-url = "/contact"

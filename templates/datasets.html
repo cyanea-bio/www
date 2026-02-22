@@ -1,0 +1,229 @@
+{% extends "base.html" %}
+
+{% block title %}Datasets | {{ config.title }}{% endblock %}
+{% block description %}Browse and discover bioinformatics datasets shared by the community.{% endblock %}
+
+{% block content %}
+<div class="hub-page">
+    <header class="hub-header">
+        <h1>Datasets</h1>
+        <p>Browse, discover, and share bioinformatics datasets. From reference genomes to single-cell atlases, find the data you need.</p>
+        <div class="hub-search">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <span>Search datasets by name, organism, or format...</span>
+        </div>
+    </header>
+
+    <div class="hub-stats">
+        <div class="hub-stat">
+            <div class="hub-stat-value">12,400+</div>
+            <div class="hub-stat-label">Datasets</div>
+        </div>
+        <div class="hub-stat">
+            <div class="hub-stat-value">350+</div>
+            <div class="hub-stat-label">Organizations</div>
+        </div>
+        <div class="hub-stat">
+            <div class="hub-stat-value">89 TB</div>
+            <div class="hub-stat-label">Total Size</div>
+        </div>
+    </div>
+
+    <div class="hub-filters">
+        <span class="hub-filter-pill active">All</span>
+        <span class="hub-filter-pill">FASTA/FASTQ</span>
+        <span class="hub-filter-pill">VCF</span>
+        <span class="hub-filter-pill">CSV/TSV</span>
+        <span class="hub-filter-pill">BAM/CRAM</span>
+        <span class="hub-filter-pill">Images</span>
+        <span class="hub-filter-pill">Notebooks</span>
+        <span class="hub-filter-pill">Multi-modal</span>
+    </div>
+
+    <div class="hub-layout">
+        <aside class="hub-sidebar">
+            <div class="hub-sidebar-section">
+                <h4>Organism</h4>
+                <ul>
+                    <li class="hub-sidebar-item active"><span>H. sapiens</span> <span class="count">4,281</span></li>
+                    <li class="hub-sidebar-item"><span>M. musculus</span> <span class="count">2,103</span></li>
+                    <li class="hub-sidebar-item"><span>A. thaliana</span> <span class="count">891</span></li>
+                    <li class="hub-sidebar-item"><span>D. melanogaster</span> <span class="count">743</span></li>
+                    <li class="hub-sidebar-item"><span>C. elegans</span> <span class="count">412</span></li>
+                    <li class="hub-sidebar-item"><span>S. cerevisiae</span> <span class="count">389</span></li>
+                    <li class="hub-sidebar-item"><span>D. rerio</span> <span class="count">301</span></li>
+                </ul>
+            </div>
+            <div class="hub-sidebar-section">
+                <h4>Data Type</h4>
+                <ul>
+                    <li class="hub-sidebar-item"><span>Whole genome</span> <span class="count">3,102</span></li>
+                    <li class="hub-sidebar-item"><span>RNA-seq</span> <span class="count">2,847</span></li>
+                    <li class="hub-sidebar-item"><span>ChIP-seq</span> <span class="count">1,204</span></li>
+                    <li class="hub-sidebar-item"><span>scRNA-seq</span> <span class="count">982</span></li>
+                    <li class="hub-sidebar-item"><span>ATAC-seq</span> <span class="count">561</span></li>
+                    <li class="hub-sidebar-item"><span>Proteomics</span> <span class="count">423</span></li>
+                </ul>
+            </div>
+            <div class="hub-sidebar-section">
+                <h4>License</h4>
+                <ul>
+                    <li class="hub-sidebar-item"><span>CC-BY 4.0</span> <span class="count">5,201</span></li>
+                    <li class="hub-sidebar-item"><span>CC0</span> <span class="count">3,842</span></li>
+                    <li class="hub-sidebar-item"><span>MIT</span> <span class="count">1,204</span></li>
+                </ul>
+            </div>
+        </aside>
+
+        <div>
+            <div class="hub-sort-bar">
+                <span class="hub-sort-label">12,400 datasets</span>
+                <div class="hub-sort-options">
+                    <span class="active">Trending</span>
+                    <span>Most downloads</span>
+                    <span>Recently updated</span>
+                </div>
+            </div>
+
+            <div class="hub-grid">
+                <div class="hub-card">
+                    <div class="hub-card-header">
+                        <div class="hub-card-icon">&#x1F9EC;</div>
+                        <div class="hub-card-title-group">
+                            <h3><span class="hub-card-org">broad-institute/</span><span class="hub-card-name">gnomad-v4</span></h3>
+                            <span class="hub-badge badge-popular">Popular</span>
+                        </div>
+                    </div>
+                    <p class="hub-card-description">Genome aggregation database v4 — variant frequencies across 807,162 individuals from diverse populations.</p>
+                    <div class="hub-card-tags">
+                        <span class="hub-card-tag">VCF</span>
+                        <span class="hub-card-tag">H. sapiens</span>
+                        <span class="hub-card-tag">Population genetics</span>
+                    </div>
+                    <div class="hub-card-meta">
+                        <span>&#8595; 48.2k</span>
+                        <span>&#9829; 1,204</span>
+                        <span>12.4 TB</span>
+                        <span>Updated 2d ago</span>
+                    </div>
+                </div>
+
+                <div class="hub-card">
+                    <div class="hub-card-header">
+                        <div class="hub-card-icon">&#x1F4CA;</div>
+                        <div class="hub-card-title-group">
+                            <h3><span class="hub-card-org">embl-ebi/</span><span class="hub-card-name">ensembl-113-grch38</span></h3>
+                        </div>
+                    </div>
+                    <p class="hub-card-description">Ensembl release 113 gene annotations for human genome assembly GRCh38. Comprehensive gene models, transcripts, and regulatory features.</p>
+                    <div class="hub-card-tags">
+                        <span class="hub-card-tag">FASTA</span>
+                        <span class="hub-card-tag">GTF</span>
+                        <span class="hub-card-tag">H. sapiens</span>
+                    </div>
+                    <div class="hub-card-meta">
+                        <span>&#8595; 31.7k</span>
+                        <span>&#9829; 892</span>
+                        <span>45 GB</span>
+                        <span>Updated 1w ago</span>
+                    </div>
+                </div>
+
+                <div class="hub-card">
+                    <div class="hub-card-header">
+                        <div class="hub-card-icon">&#x1F9AB;</div>
+                        <div class="hub-card-title-group">
+                            <h3><span class="hub-card-org">sanger-pathogens/</span><span class="hub-card-name">pf7k</span></h3>
+                            <span class="hub-badge badge-new">New</span>
+                        </div>
+                    </div>
+                    <p class="hub-card-description">Plasmodium falciparum 7,000 genomes project — whole genome sequencing of malaria parasites from 28 endemic countries.</p>
+                    <div class="hub-card-tags">
+                        <span class="hub-card-tag">FASTQ</span>
+                        <span class="hub-card-tag">VCF</span>
+                        <span class="hub-card-tag">P. falciparum</span>
+                    </div>
+                    <div class="hub-card-meta">
+                        <span>&#8595; 8.4k</span>
+                        <span>&#9829; 341</span>
+                        <span>2.1 TB</span>
+                        <span>Updated 3d ago</span>
+                    </div>
+                </div>
+
+                <div class="hub-card">
+                    <div class="hub-card-header">
+                        <div class="hub-card-icon">&#x1F9E0;</div>
+                        <div class="hub-card-title-group">
+                            <h3><span class="hub-card-org">allen-institute/</span><span class="hub-card-name">abc-atlas</span></h3>
+                            <span class="hub-badge badge-featured">Featured</span>
+                        </div>
+                    </div>
+                    <p class="hub-card-description">Allen Brain Cell Atlas — single-cell RNA-seq atlas of the adult mouse brain with 4.1 million cells across 300+ cell types.</p>
+                    <div class="hub-card-tags">
+                        <span class="hub-card-tag">h5ad</span>
+                        <span class="hub-card-tag">M. musculus</span>
+                        <span class="hub-card-tag">scRNA-seq</span>
+                    </div>
+                    <div class="hub-card-meta">
+                        <span>&#8595; 12.1k</span>
+                        <span>&#9829; 567</span>
+                        <span>340 GB</span>
+                        <span>Updated 5d ago</span>
+                    </div>
+                </div>
+
+                <div class="hub-card">
+                    <div class="hub-card-header">
+                        <div class="hub-card-icon">&#x1F30D;</div>
+                        <div class="hub-card-title-group">
+                            <h3><span class="hub-card-org">1000genomes/</span><span class="hub-card-name">phase3-grch38</span></h3>
+                        </div>
+                    </div>
+                    <p class="hub-card-description">1000 Genomes Project Phase 3 data realigned to GRCh38 — 2,504 individuals from 26 populations worldwide.</p>
+                    <div class="hub-card-tags">
+                        <span class="hub-card-tag">CRAM</span>
+                        <span class="hub-card-tag">VCF</span>
+                        <span class="hub-card-tag">H. sapiens</span>
+                    </div>
+                    <div class="hub-card-meta">
+                        <span>&#8595; 22.3k</span>
+                        <span>&#9829; 743</span>
+                        <span>8.2 TB</span>
+                        <span>Updated 2w ago</span>
+                    </div>
+                </div>
+
+                <div class="hub-card">
+                    <div class="hub-card-header">
+                        <div class="hub-card-icon">&#x1F33F;</div>
+                        <div class="hub-card-title-group">
+                            <h3><span class="hub-card-org">tair/</span><span class="hub-card-name">araport11</span></h3>
+                        </div>
+                    </div>
+                    <p class="hub-card-description">Araport11 genome annotations for Arabidopsis thaliana — comprehensive gene models, transposable elements, and non-coding RNAs.</p>
+                    <div class="hub-card-tags">
+                        <span class="hub-card-tag">GFF3</span>
+                        <span class="hub-card-tag">FASTA</span>
+                        <span class="hub-card-tag">A. thaliana</span>
+                    </div>
+                    <div class="hub-card-meta">
+                        <span>&#8595; 6.8k</span>
+                        <span>&#9829; 289</span>
+                        <span>1.2 GB</span>
+                        <span>Updated 1mo ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hub-cta">
+        <div class="hub-cta-card">
+            <h3>Share your data with the world</h3>
+            <p>Upload datasets, add metadata, and make your research accessible to the global bioinformatics community.</p>
+            <a href="/signup" class="btn btn-primary">Upload a Dataset</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
