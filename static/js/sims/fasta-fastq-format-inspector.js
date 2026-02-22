@@ -1,5 +1,5 @@
-import { initWasm, wasm, createSim, textarea, buttonGroup, setStatus, time, NT_COLORS } from '/js/cyanea-sim.js';
-import { parse_fasta, parse_fastq, gc_content_json } from '/wasm/cyanea_wasm.js';
+import { initWasm, wasm, createSim, textarea, buttonGroup, setStatus, time, NT_COLORS, parseFasta, parseFastq } from '/js/cyanea-sim.js';
+import { gc_content_json } from '/wasm/cyanea_wasm.js';
 
 const FASTA_SAMPLE = `>seq1 Homo sapiens hemoglobin alpha
 ATGGTGCTGTCTCCTGCCGACAAGACCAACGTCAAGGCCGCCTGGGGTAAGGTCGGCGCG
@@ -87,15 +87,15 @@ async function init() {
     }
 
     function renderFasta(content) {
-        const records = wasm(parse_fasta, content);
+        const records = parseFasta(content);
         let totalBases = 0;
         let totalGC = 0;
 
         let html = '<div style="padding:0 1rem">';
 
         records.forEach(rec => {
-            const name = rec.name || rec.id || 'unnamed';
-            const seq = rec.sequence || rec.seq || '';
+            const name = rec.name || 'unnamed';
+            const seq = rec.seq || '';
             totalBases += seq.length;
 
             let gc = 0;
@@ -126,7 +126,7 @@ async function init() {
     }
 
     function renderFastq(content) {
-        const records = wasm(parse_fastq, content);
+        const records = parseFastq(content);
         let totalBases = 0;
         let totalQual = 0;
         let qualCount = 0;
@@ -134,9 +134,9 @@ async function init() {
         let html = '<div style="padding:0 1rem">';
 
         records.forEach(rec => {
-            const name = rec.name || rec.id || 'unnamed';
-            const seq = rec.sequence || rec.seq || '';
-            const qual = rec.quality || rec.qual || '';
+            const name = rec.name || 'unnamed';
+            const seq = rec.seq || '';
+            const qual = rec.qual || '';
             totalBases += seq.length;
 
             html += '<div class="sim-highlighted-record">';
@@ -169,7 +169,7 @@ async function init() {
         // Stats
         let gcVal = 0;
         try {
-            const allSeq = records.map(r => r.sequence || r.seq || '').join('');
+            const allSeq = records.map(r => r.seq || '').join('');
             gcVal = wasm(gc_content_json, allSeq);
         } catch {}
 

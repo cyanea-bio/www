@@ -540,3 +540,37 @@ export function formatNumber(n) {
     if (n >= 1e3) return (n / 1e3).toFixed(1) + 'K';
     return n.toLocaleString();
 }
+
+export function parseFasta(text) {
+    const records = [];
+    let name = '', seq = '';
+    for (const line of text.split('\n')) {
+        const trimmed = line.trim();
+        if (!trimmed) continue;
+        if (trimmed[0] === '>') {
+            if (name || seq) records.push({ name, seq });
+            name = trimmed.slice(1).trim();
+            seq = '';
+        } else {
+            seq += trimmed.toUpperCase().replace(/[^A-Z]/g, '');
+        }
+    }
+    if (name || seq) records.push({ name, seq });
+    return records;
+}
+
+export function parseFastq(text) {
+    const records = [];
+    const lines = text.split('\n');
+    let i = 0;
+    while (i < lines.length) {
+        const header = lines[i]?.trim();
+        if (!header || header[0] !== '@') { i++; continue; }
+        const name = header.slice(1).trim();
+        const seq = (lines[i + 1] || '').trim();
+        const qual = (lines[i + 3] || '').trim();
+        records.push({ name, seq, qual });
+        i += 4;
+    }
+    return records;
+}

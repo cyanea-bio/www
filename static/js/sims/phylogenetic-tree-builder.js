@@ -1,5 +1,5 @@
-import { initWasm, wasm, createSim, textarea, select, buttonGroup, setStatus, time, PALETTE, CLUSTER_COLORS, FONT_MATH } from '/js/cyanea-sim.js';
-import { parse_fasta, evolutionary_distance, build_upgma, build_nj, newick_info } from '/wasm/cyanea_wasm.js';
+import { initWasm, wasm, createSim, textarea, select, buttonGroup, setStatus, time, PALETTE, CLUSTER_COLORS, FONT_MATH, parseFasta } from '/js/cyanea-sim.js';
+import { evolutionary_distance, build_upgma, build_nj, newick_info } from '/wasm/cyanea_wasm.js';
 
 const SAMPLE_FASTA = `>Human
 ATGCGATCGATCGATCGATCGATCGATCG
@@ -51,11 +51,11 @@ async function init() {
 
         try {
             const { result: _, ms } = time(() => {
-                const records = wasm(parse_fasta, fasta);
+                const records = parseFasta(fasta);
                 if (records.length < 3) throw new Error('Need at least 3 sequences');
 
-                const labels = records.map(r => r.name || r.id);
-                const seqs = records.map(r => r.sequence || r.seq);
+                const labels = records.map(r => r.name);
+                const seqs = records.map(r => r.seq);
                 const n = labels.length;
 
                 // Build distance matrix

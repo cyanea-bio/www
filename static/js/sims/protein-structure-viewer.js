@@ -1,51 +1,58 @@
 import { initWasm, wasm, createSim, textarea, select, tabs, buttonGroup, setStatus, time, drawHeatmap, drawScatter, PALETTE, FONT_MATH } from '/js/cyanea-sim.js';
 import { pdb_info, pdb_secondary_structure, contact_map, ramachandran_analysis } from '/wasm/cyanea_wasm.js';
 
-const SAMPLE_PDB = `HEADER    SAMPLE PROTEIN
-ATOM      1  N   ALA A   1       1.000   1.000   1.000  1.00  0.00           N
-ATOM      2  CA  ALA A   1       2.000   1.000   1.000  1.00  0.00           C
-ATOM      3  C   ALA A   1       3.000   1.000   1.000  1.00  0.00           C
-ATOM      4  O   ALA A   1       3.500   2.000   1.000  1.00  0.00           O
-ATOM      5  N   GLY A   2       3.500   0.000   1.000  1.00  0.00           N
-ATOM      6  CA  GLY A   2       4.500   0.000   1.000  1.00  0.00           C
-ATOM      7  C   GLY A   2       5.500   0.000   1.000  1.00  0.00           C
-ATOM      8  O   GLY A   2       6.000   1.000   1.000  1.00  0.00           O
-ATOM      9  N   VAL A   3       6.000  -1.000   1.000  1.00  0.00           N
-ATOM     10  CA  VAL A   3       7.000  -1.000   1.000  1.00  0.00           C
-ATOM     11  C   VAL A   3       8.000  -1.000   1.000  1.00  0.00           C
-ATOM     12  O   VAL A   3       8.500   0.000   1.000  1.00  0.00           O
-ATOM     13  N   LEU A   4       8.500  -2.000   1.000  1.00  0.00           N
-ATOM     14  CA  LEU A   4       9.500  -2.000   1.000  1.00  0.00           C
-ATOM     15  C   LEU A   4      10.500  -2.000   1.000  1.00  0.00           C
-ATOM     16  O   LEU A   4      11.000  -1.000   1.000  1.00  0.00           O
-ATOM     17  N   SER A   5      11.000  -3.000   1.000  1.00  0.00           N
-ATOM     18  CA  SER A   5      12.000  -3.000   1.000  1.00  0.00           C
-ATOM     19  C   SER A   5      13.000  -3.000   1.000  1.00  0.00           C
-ATOM     20  O   SER A   5      13.500  -2.000   1.000  1.00  0.00           O
-ATOM     21  N   PRO A   6      13.500  -4.000   1.500  1.00  0.00           N
-ATOM     22  CA  PRO A   6      14.500  -4.000   2.000  1.00  0.00           C
-ATOM     23  C   PRO A   6      15.500  -4.000   2.500  1.00  0.00           C
-ATOM     24  O   PRO A   6      16.000  -3.000   2.500  1.00  0.00           O
-ATOM     25  N   ASP A   7      16.000  -5.000   3.000  1.00  0.00           N
-ATOM     26  CA  ASP A   7      17.000  -5.000   3.500  1.00  0.00           C
-ATOM     27  C   ASP A   7      18.000  -5.000   4.000  1.00  0.00           C
-ATOM     28  O   ASP A   7      18.500  -4.000   4.000  1.00  0.00           O
-ATOM     29  N   GLU A   8      18.500  -6.000   4.500  1.00  0.00           N
-ATOM     30  CA  GLU A   8      19.500  -6.000   5.000  1.00  0.00           C
-ATOM     31  C   GLU A   8      20.500  -6.000   5.500  1.00  0.00           C
-ATOM     32  O   GLU A   8      21.000  -5.000   5.500  1.00  0.00           O
-END`;
+const PRESETS = {
+    '1CRN': 'Crambin (46 res)',
+    '1UBQ': 'Ubiquitin (76 res)',
+    '2PTC': 'Trypsin inhibitor (58 res)',
+    '1MBO': 'Myoglobin (153 res)',
+};
+
+async function fetchPDB(id) {
+    const resp = await fetch(`https://files.rcsb.org/download/${id.toUpperCase()}.pdb`);
+    if (!resp.ok) throw new Error(`PDB ${id} not found`);
+    return resp.text();
+}
 
 async function init() {
     await initWasm();
     const container = document.getElementById('sim-container');
     const sim = createSim(container);
 
-    const { element: taEl, textarea: ta } = textarea('PDB Data', 'Paste PDB file content...', SAMPLE_PDB);
+    const { element: taEl, textarea: ta } = textarea('PDB Data', 'Paste PDB file content or load by ID...', '');
     sim.controls.appendChild(taEl);
 
+    // PDB ID input + Load button
+    const idGroup = document.createElement('div');
+    idGroup.className = 'sim-control-group';
+    const idLabel = document.createElement('label');
+    idLabel.className = 'sim-label';
+    idLabel.textContent = 'PDB ID';
+    const idInput = document.createElement('input');
+    idInput.type = 'text';
+    idInput.className = 'sim-input';
+    idInput.placeholder = '1CRN';
+    idInput.value = '1CRN';
+    idInput.style.width = '6rem';
+    idInput.style.textTransform = 'uppercase';
+    idGroup.appendChild(idLabel);
+    idGroup.appendChild(idInput);
+    sim.controls.appendChild(idGroup);
+
+    async function loadPDB(id) {
+        setStatus(sim.status, `Fetching ${id.toUpperCase()} from RCSB...`);
+        try {
+            const pdb = await fetchPDB(id);
+            ta.value = pdb;
+            update();
+        } catch (e) {
+            setStatus(sim.status, 'Error: ' + e.message, 'error');
+        }
+    }
+
     sim.controls.appendChild(buttonGroup([
-        ['Sample', () => { ta.value = SAMPLE_PDB; update(); }],
+        ['Load', () => loadPDB(idInput.value.trim())],
+        ...Object.entries(PRESETS).map(([id, label]) => [label, () => { idInput.value = id; loadPDB(id); }]),
     ]));
 
     let currentTab = '3D View';
@@ -61,7 +68,7 @@ async function init() {
     function update() {
         const pdb = ta.value.trim();
         if (!pdb) {
-            sim.display.innerHTML = '<div style="padding:2rem;color:#94a3b8;text-align:center">Paste PDB data above</div>';
+            sim.display.innerHTML = '<div style="padding:2rem;color:#94a3b8;text-align:center">Load a PDB structure above or paste PDB data</div>';
             return;
         }
 
@@ -245,7 +252,8 @@ async function init() {
         }
     }
 
-    update();
+    // Auto-load Crambin on start
+    loadPDB('1CRN');
 }
 
 init();
