@@ -1,197 +1,342 @@
 {% extends "base.html" %}
 
 {% block title %}Spaces | {{ config.title }}{% endblock %}
-{% block description %}Interactive bioinformatics tools running entirely in your browser via WebAssembly.{% endblock %}
+{% block description %}Collaborative research workspaces for bioinformatics.{% endblock %}
 
 {% block content %}
 <div class="hub-page">
     <header class="hub-header">
         <h1>Spaces</h1>
-        <p>Interactive bioinformatics tools running entirely in your browser. No installation, no uploads to external servers — powered by WebAssembly.</p>
+        <p>Collaborative research workspaces for bioinformatics. Combine notebooks, data, protocols, and metadata in one place — version-controlled, reproducible, and publication-ready.</p>
         <div class="hub-search">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <span>Search spaces by name or category...</span>
+            <span>Search spaces by name, organism, or topic...</span>
         </div>
     </header>
 
     <div class="hub-stats">
         <div class="hub-stat">
-            <div class="hub-stat-value">840+</div>
+            <div class="hub-stat-value">2,100+</div>
             <div class="hub-stat-label">Spaces</div>
         </div>
         <div class="hub-stat">
-            <div class="hub-stat-value">120+</div>
+            <div class="hub-stat-value">480+</div>
             <div class="hub-stat-label">Contributors</div>
         </div>
         <div class="hub-stat">
-            <div class="hub-stat-value">100%</div>
-            <div class="hub-stat-label">Client-side</div>
+            <div class="hub-stat-value">340+</div>
+            <div class="hub-stat-label">Published</div>
         </div>
     </div>
 
     <div class="hub-filters">
         <span class="hub-filter-pill active">All</span>
-        <span class="hub-filter-pill">Viewers</span>
-        <span class="hub-filter-pill">Aligners</span>
-        <span class="hub-filter-pill">Converters</span>
-        <span class="hub-filter-pill">Visualizations</span>
-        <span class="hub-filter-pill">Analysis</span>
-        <span class="hub-filter-pill">Education</span>
+        <span class="hub-filter-pill">Genomics</span>
+        <span class="hub-filter-pill">Transcriptomics</span>
+        <span class="hub-filter-pill">Proteomics</span>
+        <span class="hub-filter-pill">Metagenomics</span>
+        <span class="hub-filter-pill">Structural</span>
+        <span class="hub-filter-pill">Clinical</span>
+        <span class="hub-filter-pill">Multi-omics</span>
     </div>
 
     <div class="hub-layout">
         <aside class="hub-sidebar">
             <div class="hub-sidebar-section">
-                <h4>Runtime</h4>
+                <h4>Status</h4>
                 <ul>
-                    <li class="hub-sidebar-item active"><span>WASM</span> <span class="count">542</span></li>
-                    <li class="hub-sidebar-item"><span>Python/Pyodide</span> <span class="count">198</span></li>
-                    <li class="hub-sidebar-item"><span>R/WebR</span> <span class="count">100</span></li>
+                    <li class="hub-sidebar-item active"><span>Active</span> <span class="count">1,240</span></li>
+                    <li class="hub-sidebar-item"><span>Published</span> <span class="count">340</span></li>
+                    <li class="hub-sidebar-item"><span>Under Review</span> <span class="count">87</span></li>
+                    <li class="hub-sidebar-item"><span>Archived</span> <span class="count">433</span></li>
                 </ul>
             </div>
             <div class="hub-sidebar-section">
-                <h4>Category</h4>
+                <h4>Compliance</h4>
                 <ul>
-                    <li class="hub-sidebar-item"><span>Sequence Viewer</span> <span class="count">124</span></li>
-                    <li class="hub-sidebar-item"><span>Alignment</span> <span class="count">98</span></li>
-                    <li class="hub-sidebar-item"><span>File Conversion</span> <span class="count">87</span></li>
-                    <li class="hub-sidebar-item"><span>Plotting</span> <span class="count">156</span></li>
-                    <li class="hub-sidebar-item"><span>QC</span> <span class="count">73</span></li>
-                    <li class="hub-sidebar-item"><span>Education</span> <span class="count">62</span></li>
+                    <li class="hub-sidebar-item"><span>FAIR Certified</span> <span class="count">218</span></li>
+                    <li class="hub-sidebar-item"><span>GLP Compliant</span> <span class="count">64</span></li>
+                    <li class="hub-sidebar-item"><span>MIAME</span> <span class="count">142</span></li>
+                    <li class="hub-sidebar-item"><span>MINSEQE</span> <span class="count">97</span></li>
+                </ul>
+            </div>
+            <div class="hub-sidebar-section">
+                <h4>Includes</h4>
+                <ul>
+                    <li class="hub-sidebar-item"><span>Notebooks</span> <span class="count">1,680</span></li>
+                    <li class="hub-sidebar-item"><span>Raw Data</span> <span class="count">890</span></li>
+                    <li class="hub-sidebar-item"><span>Protocols</span> <span class="count">520</span></li>
+                    <li class="hub-sidebar-item"><span>Figures</span> <span class="count">1,340</span></li>
                 </ul>
             </div>
         </aside>
 
         <div>
             <div class="hub-sort-bar">
-                <span class="hub-sort-label">840 spaces</span>
+                <span class="hub-sort-label">2,100 spaces</span>
                 <div class="hub-sort-options">
                     <span class="active">Trending</span>
-                    <span>Most liked</span>
+                    <span>Most starred</span>
                     <span>Recently updated</span>
                 </div>
             </div>
 
-            <div class="hub-grid">
-                <div class="hub-card">
-                    <div class="space-card-preview">Sequence viewer preview</div>
-                    <div class="hub-card-header">
-                        <div class="hub-card-title-group">
-                            <h3><span class="hub-card-org">cyanea/</span><span class="hub-card-name">sequence-viewer</span></h3>
-                            <span class="hub-badge badge-wasm">WASM</span>
+            <div class="spaces-grid">
+                <div class="space-card">
+                    <div class="space-card-header">
+                        <div class="space-card-title">
+                            <h3><span class="hub-card-org">broad-genomics/</span><span class="hub-card-name">brca-variant-calling</span></h3>
+                            <span class="space-card-status status-published">Published</span>
                         </div>
+                        <p class="space-card-desc">End-to-end BRCA1/2 clinical variant calling pipeline with GATK best practices, annotation with ClinVar, and automated pathogenicity classification.</p>
                     </div>
-                    <p class="hub-card-description">View and inspect FASTA/FASTQ files directly in your browser. Syntax highlighting, search, and quality score visualization.</p>
-                    <div class="hub-card-tags">
-                        <span class="hub-card-tag">Viewer</span>
-                        <span class="hub-card-tag">FASTA</span>
-                        <span class="hub-card-tag">FASTQ</span>
+                    <div class="space-card-metadata">
+                        <span>Homo sapiens</span>
+                        <span>WGS</span>
+                        <span>Clinical Genomics</span>
                     </div>
-                    <div class="hub-card-meta">
-                        <span>&#9829; 342</span>
-                        <span>Updated 1d ago</span>
+                    <div class="space-card-contents">
+                        <span class="space-content-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                            4 Notebooks
+                        </span>
+                        <span class="space-content-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                            2 Datasets
+                        </span>
+                        <span class="space-content-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                            1 Protocol
+                        </span>
+                    </div>
+                    <div class="space-card-compliance">
+                        <span class="compliance-badge compliance-gold">FAIR Gold</span>
+                        <span class="compliance-badge compliance-repro">Reproducible</span>
+                    </div>
+                    <div class="space-card-footer">
+                        <div class="space-card-contributors">
+                            <span class="contributor-dot"></span>
+                            <span class="contributor-dot"></span>
+                            <span class="contributor-dot"></span>
+                            <span class="contributor-count">+5</span>
+                        </div>
+                        <div class="space-card-meta">
+                            <span>Updated 2d ago</span>
+                            <span>&#9734; 284</span>
+                            <span>&#8916; 42</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="hub-card">
-                    <div class="space-card-preview">Alignment viewer preview</div>
-                    <div class="hub-card-header">
-                        <div class="hub-card-title-group">
-                            <h3><span class="hub-card-org">cyanea/</span><span class="hub-card-name">alignment-viewer</span></h3>
-                            <span class="hub-badge badge-wasm">WASM</span>
-                            <span class="hub-badge badge-popular">Popular</span>
+                <div class="space-card">
+                    <div class="space-card-header">
+                        <div class="space-card-title">
+                            <h3><span class="hub-card-org">stanford-lab/</span><span class="hub-card-name">scrna-mouse-cortex</span></h3>
+                            <span class="space-card-status status-active">Active</span>
                         </div>
+                        <p class="space-card-desc">Single-cell RNA-seq atlas of the mouse cortex across developmental timepoints. Cell type annotation, trajectory analysis, and cross-species comparison.</p>
                     </div>
-                    <p class="hub-card-description">Interactive BAM/SAM alignment viewer with pileup visualization, variant highlighting, and coverage plots. Zero server needed.</p>
-                    <div class="hub-card-tags">
-                        <span class="hub-card-tag">Viewer</span>
-                        <span class="hub-card-tag">BAM</span>
-                        <span class="hub-card-tag">SAM</span>
+                    <div class="space-card-metadata">
+                        <span>Mus musculus</span>
+                        <span>scRNA-seq</span>
+                        <span>Neuroscience</span>
                     </div>
-                    <div class="hub-card-meta">
-                        <span>&#9829; 521</span>
-                        <span>Updated 3d ago</span>
+                    <div class="space-card-contents">
+                        <span class="space-content-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                            12 Notebooks
+                        </span>
+                        <span class="space-content-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                            3 Datasets
+                        </span>
+                        <span class="space-content-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                            2 Protocols
+                        </span>
+                    </div>
+                    <div class="space-card-compliance">
+                        <span class="compliance-badge compliance-silver">FAIR Silver</span>
+                    </div>
+                    <div class="space-card-footer">
+                        <div class="space-card-contributors">
+                            <span class="contributor-dot"></span>
+                            <span class="contributor-dot"></span>
+                            <span class="contributor-dot"></span>
+                            <span class="contributor-dot"></span>
+                            <span class="contributor-count">+9</span>
+                        </div>
+                        <div class="space-card-meta">
+                            <span>Updated 6h ago</span>
+                            <span>&#9734; 412</span>
+                            <span>&#8916; 68</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="hub-card">
-                    <div class="space-card-preview">VCF explorer preview</div>
-                    <div class="hub-card-header">
-                        <div class="hub-card-title-group">
-                            <h3><span class="hub-card-org">cyanea/</span><span class="hub-card-name">vcf-explorer</span></h3>
-                            <span class="hub-badge badge-wasm">WASM</span>
+                <div class="space-card">
+                    <div class="space-card-header">
+                        <div class="space-card-title">
+                            <h3><span class="hub-card-org">embl-ebi/</span><span class="hub-card-name">metagenomic-soil-diversity</span></h3>
+                            <span class="space-card-status status-published">Published</span>
                         </div>
+                        <p class="space-card-desc">Comprehensive soil metagenomics study across European biomes. Taxonomic profiling, functional annotation, and antimicrobial resistance gene discovery.</p>
                     </div>
-                    <p class="hub-card-description">Explore VCF files with filtering, sorting, and annotation lookups. Supports multi-sample VCFs with genotype visualization.</p>
-                    <div class="hub-card-tags">
-                        <span class="hub-card-tag">Viewer</span>
-                        <span class="hub-card-tag">VCF</span>
-                        <span class="hub-card-tag">Variants</span>
+                    <div class="space-card-metadata">
+                        <span>Metagenome</span>
+                        <span>Shotgun Sequencing</span>
+                        <span>Ecology</span>
                     </div>
-                    <div class="hub-card-meta">
-                        <span>&#9829; 287</span>
-                        <span>Updated 5d ago</span>
+                    <div class="space-card-contents">
+                        <span class="space-content-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                            8 Notebooks
+                        </span>
+                        <span class="space-content-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                            5 Datasets
+                        </span>
+                    </div>
+                    <div class="space-card-compliance">
+                        <span class="compliance-badge compliance-silver">FAIR Silver</span>
+                        <span class="compliance-badge compliance-repro">Reproducible</span>
+                    </div>
+                    <div class="space-card-footer">
+                        <div class="space-card-contributors">
+                            <span class="contributor-dot"></span>
+                            <span class="contributor-dot"></span>
+                            <span class="contributor-count">+3</span>
+                        </div>
+                        <div class="space-card-meta">
+                            <span>Updated 1w ago</span>
+                            <span>&#9734; 196</span>
+                            <span>&#8916; 31</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="hub-card">
-                    <div class="space-card-preview">Phylogenetic tree preview</div>
-                    <div class="hub-card-header">
-                        <div class="hub-card-title-group">
-                            <h3><span class="hub-card-org">community/</span><span class="hub-card-name">phylo-tree</span></h3>
-                            <span class="hub-badge badge-wasm">WASM</span>
+                <div class="space-card">
+                    <div class="space-card-header">
+                        <div class="space-card-title">
+                            <h3><span class="hub-card-org">sanger-institute/</span><span class="hub-card-name">malaria-drug-resistance</span></h3>
+                            <span class="space-card-status status-review">Under Review</span>
+                        </div>
+                        <p class="space-card-desc">Genomic surveillance of antimalarial drug resistance markers in Plasmodium falciparum. Population structure, selection analysis, and resistance prediction.</p>
+                    </div>
+                    <div class="space-card-metadata">
+                        <span>P. falciparum</span>
+                        <span>WGS</span>
+                        <span>Infectious Disease</span>
+                    </div>
+                    <div class="space-card-contents">
+                        <span class="space-content-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                            6 Notebooks
+                        </span>
+                        <span class="space-content-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                            1 Dataset
+                        </span>
+                        <span class="space-content-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                            3 Protocols
+                        </span>
+                    </div>
+                    <div class="space-card-compliance">
+                        <span class="compliance-badge compliance-gold">FAIR Gold</span>
+                    </div>
+                    <div class="space-card-footer">
+                        <div class="space-card-contributors">
+                            <span class="contributor-dot"></span>
+                            <span class="contributor-dot"></span>
+                            <span class="contributor-dot"></span>
+                            <span class="contributor-count">+7</span>
+                        </div>
+                        <div class="space-card-meta">
+                            <span>Updated 3d ago</span>
+                            <span>&#9734; 158</span>
+                            <span>&#8916; 24</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-card">
+                    <div class="space-card-header">
+                        <div class="space-card-title">
+                            <h3><span class="hub-card-org">community/</span><span class="hub-card-name">rnaseq-deseq2-tutorial</span></h3>
+                            <span class="space-card-status status-published">Published</span>
                             <span class="hub-badge badge-featured">Featured</span>
                         </div>
+                        <p class="space-card-desc">Step-by-step RNA-seq differential expression analysis with DESeq2. From raw counts to publication-ready figures, with detailed explanations at every step.</p>
                     </div>
-                    <p class="hub-card-description">Interactive phylogenetic tree viewer with support for Newick and Nexus formats. Circular, radial, and rectangular layouts.</p>
-                    <div class="hub-card-tags">
-                        <span class="hub-card-tag">Visualization</span>
-                        <span class="hub-card-tag">Phylogenetics</span>
-                        <span class="hub-card-tag">Newick</span>
+                    <div class="space-card-metadata">
+                        <span>Multi-species</span>
+                        <span>RNA-seq</span>
+                        <span>Tutorial</span>
                     </div>
-                    <div class="hub-card-meta">
-                        <span>&#9829; 198</span>
-                        <span>Updated 1w ago</span>
+                    <div class="space-card-contents">
+                        <span class="space-content-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                            3 Notebooks
+                        </span>
+                        <span class="space-content-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                            1 Dataset
+                        </span>
+                    </div>
+                    <div class="space-card-compliance">
+                        <span class="compliance-badge compliance-repro">Reproducible</span>
+                    </div>
+                    <div class="space-card-footer">
+                        <div class="space-card-contributors">
+                            <span class="contributor-dot"></span>
+                            <span class="contributor-dot"></span>
+                            <span class="contributor-count">+12</span>
+                        </div>
+                        <div class="space-card-meta">
+                            <span>Updated 5d ago</span>
+                            <span>&#9734; 1,203</span>
+                            <span>&#8916; 347</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="hub-card">
-                    <div class="space-card-preview">FASTQ QC preview</div>
-                    <div class="hub-card-header">
-                        <div class="hub-card-title-group">
-                            <h3><span class="hub-card-org">community/</span><span class="hub-card-name">fastq-qc</span></h3>
-                            <span class="hub-badge badge-wasm">WASM</span>
-                            <span class="hub-badge badge-new">New</span>
+                <div class="space-card">
+                    <div class="space-card-header">
+                        <div class="space-card-title">
+                            <h3><span class="hub-card-org">cyanea/</span><span class="hub-card-name">space-template-genomics</span></h3>
+                            <span class="space-card-status status-published">Published</span>
+                            <span class="hub-badge badge-new">Template</span>
                         </div>
+                        <p class="space-card-desc">Starter template for genomics research workspaces. Pre-configured notebooks, QC checklists, metadata schemas, and FAIR compliance scaffolding.</p>
                     </div>
-                    <p class="hub-card-description">Browser-based FASTQ quality control reports. Generate per-base quality, adapter content, and GC distribution plots client-side.</p>
-                    <div class="hub-card-tags">
-                        <span class="hub-card-tag">QC</span>
-                        <span class="hub-card-tag">FASTQ</span>
-                        <span class="hub-card-tag">Analysis</span>
+                    <div class="space-card-metadata">
+                        <span>Any organism</span>
+                        <span>WGS / WES</span>
+                        <span>Template</span>
                     </div>
-                    <div class="hub-card-meta">
-                        <span>&#9829; 156</span>
-                        <span>Updated 2d ago</span>
+                    <div class="space-card-contents">
+                        <span class="space-content-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                            2 Notebooks
+                        </span>
+                        <span class="space-content-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                            1 Protocol
+                        </span>
                     </div>
-                </div>
-
-                <div class="hub-card">
-                    <div class="space-card-preview">Format converter preview</div>
-                    <div class="hub-card-header">
-                        <div class="hub-card-title-group">
-                            <h3><span class="hub-card-org">cyanea/</span><span class="hub-card-name">format-converter</span></h3>
-                            <span class="hub-badge badge-wasm">WASM</span>
+                    <div class="space-card-compliance">
+                        <span class="compliance-badge compliance-gold">FAIR Gold</span>
+                    </div>
+                    <div class="space-card-footer">
+                        <div class="space-card-contributors">
+                            <span class="contributor-dot"></span>
                         </div>
-                    </div>
-                    <p class="hub-card-description">Convert between bioinformatics file formats in your browser. Supports FASTA, FASTQ, SAM, VCF, BED, GFF3, and more.</p>
-                    <div class="hub-card-tags">
-                        <span class="hub-card-tag">Converter</span>
-                        <span class="hub-card-tag">Multi-format</span>
-                    </div>
-                    <div class="hub-card-meta">
-                        <span>&#9829; 234</span>
-                        <span>Updated 4d ago</span>
+                        <div class="space-card-meta">
+                            <span>Updated 1d ago</span>
+                            <span>&#9734; 89</span>
+                            <span>&#8916; 156</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -200,8 +345,8 @@
 
     <div class="hub-cta">
         <div class="hub-cta-card">
-            <h3>Build a Space</h3>
-            <p>Create interactive bioinformatics tools that run entirely in the browser. Publish to the community or keep them private.</p>
+            <h3>Create a Space</h3>
+            <p>Start a new research workspace. Bring your data, attach protocols, and write interactive notebooks — all version-controlled.</p>
             <a href="/docs" class="btn btn-primary">Get Started</a>
         </div>
     </div>

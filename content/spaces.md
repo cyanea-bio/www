@@ -1,5 +1,5 @@
 +++
 title = "Spaces"
-description = "Interactive bioinformatics tools running entirely in your browser via WebAssembly."
+description = "Collaborative research workspaces for bioinformatics. Combine notebooks, data, protocols, and metadata — version-controlled, reproducible, and publication-ready."
 template = "spaces.html"
 +++
