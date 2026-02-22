@@ -3,31 +3,93 @@
 {% block content %}
 <!-- Hero -->
 <section class="hero">
-    <div class="hero-mesh"></div>
-    <div class="hero-orb hero-orb-1"></div>
-    <div class="hero-orb hero-orb-2"></div>
-    <div class="hero-orb hero-orb-3"></div>
-    <div class="hero-grid-bg"></div>
     <div class="hero-inner">
         <div class="hero-mascot">
-            <img src="/mascot.png" alt="Cyanea mascot" width="120" height="120">
+            <img src="/mascot.png" alt="Cyanea mascot">
         </div>
-        <div class="hero-badge">
-            <span class="badge-dot"></span>
-            Now in public beta
-        </div>
-        <h1 class="hero-title">Genomics infrastructure<br>for modern research</h1>
-        <p class="hero-subtitle">Upload, analyze, and share genomic data with a platform built on Rust-powered pipelines. From raw reads to results — fast, secure, collaborative.</p>
+        <h1 class="hero-title">The open platform for<br>life science research</h1>
+        <p class="hero-subtitle">Share datasets, protocols, and experiments. Version everything. Collaborate openly. Built by scientists, for scientists.</p>
         <div class="hero-actions">
-            <a href="/signup" class="btn btn-primary btn-large">Start Free Trial <span class="btn-arrow">&rarr;</span></a>
-            <a href="/docs" class="btn btn-outline btn-large">Read the Docs</a>
+            <a href="/signup" class="btn btn-primary btn-large">Get Started Free <span class="btn-arrow">&rarr;</span></a>
+            <a href="https://github.com/cyanea-bio" class="btn btn-outline btn-large">
+                <svg class="btn-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                Star on GitHub
+            </a>
         </div>
+    </div>
+</section>
+
+<!-- What is Cyanea -->
+<section class="about-section">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-card">
+                <div class="about-icon about-icon-cyan">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                </div>
+                <h3>Datasets</h3>
+                <p>FASTA, CSV, images, notebooks — upload anything. Preview inline, track provenance, version history.</p>
+            </div>
+            <div class="about-card">
+                <div class="about-icon about-icon-violet">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                </div>
+                <h3>Protocols</h3>
+                <p>Structured protocols with materials, steps, and timings. Fork, version, and share with your team.</p>
+            </div>
+            <div class="about-card">
+                <div class="about-icon about-icon-rose">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3>Collaborate</h3>
+                <p>Organizations, teams, and access control. Keep work private or share it with the world.</p>
+            </div>
+            <div class="about-card">
+                <div class="about-icon about-icon-green">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <h3>Rust-powered</h3>
+                <p>Built on a high-performance Rust bioinformatics stack. Runs in the browser via WASM, on the server via NIFs.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="workflow-section">
+    <div class="container">
+        <h2 class="section-heading">How it works</h2>
+        <p class="section-subheading">From raw data to shared, reproducible research in three simple steps.</p>
+
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <h3>Upload your data</h3>
+                <p>Drag and drop files or use the CLI. FASTA, FASTQ, VCF, CSV, images — we handle it all.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <h3>Organize and analyze</h3>
+                <p>Create projects, add metadata, run analysis pipelines. Everything is versioned automatically.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <h3>Share and discover</h3>
+                <p>Publish datasets, fork protocols, cite and credit. Build on each other's work.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Terminal Demo -->
+<section class="demo-section">
+    <div class="container">
         <div class="terminal">
             <div class="terminal-chrome">
                 <span class="terminal-dot"></span>
                 <span class="terminal-dot"></span>
                 <span class="terminal-dot"></span>
-                <span class="terminal-title">cyanea-cli</span>
+                <span class="terminal-title">terminal</span>
             </div>
             <div class="terminal-body">
                 <pre><span class="t-prompt">$</span> <span class="t-cmd">cyanea upload</span> <span class="t-flag">--project</span> BRCA-cohort genome_*.fasta
@@ -40,117 +102,31 @@
     </div>
 </section>
 
-<!-- Trust Marquee -->
-<section class="trust-section">
-    <p class="trust-label">Trusted by leading research institutions</p>
-    <div class="marquee-container">
-        <div class="marquee-track">
-            <span class="marquee-item">MIT</span>
-            <span class="marquee-item">Stanford University</span>
-            <span class="marquee-item">Broad Institute</span>
-            <span class="marquee-item">EMBL</span>
-            <span class="marquee-item">Sanger Institute</span>
-            <span class="marquee-item">NIH</span>
-            <span class="marquee-item">UCSD</span>
-            <span class="marquee-item">Max Planck</span>
-            <span class="marquee-item">MIT</span>
-            <span class="marquee-item">Stanford University</span>
-            <span class="marquee-item">Broad Institute</span>
-            <span class="marquee-item">EMBL</span>
-            <span class="marquee-item">Sanger Institute</span>
-            <span class="marquee-item">NIH</span>
-            <span class="marquee-item">UCSD</span>
-            <span class="marquee-item">Max Planck</span>
-        </div>
-    </div>
-</section>
-
-<!-- Features Bento -->
-<section class="features-section">
+<!-- Open Source -->
+<section class="oss-section">
     <div class="container">
-        <div class="section-eyebrow">Platform</div>
-        <h2 class="section-heading">Built for the way<br>researchers work</h2>
-        <p class="section-subheading">Everything your team needs to go from raw reads to publication-ready results.</p>
-
-        <div class="bento-grid">
-            <div class="bento-card bento-wide">
-                <div class="bento-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <div class="oss-inner">
+            <div class="oss-content">
+                <h2>Open source.<br>Self-hostable.<br>Federation-ready.</h2>
+                <p>Cyanea is fully open source. Run your own node, keep data on-premises, and selectively publish to the public network. No vendor lock-in.</p>
+                <div class="oss-actions">
+                    <a href="https://github.com/cyanea-bio/cyanea" class="btn btn-primary">View on GitHub <span class="btn-arrow">&rarr;</span></a>
+                    <a href="/docs" class="btn btn-outline">Read the Docs</a>
                 </div>
-                <h3>Rust-Powered Analysis Engine</h3>
-                <p>Process whole genomes in seconds, not hours. Our pipelines are built from the ground up in Rust for maximum throughput with minimal resource usage.</p>
             </div>
-            <div class="bento-card">
-                <div class="bento-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <div class="oss-stats">
+                <div class="oss-stat">
+                    <span class="oss-stat-label">Built with</span>
+                    <span class="oss-stat-value">Elixir + Rust</span>
                 </div>
-                <h3>Secure by Default</h3>
-                <p>End-to-end encryption, SOC 2 Type II, and HIPAA-ready infrastructure.</p>
-            </div>
-            <div class="bento-card">
-                <div class="bento-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <div class="oss-stat">
+                    <span class="oss-stat-label">Rust crates</span>
+                    <span class="oss-stat-value">13</span>
                 </div>
-                <h3>Team Collaboration</h3>
-                <p>Share datasets, pipelines, and results across your organization with fine-grained permissions.</p>
-            </div>
-            <div class="bento-card bento-wide">
-                <div class="bento-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                <div class="oss-stat">
+                    <span class="oss-stat-label">License</span>
+                    <span class="oss-stat-value">MIT</span>
                 </div>
-                <h3>API-First Architecture</h3>
-                <p>RESTful API, webhook automation, CLI for scripted workflows, and export to every standard format — FASTA, VCF, BAM, and more.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Stats -->
-<section class="stats-section">
-    <div class="stats-mesh"></div>
-    <div class="container stats-inner">
-        <div class="stat">
-            <span class="stat-number">10x</span>
-            <span class="stat-desc">Faster than traditional pipelines</span>
-        </div>
-        <div class="stat">
-            <span class="stat-number">50TB+</span>
-            <span class="stat-desc">Genomic data processed</span>
-        </div>
-        <div class="stat">
-            <span class="stat-number">500+</span>
-            <span class="stat-desc">Research teams onboard</span>
-        </div>
-        <div class="stat">
-            <span class="stat-number">99.9%</span>
-            <span class="stat-desc">Platform uptime SLA</span>
-        </div>
-    </div>
-</section>
-
-<!-- How It Works -->
-<section class="workflow-section">
-    <div class="container">
-        <div class="section-eyebrow">Workflow</div>
-        <h2 class="section-heading">From raw data to insights<br>in three steps</h2>
-
-        <div class="steps">
-            <div class="step">
-                <div class="step-num">01</div>
-                <h3>Upload your data</h3>
-                <p>Drag and drop FASTA, FASTQ, VCF, or BAM files. Our CLI handles bulk uploads at wire speed with streaming compression.</p>
-            </div>
-            <div class="step-line"></div>
-            <div class="step">
-                <div class="step-num">02</div>
-                <h3>Run analysis pipelines</h3>
-                <p>Choose from pre-built pipelines or bring your own. Variant calling, alignment, quality control — all optimized for speed.</p>
-            </div>
-            <div class="step-line"></div>
-            <div class="step">
-                <div class="step-num">03</div>
-                <h3>Share and collaborate</h3>
-                <p>Invite your team, share interactive results, and export to any format. Version control keeps everyone in sync.</p>
             </div>
         </div>
     </div>
@@ -158,12 +134,14 @@
 
 <!-- CTA -->
 <section class="cta-section">
-    <div class="cta-inner">
-        <h2>Ready to accelerate<br>your research?</h2>
-        <p>Join hundreds of research teams already using Cyanea.<br>Free to start, no credit card required.</p>
-        <div class="cta-actions">
-            <a href="/signup" class="btn btn-white btn-large">Get Started Free <span class="btn-arrow">&rarr;</span></a>
-            <a href="/contact" class="btn btn-white-outline btn-large">Talk to Sales</a>
+    <div class="container">
+        <div class="cta-inner">
+            <img src="/icon.png" alt="Cyanea" class="cta-icon">
+            <h2>Start sharing your research</h2>
+            <p>Join the open community of scientists building the future of reproducible research.</p>
+            <div class="cta-actions">
+                <a href="/signup" class="btn btn-primary btn-large">Get Started Free <span class="btn-arrow">&rarr;</span></a>
+            </div>
         </div>
     </div>
 </section>
