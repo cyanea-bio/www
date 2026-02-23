@@ -2,11 +2,57 @@
 
 {% block title %}{{ page.title }} | Protocols | {{ config.title }}{% endblock %}
 {% block description %}{{ page.description | default(value=config.description) }}{% endblock %}
+{% block og_title %}{{ page.title }}{% endblock %}
+{% block og_description %}{{ page.description | default(value=config.description) }}{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "{{ page.title }}",
+    "description": "{{ page.description | default(value='') }}",
+    "url": "{{ current_url | safe }}",
+    {% if page.extra.duration %}"totalTime": "{{ page.extra.duration }}",{% endif %}
+    {% if page.extra.materials %}"supply": [{% for material in page.extra.materials %}{
+        "@type": "HowToSupply",
+        "name": "{{ material }}"
+    }{% if not loop.last %}, {% endif %}{% endfor %}],
+    "tool": [{% for material in page.extra.materials %}{
+        "@type": "HowToTool",
+        "name": "{{ material }}"
+    }{% if not loop.last %}, {% endif %}{% endfor %}],{% endif %}
+    {% if page.extra.steps %}"step": [{% for i in range(end=page.extra.steps) %}{
+        "@type": "HowToStep",
+        "position": {{ i + 1 }},
+        "name": "Step {{ i + 1 }}"
+    }{% if not loop.last %}, {% endif %}{% endfor %}],{% endif %}
+    "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ config.base_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Protocols", "item": "{{ config.base_url }}/protocols/" },
+        { "@type": "ListItem", "position": 3, "name": "{{ page.title }}" }
+    ]
+}
+</script>
+{% endblock %}
 
 {% block content %}
 <div class="detail-page">
     <div class="detail-header">
-        <a href="/protocols/" class="detail-back">&larr; All protocols</a>
+        <nav aria-label="Breadcrumb">
+            <ol class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="/protocols/">Protocols</a></li>
+                <li aria-current="page">{{ page.title }}</li>
+            </ol>
+        </nav>
         <div class="detail-title-row">
             <h1>
                 {% if page.extra.org %}<span class="detail-org">{{ page.extra.org }}/</span>{% endif %}{{ page.title }}

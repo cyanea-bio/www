@@ -38,6 +38,12 @@ author = "Cyanea Team"
 github_url = "https://github.com/cyanea-io"
 twitter_handle = "cyanea_io"
 
+# SEO / Open Graph
+og_image = "/og-default.png"  # TODO: Create 1200x630 OG image asset
+org_name = "Cyanea"
+org_logo = "/icon.png"
+org_description = "Modern bioinformatics platform for genomic data management and analysis"
+
 # Navigation
 [[extra.nav]]
 name = "Datasets"

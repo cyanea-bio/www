@@ -8,6 +8,9 @@
     <meta name="theme-color" content="#FFFFFF">
     <meta name="color-scheme" content="light">
 
+    <!-- Canonical -->
+    <link rel="canonical" href="{{ current_url | safe }}">
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/favicon.png">
 
@@ -24,31 +27,74 @@
     <meta property="og:description" content="{% block og_description %}{{ config.description }}{% endblock %}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ current_url | safe }}">
+    <meta property="og:image" content="{% block og_image %}{{ config.base_url }}/og-default.png{% endblock %}">
+    <meta property="og:site_name" content="{{ config.extra.org_name }}">
+    <meta property="og:locale" content="en_US">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@{{ config.extra.twitter_handle }}">
+    <meta name="twitter:title" content="{% block twitter_title %}{{ config.title }}{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}{{ config.description }}{% endblock %}">
+    <meta name="twitter:image" content="{{ config.base_url }}/og-default.png">
+
+    <!-- JSON-LD: Organization + WebSite -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "{{ config.base_url }}/#organization",
+                "name": "{{ config.extra.org_name }}",
+                "url": "{{ config.base_url }}",
+                "logo": "{{ config.base_url }}{{ config.extra.org_logo }}",
+                "description": "{{ config.extra.org_description }}",
+                "sameAs": [
+                    "{{ config.extra.github_url }}",
+                    "https://twitter.com/{{ config.extra.twitter_handle }}"
+                ]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "{{ config.base_url }}/#website",
+                "name": "{{ config.extra.org_name }}",
+                "url": "{{ config.base_url }}",
+                "publisher": { "@id": "{{ config.base_url }}/#organization" },
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": "{{ config.base_url }}/datasets/?q={search_term_string}",
+                    "query-input": "required name=search_term_string"
+                }
+            }
+        ]
+    }
+    </script>
+
+    {% block structured_data %}{% endblock %}
 
     {% block head %}{% endblock %}
 </head>
 <body>
+    <a href="#main-content" class="sr-only sr-only-focusable">Skip to main content</a>
+
     {% block header %}
-    <header class="site-header">
-        <nav class="nav-container">
+    <header class="site-header" role="banner">
+        <nav class="nav-container" aria-label="Main">
             <a href="/" class="logo">
                 <img src="/icon.png" alt="Cyanea" class="logo-mark" width="34" height="34">
                 <span class="logo-text">Cyanea</span>
             </a>
-            <ul class="nav-links">
+            <ul class="nav-links" id="mobile-nav">
                 {% for item in config.extra.nav %}
-                <li><a href="{{ item.url }}">{{ item.name }}</a></li>
+                <li><a href="{{ item.url }}"{% if current_path is starting_with(item.url) %} aria-current="page"{% endif %}>{{ item.name }}</a></li>
                 {% endfor %}
             </ul>
             <div class="nav-actions">
                 <a href="/login" class="btn btn-ghost">Log in</a>
                 <a href="/signup" class="btn btn-primary">Get Started Free</a>
             </div>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -57,12 +103,12 @@
     </header>
     {% endblock %}
 
-    <main>
+    <main id="main-content">
         {% block content %}{% endblock %}
     </main>
 
     {% block footer %}
-    <footer class="site-footer">
+    <footer class="site-footer" role="contentinfo">
         <div class="footer-inner">
             <div class="footer-top">
                 <div class="footer-brand">
@@ -73,7 +119,7 @@
                     <p>{{ config.description }}</p>
                 </div>
                 <div class="footer-links">
-                    <div class="footer-column">
+                    <nav class="footer-column" aria-label="Explore links">
                         <h4>Explore</h4>
                         <ul>
                             <li><a href="/datasets">Datasets</a></li>
@@ -82,16 +128,16 @@
                             <li><a href="/labs">Labs</a></li>
                             <li><a href="/learn">Learn</a></li>
                         </ul>
-                    </div>
-                    <div class="footer-column">
+                    </nav>
+                    <nav class="footer-column" aria-label="Product links">
                         <h4>Product</h4>
                         <ul>
                             <li><a href="/features">Features</a></li>
                             <li><a href="/docs">Documentation</a></li>
                             <li><a href="/blog">Blog</a></li>
                         </ul>
-                    </div>
-                    <div class="footer-column">
+                    </nav>
+                    <nav class="footer-column" aria-label="Company links">
                         <h4>Company</h4>
                         <ul>
                             <li><a href="/about">About</a></li>
@@ -99,7 +145,7 @@
                             <li><a href="/privacy">Privacy</a></li>
                             <li><a href="/terms">Terms</a></li>
                         </ul>
-                    </div>
+                    </nav>
                 </div>
             </div>
             <div class="footer-bottom">

@@ -6,8 +6,54 @@
 {% block og_title %}{{ page.title }}{% endblock %}
 {% block og_description %}{{ page.description | default(value=config.description) }}{% endblock %}
 
+{% block structured_data %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{ page.title }}",
+    "description": "{{ page.description | default(value='') }}",
+    "url": "{{ current_url | safe }}",
+    "mainEntityOfPage": "{{ current_url | safe }}",
+    {% if page.date %}"datePublished": "{{ page.date }}",{% endif %}
+    {% if page.updated %}"dateModified": "{{ page.updated }}",{% elif page.date %}"dateModified": "{{ page.date }}",{% endif %}
+    {% if page.extra.author %}"author": {
+        "@type": "Person",
+        "name": "{{ page.extra.author }}"
+    },{% endif %}
+    "publisher": {
+        "@type": "Organization",
+        "name": "{{ config.extra.org_name }}",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "{{ config.base_url }}{{ config.extra.org_logo }}"
+        }
+    }
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ config.base_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "{{ config.base_url }}/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "{{ page.title }}" }
+    ]
+}
+</script>
+{% endblock %}
+
 {% block content %}
 <article class="blog-post">
+    <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li aria-current="page">{{ page.title }}</li>
+        </ol>
+    </nav>
+
     <header class="blog-post-header">
         <time datetime="{{ page.date }}">{{ page.date | date(format="%B %d, %Y") }}</time>
         <h1>{{ page.title }}</h1>

@@ -54,6 +54,53 @@ $radius: $radius-lg;
 $radius-sm: $radius-md;
 $radius-pill: 100px;
 
+// Accessibility utilities
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sr-only-focusable:focus {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: auto;
+  height: auto;
+  padding: 0.75rem 1.5rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background: $accent;
+  color: $white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+// Focus-visible for keyboard users
+*:focus-visible {
+  outline: 2px solid $accent;
+  outline-offset: 2px;
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 // Reset
 *, *::before, *::after { box-sizing: border-box; }
 html { font-size: 16px; scroll-behavior: smooth; }
@@ -238,6 +285,11 @@ p { margin: 0; color: $gray-600; }
         border-radius: 8px;
         transition: all 0.15s;
         &:hover { color: $gray-900; background: $off-white; }
+
+        &[aria-current="page"] {
+            color: $accent;
+            font-weight: 600;
+        }
     }
 }
 
@@ -2821,6 +2873,37 @@ p { margin: 0; color: $gray-600; }
     &:hover {
         color: $accent;
         text-decoration: none;
+    }
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: $gray-500;
+    margin-bottom: 1rem;
+    list-style: none;
+    padding: 0;
+
+    li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        &::after {
+            content: "/";
+            color: $gray-400;
+        }
+        &:last-child::after {
+            content: none;
+        }
+    }
+
+    a {
+        color: $accent;
+        text-decoration: none;
+        &:hover { text-decoration: underline; }
     }
 }
 

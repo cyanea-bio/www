@@ -6,6 +6,34 @@
 {% block og_title %}{{ page.title }}{% endblock %}
 {% block og_description %}{{ page.description | default(value=config.description) }}{% endblock %}
 
+{% block structured_data %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "LearningResource",
+    "name": "{{ page.title }}",
+    "description": "{{ page.description | default(value='') }}",
+    "url": "{{ current_url | safe }}",
+    {% if page.extra.difficulty %}"educationalLevel": "{{ page.extra.difficulty }}",{% endif %}
+    "learningResourceType": "Interactive simulation",
+    {% if page.extra.duration %}"timeRequired": "{{ page.extra.duration }}",{% endif %}
+    {% if page.extra.domain %}"teaches": "{{ page.extra.domain }}",{% endif %}
+    "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ config.base_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Learn", "item": "{{ config.base_url }}/learn/" },
+        { "@type": "ListItem", "position": 3, "name": "{{ page.title }}" }
+    ]
+}
+</script>
+{% endblock %}
+
 {% block head %}
 <link rel="preload" href="/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/KaTeX_Main-Italic.woff2" as="font" type="font/woff2" crossorigin>
@@ -17,7 +45,13 @@
 {% block content %}
 <div class="learn-detail">
     <div class="learn-detail-header">
-        <a href="/learn/" class="learn-detail-back">&larr; All simulations</a>
+        <nav aria-label="Breadcrumb">
+            <ol class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="/learn/">Learn</a></li>
+                <li aria-current="page">{{ page.title }}</li>
+            </ol>
+        </nav>
         <h1>{{ page.title }}</h1>
         <div class="learn-detail-meta">
             {% if page.extra.difficulty %}
