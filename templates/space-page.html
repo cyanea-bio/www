@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} | Spaces | {{ config.title }}{% endblock %}
+{% block description %}{{ page.description | default(value=config.description) }}{% endblock %}
+
+{% block content %}
+<div class="detail-page">
+    <div class="detail-header">
+        <a href="/spaces/" class="detail-back">&larr; All spaces</a>
+        <div class="detail-title-row">
+            <h1>
+                {% if page.extra.org %}<span class="detail-org">{{ page.extra.org }}/</span>{% endif %}{{ page.title }}
+            </h1>
+            {% if page.extra.status %}
+            <span class="space-card-status {{ page.extra.status_class }}">{{ page.extra.status }}</span>
+            {% endif %}
+            {% if page.extra.demo %}<span class="hub-badge badge-demo">Demo</span>{% endif %}
+        </div>
+        <div class="detail-meta">
+            {% if page.extra.metadata_tags %}
+            {% for tag in page.extra.metadata_tags %}
+            <span>{{ tag }}</span>
+            {% endfor %}
+            {% endif %}
+            {% if page.extra.updated %}<span>Updated {{ page.extra.updated }}</span>{% endif %}
+        </div>
+    </div>
+
+    <div class="detail-body">
+        <div class="detail-main">
+            {% if page.extra.demo %}
+            <div class="demo-banner">This is a demo page showing what a space detail page looks like on Cyanea. The content shown is illustrative.</div>
+            {% endif %}
+
+            {% if page.description %}
+            <p class="detail-description">{{ page.description }}</p>
+            {% endif %}
+
+            <div class="detail-content">
+                {{ page.content | safe }}
+            </div>
+
+            {% if page.extra.contents %}
+            <div class="detail-files">
+                <h4>Contents</h4>
+                <div class="detail-file-list">
+                    {% for item in page.extra.contents %}
+                    <div class="detail-file-row">
+                        <span class="detail-file-name">{{ item.label }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if page.extra.compliance %}
+            <div class="detail-tags-section">
+                <h4>Compliance</h4>
+                <div class="detail-tags">
+                    {% for badge in page.extra.compliance %}
+                    <span class="compliance-badge {{ badge.class }}">{{ badge.label }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if page.extra.tags %}
+            <div class="detail-tags-section">
+                <h4>Tags</h4>
+                <div class="detail-tags">
+                    {% for tag in page.extra.tags %}
+                    <span class="hub-card-tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <aside class="detail-sidebar">
+            <div class="detail-stat-card">
+                {% if page.extra.stars %}
+                <div class="detail-stat">
+                    <span class="detail-stat-label">Stars</span>
+                    <span class="detail-stat-value">{{ page.extra.stars }}</span>
+                </div>
+                {% endif %}
+                {% if page.extra.forks %}
+                <div class="detail-stat">
+                    <span class="detail-stat-label">Forks</span>
+                    <span class="detail-stat-value">{{ page.extra.forks }}</span>
+                </div>
+                {% endif %}
+                {% if page.extra.contributors %}
+                <div class="detail-stat">
+                    <span class="detail-stat-label">Contributors</span>
+                    <span class="detail-stat-value">{{ page.extra.contributors }}</span>
+                </div>
+                {% endif %}
+                {% if page.extra.status %}
+                <div class="detail-stat">
+                    <span class="detail-stat-label">Status</span>
+                    <span class="detail-stat-value">{{ page.extra.status }}</span>
+                </div>
+                {% endif %}
+            </div>
+            <a href="/spaces/" class="btn btn-outline btn-small">&larr; Back to spaces</a>
+        </aside>
+    </div>
+</div>
+{% endblock %}

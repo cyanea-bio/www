@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} | Protocols | {{ config.title }}{% endblock %}
+{% block description %}{{ page.description | default(value=config.description) }}{% endblock %}
+
+{% block content %}
+<div class="detail-page">
+    <div class="detail-header">
+        <a href="/protocols/" class="detail-back">&larr; All protocols</a>
+        <div class="detail-title-row">
+            <h1>
+                {% if page.extra.org %}<span class="detail-org">{{ page.extra.org }}/</span>{% endif %}{{ page.title }}
+            </h1>
+            {% if page.extra.demo %}<span class="hub-badge badge-demo">Demo</span>{% endif %}
+        </div>
+        <div class="detail-meta">
+            {% if page.extra.difficulty %}
+            <span class="learn-difficulty level-{{ page.extra.difficulty_level }}">{{ page.extra.difficulty }}</span>
+            {% endif %}
+            {% if page.extra.category %}<span>{{ page.extra.category }}</span>{% endif %}
+            {% if page.extra.steps %}<span>{{ page.extra.steps }} steps</span>{% endif %}
+            {% if page.extra.duration %}<span>{{ page.extra.duration }}</span>{% endif %}
+            {% if page.extra.version %}<span>v{{ page.extra.version }}</span>{% endif %}
+        </div>
+    </div>
+
+    <div class="detail-body">
+        <div class="detail-main">
+            {% if page.extra.demo %}
+            <div class="demo-banner">This is a demo page showing what a protocol detail page looks like on Cyanea. The content shown is illustrative.</div>
+            {% endif %}
+
+            {% if page.description %}
+            <p class="detail-description">{{ page.description }}</p>
+            {% endif %}
+
+            <div class="detail-content">
+                {{ page.content | safe }}
+            </div>
+
+            {% if page.extra.materials %}
+            <div class="detail-files">
+                <h4>Materials</h4>
+                <div class="detail-file-list">
+                    {% for material in page.extra.materials %}
+                    <div class="detail-file-row">
+                        <span class="detail-file-name">{{ material }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if page.extra.tags %}
+            <div class="detail-tags-section">
+                <h4>Tags</h4>
+                <div class="detail-tags">
+                    {% for tag in page.extra.tags %}
+                    <span class="hub-card-tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <aside class="detail-sidebar">
+            <div class="detail-stat-card">
+                {% if page.extra.forks %}
+                <div class="detail-stat">
+                    <span class="detail-stat-label">Forks</span>
+                    <span class="detail-stat-value">{{ page.extra.forks }}</span>
+                </div>
+                {% endif %}
+                {% if page.extra.likes %}
+                <div class="detail-stat">
+                    <span class="detail-stat-label">Likes</span>
+                    <span class="detail-stat-value">{{ page.extra.likes }}</span>
+                </div>
+                {% endif %}
+                {% if page.extra.steps %}
+                <div class="detail-stat">
+                    <span class="detail-stat-label">Steps</span>
+                    <span class="detail-stat-value">{{ page.extra.steps }}</span>
+                </div>
+                {% endif %}
+                {% if page.extra.duration %}
+                <div class="detail-stat">
+                    <span class="detail-stat-label">Duration</span>
+                    <span class="detail-stat-value">{{ page.extra.duration }}</span>
+                </div>
+                {% endif %}
+                {% if page.extra.difficulty %}
+                <div class="detail-stat">
+                    <span class="detail-stat-label">Difficulty</span>
+                    <span class="detail-stat-value">{{ page.extra.difficulty }}</span>
+                </div>
+                {% endif %}
+                {% if page.extra.category %}
+                <div class="detail-stat">
+                    <span class="detail-stat-label">Category</span>
+                    <span class="detail-stat-value">{{ page.extra.category }}</span>
+                </div>
+                {% endif %}
+            </div>
+            <a href="/protocols/" class="btn btn-outline btn-small">&larr; Back to protocols</a>
+        </aside>
+    </div>
+</div>
+{% endblock %}

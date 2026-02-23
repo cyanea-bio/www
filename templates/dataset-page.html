@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} | Datasets | {{ config.title }}{% endblock %}
+{% block description %}{{ page.description | default(value=config.description) }}{% endblock %}
+
+{% block content %}
+<div class="detail-page">
+    <div class="detail-header">
+        <a href="/datasets/" class="detail-back">&larr; All datasets</a>
+        <div class="detail-title-row">
+            <h1>
+                {% if page.extra.org %}<span class="detail-org">{{ page.extra.org }}/</span>{% endif %}{{ page.title }}
+            </h1>
+            {% if page.extra.demo %}<span class="hub-badge badge-demo">Demo</span>{% endif %}
+        </div>
+        <div class="detail-meta">
+            {% if page.extra.organism %}<span>{{ page.extra.organism }}</span>{% endif %}
+            {% if page.extra.size %}<span>{{ page.extra.size }}</span>{% endif %}
+            {% if page.extra.license %}<span>{{ page.extra.license }}</span>{% endif %}
+            {% if page.extra.version %}<span>v{{ page.extra.version }}</span>{% endif %}
+            {% if page.extra.updated %}<span>Updated {{ page.extra.updated }}</span>{% endif %}
+        </div>
+    </div>
+
+    <div class="detail-body">
+        <div class="detail-main">
+            {% if page.extra.demo %}
+            <div class="demo-banner">This is a demo page showing what a dataset detail page looks like on Cyanea. The data shown is illustrative.</div>
+            {% endif %}
+
+            {% if page.description %}
+            <p class="detail-description">{{ page.description }}</p>
+            {% endif %}
+
+            <div class="detail-content">
+                {{ page.content | safe }}
+            </div>
+
+            {% if page.extra.files %}
+            <div class="detail-files">
+                <h4>Files</h4>
+                <div class="detail-file-list">
+                    {% for file in page.extra.files %}
+                    <div class="detail-file-row">
+                        <span class="detail-file-name">{{ file.name }}</span>
+                        <span class="detail-file-size">{{ file.size }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if page.extra.format_tags %}
+            <div class="detail-tags-section">
+                <h4>Formats</h4>
+                <div class="detail-tags">
+                    {% for tag in page.extra.format_tags %}
+                    <span class="hub-card-tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if page.extra.tags %}
+            <div class="detail-tags-section">
+                <h4>Tags</h4>
+                <div class="detail-tags">
+                    {% for tag in page.extra.tags %}
+                    <span class="hub-card-tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <aside class="detail-sidebar">
+            <div class="detail-stat-card">
+                {% if page.extra.downloads %}
+                <div class="detail-stat">
+                    <span class="detail-stat-label">Downloads</span>
+                    <span class="detail-stat-value">{{ page.extra.downloads }}</span>
+                </div>
+                {% endif %}
+                {% if page.extra.likes %}
+                <div class="detail-stat">
+                    <span class="detail-stat-label">Likes</span>
+                    <span class="detail-stat-value">{{ page.extra.likes }}</span>
+                </div>
+                {% endif %}
+                {% if page.extra.size %}
+                <div class="detail-stat">
+                    <span class="detail-stat-label">Total Size</span>
+                    <span class="detail-stat-value">{{ page.extra.size }}</span>
+                </div>
+                {% endif %}
+                {% if page.extra.organism %}
+                <div class="detail-stat">
+                    <span class="detail-stat-label">Organism</span>
+                    <span class="detail-stat-value">{{ page.extra.organism }}</span>
+                </div>
+                {% endif %}
+                {% if page.extra.license %}
+                <div class="detail-stat">
+                    <span class="detail-stat-label">License</span>
+                    <span class="detail-stat-value">{{ page.extra.license }}</span>
+                </div>
+                {% endif %}
+            </div>
+            <a href="/datasets/" class="btn btn-outline btn-small">&larr; Back to datasets</a>
+        </aside>
+    </div>
+</div>
+{% endblock %}

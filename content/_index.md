@@ -1,8 +1,8 @@
 +++
-title = "Cyanea - Genomics Infrastructure for Modern Research"
+title = "Cyanea - The Open Community for Life Science Research"
 template = "index.html"
 
 [extra]
-hero_title = "Genomics infrastructure for modern research"
-hero_subtitle = "Upload, analyze, and share genomic data with a platform built on Rust-powered pipelines. Fast, secure, collaborative."
+hero_title = "The open community for life science research"
+hero_subtitle = "Share datasets, protocols, and experiments. Version everything. Collaborate openly. Built by scientists, for scientists."
 +++
