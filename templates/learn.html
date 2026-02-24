@@ -4,71 +4,288 @@
 {% block description %}Interactive bioinformatics simulations powered by WebAssembly. Explore life science concepts through hands-on, browser-based learning.{% endblock %}
 
 {% block content %}
-<div class="hub-page">
-    <header class="hub-header">
-        <h1>Interactive Simulations</h1>
-        <p>Explore life science concepts through hands-on, browser-based simulations. Each one is powered by Cyanea's Rust crates compiled to WebAssembly — no installation needed, just curiosity.</p>
-    </header>
-
-    <div class="hub-stats">
-        <div class="hub-stat">
-            <div class="hub-stat-value">10</div>
-            <div class="hub-stat-label">Simulations</div>
+<!-- Learn Hero -->
+<section class="learn-hero">
+    <div class="learn-hero-inner">
+        <span class="learn-hero-eyebrow">Interactive Learning</span>
+        <h1>Learn bioinformatics<br>by doing</h1>
+        <p>Hands-on, browser-based simulations powered by Rust + WebAssembly. No installation, no setup — just open and start learning.</p>
+        <div class="learn-hero-actions">
+            <a href="/learn/dna-transcription/" class="btn btn-primary btn-large">Start with DNA Transcription <span class="btn-arrow">&rarr;</span></a>
+            <a href="#catalog" class="btn btn-outline btn-large">Browse All Courses</a>
         </div>
-        <div class="hub-stat">
-            <div class="hub-stat-value">6</div>
-            <div class="hub-stat-label">Domains</div>
-        </div>
-        <div class="hub-stat">
-            <div class="hub-stat-value">11</div>
-            <div class="hub-stat-label">Crates Used</div>
-        </div>
-    </div>
-
-    <div class="learn-paths">
-        <div class="learn-path">
-            <span class="labs-layer-label">Sequences</span>
-            <div class="learn-path-dots">
-                <span class="learn-path-dot level-beginner" title="DNA Transcription"></span>
-                <span class="learn-path-dot level-beginner" title="K-mer Frequency Explorer"></span>
-                <span class="learn-path-dot level-intermediate" title="Pairwise Sequence Alignment"></span>
+        <div class="learn-hero-stats">
+            <div class="learn-hero-stat">
+                <span class="learn-hero-stat-value">10</span>
+                <span class="learn-hero-stat-label">Simulations</span>
             </div>
-        </div>
-        <div class="learn-path">
-            <span class="labs-layer-label">Evolution</span>
-            <div class="learn-path-dots">
-                <span class="learn-path-dot level-intermediate" title="Phylogenetic Tree Builder"></span>
+            <div class="learn-hero-stat">
+                <span class="learn-hero-stat-value">6</span>
+                <span class="learn-hero-stat-label">Domains</span>
             </div>
-        </div>
-        <div class="learn-path">
-            <span class="labs-layer-label">Structure</span>
-            <div class="learn-path-dots">
-                <span class="learn-path-dot level-beginner" title="Protein Structure Viewer"></span>
-                <span class="learn-path-dot level-intermediate" title="Small Molecule Explorer"></span>
-            </div>
-        </div>
-        <div class="learn-path">
-            <span class="labs-layer-label">Analysis</span>
-            <div class="learn-path-dots">
-                <span class="learn-path-dot level-beginner" title="p-value Playground"></span>
-                <span class="learn-path-dot level-intermediate" title="Clustering & Dimensionality Reduction"></span>
-            </div>
-        </div>
-        <div class="learn-path">
-            <span class="labs-layer-label">Data</span>
-            <div class="learn-path-dots">
-                <span class="learn-path-dot level-beginner" title="FASTA/FASTQ Format Inspector"></span>
-                <span class="learn-path-dot level-advanced" title="GPU Parallel Patterns"></span>
+            <div class="learn-hero-stat">
+                <span class="learn-hero-stat-value">Free</span>
+                <span class="learn-hero-stat-label">Forever</span>
             </div>
         </div>
     </div>
+</section>
 
-    <div class="learn-legend">
-        <span class="learn-legend-item"><span class="learn-path-dot level-beginner"></span> Beginner</span>
-        <span class="learn-legend-item"><span class="learn-path-dot level-intermediate"></span> Intermediate</span>
-        <span class="learn-legend-item"><span class="learn-path-dot level-advanced"></span> Advanced</span>
+<!-- Featured Courses -->
+<section class="learn-featured">
+    <div class="container">
+        <div class="explore-tasks-header">
+            <h2 class="section-heading">Popular right now</h2>
+            <a href="#catalog" class="section-view-all">View all <span class="btn-arrow">&rarr;</span></a>
+        </div>
+        <div class="learn-featured-grid">
+            <a href="/learn/dna-transcription/" class="learn-featured-card">
+                <div class="learn-featured-preview">
+                    <span>DNA &rarr; mRNA &rarr; Protein</span>
+                </div>
+                <div class="learn-featured-body">
+                    <div class="learn-featured-badges">
+                        <span class="learn-difficulty level-beginner">Beginner</span>
+                        <span class="hub-badge badge-popular">Popular</span>
+                    </div>
+                    <h3>DNA Transcription</h3>
+                    <p>Watch a DNA sequence get transcribed into mRNA and translated into a protein chain. Adjust codons and see mutations change the output.</p>
+                    <div class="learn-featured-meta">
+                        <span>~10 min</span>
+                        <span>Molecular Biology</span>
+                        <span class="labs-crate-pill">cyanea-seq</span>
+                    </div>
+                </div>
+            </a>
+            <a href="/learn/pairwise-sequence-alignment/" class="learn-featured-card">
+                <div class="learn-featured-preview">
+                    <span>Dynamic programming matrix</span>
+                </div>
+                <div class="learn-featured-body">
+                    <div class="learn-featured-badges">
+                        <span class="learn-difficulty level-intermediate">Intermediate</span>
+                        <span class="hub-badge badge-featured">Featured</span>
+                    </div>
+                    <h3>Pairwise Sequence Alignment</h3>
+                    <p>Step through Needleman-Wunsch and Smith-Waterman algorithms cell by cell. Adjust gap penalties and substitution matrices.</p>
+                    <div class="learn-featured-meta">
+                        <span>~20 min</span>
+                        <span>Sequence Analysis</span>
+                        <span class="labs-crate-pill">cyanea-align</span>
+                    </div>
+                </div>
+            </a>
+            <a href="/learn/protein-structure-viewer/" class="learn-featured-card">
+                <div class="learn-featured-preview">
+                    <span>3D protein fold</span>
+                </div>
+                <div class="learn-featured-body">
+                    <div class="learn-featured-badges">
+                        <span class="learn-difficulty level-beginner">Beginner</span>
+                        <span class="hub-badge badge-popular">Popular</span>
+                    </div>
+                    <h3>Protein Structure Viewer</h3>
+                    <p>Explore protein structures in 3D. Toggle representations, color by secondary structure, residue type, or B-factor.</p>
+                    <div class="learn-featured-meta">
+                        <span>~10 min</span>
+                        <span>Structural Biology</span>
+                        <span class="labs-crate-pill">cyanea-struct</span>
+                    </div>
+                </div>
+            </a>
+        </div>
     </div>
+</section>
 
+<!-- Learning Tracks (Codecademy-style) -->
+<section class="learn-tracks">
+    <div class="container">
+        <h2 class="section-heading">Learning tracks</h2>
+        <p class="section-subheading">Structured paths from fundamentals to advanced topics. Follow a track or pick individual simulations.</p>
+
+        <div class="learn-tracks-grid">
+            <!-- Beginner Track -->
+            <div class="learn-track-card learn-track-beginner">
+                <div class="learn-track-header">
+                    <span class="learn-track-level level-beginner">Beginner Track</span>
+                    <span class="learn-track-duration">5 courses &middot; ~50 min total</span>
+                </div>
+                <h3>Foundations of Bioinformatics</h3>
+                <p>Start here. Learn the core concepts — from DNA to file formats to statistical testing.</p>
+                <div class="learn-track-courses">
+                    <div class="learn-track-course">
+                        <span class="learn-track-course-number">1</span>
+                        <a href="/learn/dna-transcription/">DNA Transcription</a>
+                        <span class="learn-track-course-time">~10 min</span>
+                    </div>
+                    <div class="learn-track-course">
+                        <span class="learn-track-course-number">2</span>
+                        <a href="/learn/fasta-fastq-format-inspector/">FASTA/FASTQ Inspector</a>
+                        <span class="learn-track-course-time">~5 min</span>
+                    </div>
+                    <div class="learn-track-course">
+                        <span class="learn-track-course-number">3</span>
+                        <a href="/learn/kmer-frequency-explorer/">K-mer Frequency Explorer</a>
+                        <span class="learn-track-course-time">~10 min</span>
+                    </div>
+                    <div class="learn-track-course">
+                        <span class="learn-track-course-number">4</span>
+                        <a href="/learn/protein-structure-viewer/">Protein Structure Viewer</a>
+                        <span class="learn-track-course-time">~10 min</span>
+                    </div>
+                    <div class="learn-track-course">
+                        <span class="learn-track-course-number">5</span>
+                        <a href="/learn/p-value-playground/">p-value Playground</a>
+                        <span class="learn-track-course-time">~10 min</span>
+                    </div>
+                </div>
+                <a href="/learn/dna-transcription/" class="btn btn-primary btn-small">Start Beginner Track <span class="btn-arrow">&rarr;</span></a>
+            </div>
+
+            <!-- Intermediate Track -->
+            <div class="learn-track-card learn-track-intermediate">
+                <div class="learn-track-header">
+                    <span class="learn-track-level level-intermediate">Intermediate Track</span>
+                    <span class="learn-track-duration">4 courses &middot; ~75 min total</span>
+                </div>
+                <h3>Applied Bioinformatics</h3>
+                <p>Go deeper. Alignment algorithms, phylogenetics, cheminformatics, and machine learning for biology.</p>
+                <div class="learn-track-courses">
+                    <div class="learn-track-course">
+                        <span class="learn-track-course-number">1</span>
+                        <a href="/learn/pairwise-sequence-alignment/">Pairwise Sequence Alignment</a>
+                        <span class="learn-track-course-time">~20 min</span>
+                    </div>
+                    <div class="learn-track-course">
+                        <span class="learn-track-course-number">2</span>
+                        <a href="/learn/phylogenetic-tree-builder/">Phylogenetic Tree Builder</a>
+                        <span class="learn-track-course-time">~20 min</span>
+                    </div>
+                    <div class="learn-track-course">
+                        <span class="learn-track-course-number">3</span>
+                        <a href="/learn/small-molecule-explorer/">Small Molecule Explorer</a>
+                        <span class="learn-track-course-time">~15 min</span>
+                    </div>
+                    <div class="learn-track-course">
+                        <span class="learn-track-course-number">4</span>
+                        <a href="/learn/clustering-dimensionality-reduction/">Clustering & Dim. Reduction</a>
+                        <span class="learn-track-course-time">~20 min</span>
+                    </div>
+                </div>
+                <a href="/learn/pairwise-sequence-alignment/" class="btn btn-primary btn-small">Start Intermediate Track <span class="btn-arrow">&rarr;</span></a>
+            </div>
+
+            <!-- Advanced Track -->
+            <div class="learn-track-card learn-track-advanced">
+                <div class="learn-track-header">
+                    <span class="learn-track-level level-advanced">Advanced Track</span>
+                    <span class="learn-track-duration">1 course &middot; ~30 min total</span>
+                </div>
+                <h3>High-Performance Computing</h3>
+                <p>Push the limits. GPU-accelerated bioinformatics with WebGPU compute shaders.</p>
+                <div class="learn-track-courses">
+                    <div class="learn-track-course">
+                        <span class="learn-track-course-number">1</span>
+                        <a href="/learn/gpu-parallel-patterns/">GPU Parallel Patterns</a>
+                        <span class="learn-track-course-time">~30 min</span>
+                    </div>
+                </div>
+                <a href="/learn/gpu-parallel-patterns/" class="btn btn-primary btn-small">Start Advanced Track <span class="btn-arrow">&rarr;</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Learn With Cyanea -->
+<section class="learn-why-section">
+    <div class="container">
+        <h2 class="section-heading">Why learn with Cyanea</h2>
+        <div class="learn-why-grid">
+            <div class="learn-why-card">
+                <div class="about-icon about-icon-cyan">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <h3>No setup required</h3>
+                <p>Everything runs in the browser via WebAssembly. Open a simulation and start learning immediately — no downloads, no environment setup.</p>
+            </div>
+            <div class="learn-why-card">
+                <div class="about-icon about-icon-green">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <h3>Real algorithms, real speed</h3>
+                <p>Powered by the same Rust crates used in production research pipelines. Learn with tools that scientists actually use — compiled to WASM.</p>
+            </div>
+            <div class="learn-why-card">
+                <div class="about-icon about-icon-violet">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                </div>
+                <h3>Backed by literature</h3>
+                <p>Each simulation links to key papers and references. Learn the theory and the practice side by side.</p>
+            </div>
+            <div class="learn-why-card">
+                <div class="about-icon about-icon-rose">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3>Learn at your pace</h3>
+                <p>5 minutes or 30 — each simulation is self-contained. Adjust parameters, experiment, and build intuition at your own speed.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Domain Paths Visualization -->
+<section class="learn-paths-section">
+    <div class="container">
+        <h2 class="section-heading">Explore by domain</h2>
+
+        <div class="learn-paths">
+            <div class="learn-path">
+                <span class="labs-layer-label">Sequences</span>
+                <div class="learn-path-dots">
+                    <a href="/learn/dna-transcription/" class="learn-path-dot level-beginner" title="DNA Transcription"></a>
+                    <a href="/learn/kmer-frequency-explorer/" class="learn-path-dot level-beginner" title="K-mer Frequency Explorer"></a>
+                    <a href="/learn/pairwise-sequence-alignment/" class="learn-path-dot level-intermediate" title="Pairwise Sequence Alignment"></a>
+                </div>
+            </div>
+            <div class="learn-path">
+                <span class="labs-layer-label">Evolution</span>
+                <div class="learn-path-dots">
+                    <a href="/learn/phylogenetic-tree-builder/" class="learn-path-dot level-intermediate" title="Phylogenetic Tree Builder"></a>
+                </div>
+            </div>
+            <div class="learn-path">
+                <span class="labs-layer-label">Structure</span>
+                <div class="learn-path-dots">
+                    <a href="/learn/protein-structure-viewer/" class="learn-path-dot level-beginner" title="Protein Structure Viewer"></a>
+                    <a href="/learn/small-molecule-explorer/" class="learn-path-dot level-intermediate" title="Small Molecule Explorer"></a>
+                </div>
+            </div>
+            <div class="learn-path">
+                <span class="labs-layer-label">Analysis</span>
+                <div class="learn-path-dots">
+                    <a href="/learn/p-value-playground/" class="learn-path-dot level-beginner" title="p-value Playground"></a>
+                    <a href="/learn/clustering-dimensionality-reduction/" class="learn-path-dot level-intermediate" title="Clustering & Dimensionality Reduction"></a>
+                </div>
+            </div>
+            <div class="learn-path">
+                <span class="labs-layer-label">Data</span>
+                <div class="learn-path-dots">
+                    <a href="/learn/fasta-fastq-format-inspector/" class="learn-path-dot level-beginner" title="FASTA/FASTQ Format Inspector"></a>
+                    <a href="/learn/gpu-parallel-patterns/" class="learn-path-dot level-advanced" title="GPU Parallel Patterns"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="learn-legend">
+            <span class="learn-legend-item"><span class="learn-path-dot level-beginner"></span> Beginner</span>
+            <span class="learn-legend-item"><span class="learn-path-dot level-intermediate"></span> Intermediate</span>
+            <span class="learn-legend-item"><span class="learn-path-dot level-advanced"></span> Advanced</span>
+        </div>
+    </div>
+</section>
+
+<!-- Full Course Catalog -->
+<div class="hub-page" id="catalog">
     <div class="hub-filters">
         <span class="hub-filter-pill active">All</span>
         <span class="hub-filter-pill">Molecular Biology</span>
@@ -92,8 +309,8 @@
             <div class="hub-sidebar-section">
                 <h4>Duration</h4>
                 <ul>
-                    <li class="hub-sidebar-item">5–10 min <span class="count">4</span></li>
-                    <li class="hub-sidebar-item">15–20 min <span class="count">4</span></li>
+                    <li class="hub-sidebar-item">5-10 min <span class="count">4</span></li>
+                    <li class="hub-sidebar-item">15-20 min <span class="count">4</span></li>
                     <li class="hub-sidebar-item">30+ min <span class="count">2</span></li>
                 </ul>
             </div>
@@ -110,6 +327,11 @@
                     <li class="hub-sidebar-item">cyanea-io <span class="count">1</span></li>
                     <li class="hub-sidebar-item">cyanea-gpu <span class="count">1</span></li>
                 </ul>
+            </div>
+            <div class="hub-sidebar-section learn-sidebar-cta">
+                <h4>Want more?</h4>
+                <p>These simulations are open source. Build your own and contribute.</p>
+                <a href="{{ config.extra.github_url }}" class="btn btn-outline btn-small">View on GitHub</a>
             </div>
         </aside>
 
@@ -128,7 +350,7 @@
                 <a href="/learn/dna-transcription/" class="learn-card-link">
                 <div class="learn-card">
                     <div class="learn-card-preview">
-                        <span>DNA → mRNA → Protein</span>
+                        <span>DNA &rarr; mRNA &rarr; Protein</span>
                     </div>
                     <div class="learn-card-body">
                         <div class="learn-card-header">
@@ -411,12 +633,25 @@
         </div>
     </div>
 
-    <div class="hub-cta">
-        <div class="hub-cta-card">
-            <h3>Build a simulation</h3>
-            <p>These simulations are powered by open-source Rust crates compiled to WebAssembly. Create your own interactive learning module and contribute it to the ecosystem.</p>
-            <a href="{{ config.extra.github_url }}" class="btn btn-primary">View on GitHub</a>
+    <!-- Bottom CTA -->
+    <section class="learn-bottom-cta">
+        <div class="container">
+            <div class="learn-bottom-cta-inner">
+                <div class="learn-bottom-cta-content">
+                    <h2>Build your own simulation</h2>
+                    <p>These simulations are powered by open-source Rust crates compiled to WebAssembly. Create your own interactive learning module and contribute it to the ecosystem.</p>
+                    <div class="learn-bottom-cta-actions">
+                        <a href="{{ config.extra.github_url }}" class="btn btn-primary">View on GitHub <span class="btn-arrow">&rarr;</span></a>
+                        <a href="/docs" class="btn btn-outline">Read the Docs</a>
+                    </div>
+                </div>
+                <div class="learn-bottom-cta-signup">
+                    <h3>New to Cyanea?</h3>
+                    <p>Create a free account to track your progress, bookmark simulations, and join the community.</p>
+                    <a href="/signup" class="btn btn-primary btn-large" style="width:100%;justify-content:center;">Sign Up Free <span class="btn-arrow">&rarr;</span></a>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 </div>
 {% endblock %}

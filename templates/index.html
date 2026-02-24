@@ -12,8 +12,102 @@
         <h1 class="hero-title">The open community for<br>life science research</h1>
         <p class="hero-subtitle">Share datasets, protocols, and experiments. Version everything. Collaborate openly. Built by scientists, for scientists.</p>
         <div class="hero-actions">
-            <a href="/datasets" class="btn btn-white btn-large">Explore Datasets <span class="btn-arrow">&rarr;</span></a>
-            <a href="/protocols" class="btn btn-white-outline btn-large">Browse 3,200+ protocols</a>
+            <a href="/signup" class="btn btn-white btn-large">Get Started Free <span class="btn-arrow">&rarr;</span></a>
+            <a href="/datasets" class="btn btn-white-outline btn-large">Explore the Hub</a>
+        </div>
+        <div class="hero-community-ticker">
+            <div class="ticker-item">
+                <span class="ticker-value">12,400+</span>
+                <span class="ticker-label">Datasets</span>
+            </div>
+            <div class="ticker-divider"></div>
+            <div class="ticker-item">
+                <span class="ticker-value">3,200+</span>
+                <span class="ticker-label">Protocols</span>
+            </div>
+            <div class="ticker-divider"></div>
+            <div class="ticker-item">
+                <span class="ticker-value">2,100+</span>
+                <span class="ticker-label">Spaces</span>
+            </div>
+            <div class="ticker-divider"></div>
+            <div class="ticker-item">
+                <span class="ticker-value">18,000+</span>
+                <span class="ticker-label">Scientists</span>
+            </div>
+            <div class="ticker-divider"></div>
+            <div class="ticker-item">
+                <span class="ticker-value">13</span>
+                <span class="ticker-label">Rust Crates</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Explore by Task -->
+<section class="explore-tasks-section">
+    <div class="container">
+        <div class="explore-tasks-header">
+            <h2 class="section-heading">Explore by task</h2>
+            <a href="/datasets" class="section-view-all">View all categories <span class="btn-arrow">&rarr;</span></a>
+        </div>
+        <div class="explore-tasks-grid">
+            <a href="/datasets?task=variant-calling" class="explore-task-card">
+                <div class="explore-task-icon">&#x1F9EC;</div>
+                <div class="explore-task-info">
+                    <h4>Variant Calling</h4>
+                    <span class="explore-task-count">1,840 datasets</span>
+                </div>
+            </a>
+            <a href="/datasets?task=rnaseq" class="explore-task-card">
+                <div class="explore-task-icon">&#x1F4CA;</div>
+                <div class="explore-task-info">
+                    <h4>RNA-seq Analysis</h4>
+                    <span class="explore-task-count">2,847 datasets</span>
+                </div>
+            </a>
+            <a href="/datasets?task=scrnaseq" class="explore-task-card">
+                <div class="explore-task-icon">&#x1F52C;</div>
+                <div class="explore-task-info">
+                    <h4>Single-Cell</h4>
+                    <span class="explore-task-count">982 datasets</span>
+                </div>
+            </a>
+            <a href="/datasets?task=proteomics" class="explore-task-card">
+                <div class="explore-task-icon">&#x2697;</div>
+                <div class="explore-task-info">
+                    <h4>Proteomics</h4>
+                    <span class="explore-task-count">423 datasets</span>
+                </div>
+            </a>
+            <a href="/datasets?task=metagenomics" class="explore-task-card">
+                <div class="explore-task-icon">&#x1F30D;</div>
+                <div class="explore-task-info">
+                    <h4>Metagenomics</h4>
+                    <span class="explore-task-count">618 datasets</span>
+                </div>
+            </a>
+            <a href="/datasets?task=structural" class="explore-task-card">
+                <div class="explore-task-icon">&#x1F9EA;</div>
+                <div class="explore-task-info">
+                    <h4>Structural Biology</h4>
+                    <span class="explore-task-count">312 datasets</span>
+                </div>
+            </a>
+            <a href="/datasets?task=chip-seq" class="explore-task-card">
+                <div class="explore-task-icon">&#x1F3AF;</div>
+                <div class="explore-task-info">
+                    <h4>ChIP-seq</h4>
+                    <span class="explore-task-count">1,204 datasets</span>
+                </div>
+            </a>
+            <a href="/datasets?task=phylogenetics" class="explore-task-card">
+                <div class="explore-task-icon">&#x1F333;</div>
+                <div class="explore-task-info">
+                    <h4>Phylogenetics</h4>
+                    <span class="explore-task-count">287 datasets</span>
+                </div>
+            </a>
         </div>
     </div>
 </section>
@@ -21,7 +115,14 @@
 <!-- Trending This Week -->
 <section class="trending-section">
     <div class="container">
-        <h2 class="section-heading">Trending this week</h2>
+        <div class="explore-tasks-header">
+            <h2 class="section-heading">Trending this week</h2>
+            <div class="trending-tabs">
+                <span class="trending-tab active">Datasets</span>
+                <span class="trending-tab">Protocols</span>
+                <span class="trending-tab">Spaces</span>
+            </div>
+        </div>
         <p class="section-subheading">The most popular datasets, protocols, and spaces in the community right now.</p>
 
         <div class="trending-grid">
@@ -206,6 +307,118 @@
     </div>
 </section>
 
+<!-- Community Activity Feed -->
+<section class="activity-section">
+    <div class="container">
+        <div class="explore-tasks-header">
+            <h2 class="section-heading">Community activity</h2>
+            <a href="/datasets" class="section-view-all">View all activity <span class="btn-arrow">&rarr;</span></a>
+        </div>
+        <p class="section-subheading">See what researchers are sharing, forking, and building right now.</p>
+
+        <div class="activity-grid">
+            <div class="activity-item">
+                <div class="activity-dot activity-dot-green"></div>
+                <div class="activity-content">
+                    <p><strong>broad-genomics</strong> uploaded a new dataset</p>
+                    <a href="/datasets/gnomad-v4-1/" class="activity-link">gnomad-v4.1-exomes-chr21</a>
+                    <span class="activity-time">2 minutes ago</span>
+                </div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-dot activity-dot-cyan"></div>
+                <div class="activity-content">
+                    <p><strong>sarah-chen</strong> forked a protocol</p>
+                    <a href="/protocols/trizol-rna-extraction/" class="activity-link">TRIzol-RNA-extraction</a>
+                    <span class="activity-time">8 minutes ago</span>
+                </div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-dot activity-dot-violet"></div>
+                <div class="activity-content">
+                    <p><strong>sanger-institute</strong> published a space</p>
+                    <a href="/spaces/phylo-tree-viewer/" class="activity-link">malaria-drug-resistance-2025</a>
+                    <span class="activity-time">14 minutes ago</span>
+                </div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-dot activity-dot-green"></div>
+                <div class="activity-content">
+                    <p><strong>embl-ebi</strong> updated a dataset</p>
+                    <a href="/datasets/ensembl-release-112/" class="activity-link">ensembl-release-113</a>
+                    <span class="activity-time">23 minutes ago</span>
+                </div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-dot activity-dot-cyan"></div>
+                <div class="activity-content">
+                    <p><strong>zhang-lab</strong> created a new protocol</p>
+                    <a href="/protocols/crispr-cas9-ko/" class="activity-link">prime-editing-v3-optimized</a>
+                    <span class="activity-time">31 minutes ago</span>
+                </div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-dot activity-dot-green"></div>
+                <div class="activity-content">
+                    <p><strong>allen-institute</strong> uploaded a new dataset</p>
+                    <a href="/datasets/cellxgene-census-2024/" class="activity-link">abc-atlas-v2-motor-cortex</a>
+                    <span class="activity-time">42 minutes ago</span>
+                </div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-dot activity-dot-violet"></div>
+                <div class="activity-content">
+                    <p><strong>community</strong> published a space</p>
+                    <a href="/spaces/atac-seq-pipeline/" class="activity-link">atacseq-snakemake-tutorial</a>
+                    <span class="activity-time">1 hour ago</span>
+                </div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-dot activity-dot-cyan"></div>
+                <div class="activity-content">
+                    <p><strong>10x-genomics</strong> forked a protocol</p>
+                    <a href="/protocols/chromium-scrna-seq/" class="activity-link">flex-multiome-v2</a>
+                    <span class="activity-time">1 hour ago</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Start -->
+<section class="quickstart-section">
+    <div class="container">
+        <div class="quickstart-inner">
+            <div class="quickstart-text">
+                <h2>Get started in seconds</h2>
+                <p>Install the CLI, pull datasets, and run analyses — all from the command line. Or use our Python SDK for seamless integration with your notebooks.</p>
+                <div class="quickstart-actions">
+                    <a href="/docs" class="btn btn-primary">Read the Docs <span class="btn-arrow">&rarr;</span></a>
+                    <a href="/signup" class="btn btn-outline">Create an Account</a>
+                </div>
+            </div>
+            <div class="quickstart-code">
+                <div class="quickstart-code-tabs">
+                    <span class="quickstart-tab active">CLI</span>
+                    <span class="quickstart-tab">Python</span>
+                    <span class="quickstart-tab">Rust</span>
+                </div>
+                <pre class="quickstart-pre"><code><span class="code-comment"># Install Cyanea CLI</span>
+<span class="code-prompt">$</span> curl -fsSL https://cyanea.bio/install | sh
+
+<span class="code-comment"># Pull a dataset</span>
+<span class="code-prompt">$</span> cyanea pull broad-institute/gnomad-v4.1
+
+<span class="code-comment"># Run a local analysis</span>
+<span class="code-prompt">$</span> cyanea run align --ref hg38 --reads sample.fastq.gz
+
+<span class="code-comment"># Push results back</span>
+<span class="code-prompt">$</span> cyanea push my-org/variant-calls</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Value Proposition -->
 <section class="value-section">
     <div class="container">
@@ -219,6 +432,7 @@
                 </div>
                 <h3>The collaboration platform</h3>
                 <p>Host datasets, protocols, and experiments. Fork, version, and cite. Work together with your team or share with the world.</p>
+                <a href="/features" class="value-card-link">Learn more <span class="btn-arrow">&rarr;</span></a>
             </div>
             <div class="value-card">
                 <div class="about-icon about-icon-green">
@@ -226,6 +440,7 @@
                 </div>
                 <h3>Move faster</h3>
                 <p>Rust-powered analysis stack. Run bioinformatics tools in the browser via WASM, on the server via NIFs. No setup, instant results.</p>
+                <a href="/labs" class="value-card-link">Explore Labs <span class="btn-arrow">&rarr;</span></a>
             </div>
             <div class="value-card">
                 <div class="about-icon about-icon-violet">
@@ -233,6 +448,7 @@
                 </div>
                 <h3>Every data modality</h3>
                 <p>FASTA, FASTQ, VCF, CSV, images, notebooks. Upload anything and preview it inline. Track provenance and version history.</p>
+                <a href="/datasets" class="value-card-link">Browse Datasets <span class="btn-arrow">&rarr;</span></a>
             </div>
             <div class="value-card value-card-cta">
                 <div class="about-icon about-icon-rose">
@@ -240,7 +456,41 @@
                 </div>
                 <h3>Build your research profile</h3>
                 <p>Share your work, track citations, and build a portfolio that showcases your contributions to science.</p>
-                <a href="/signup" class="btn btn-primary btn-small">Sign Up <span class="btn-arrow">&rarr;</span></a>
+                <a href="/signup" class="btn btn-primary btn-small">Sign Up Free <span class="btn-arrow">&rarr;</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Learn CTA Banner -->
+<section class="learn-banner-section">
+    <div class="container">
+        <div class="learn-banner">
+            <div class="learn-banner-content">
+                <span class="learn-banner-eyebrow">Interactive Learning</span>
+                <h2>Learn bioinformatics hands-on</h2>
+                <p>10 browser-based simulations powered by WebAssembly. From DNA transcription to GPU-accelerated alignment — no installation needed.</p>
+                <div class="learn-banner-actions">
+                    <a href="/learn" class="btn btn-primary">Start Learning <span class="btn-arrow">&rarr;</span></a>
+                    <a href="/learn/dna-transcription/" class="btn btn-outline">Try DNA Transcription</a>
+                </div>
+            </div>
+            <div class="learn-banner-cards">
+                <a href="/learn/dna-transcription/" class="learn-banner-card">
+                    <span class="learn-difficulty level-beginner">Beginner</span>
+                    <h4>DNA Transcription</h4>
+                    <span class="learn-banner-card-meta">~10 min</span>
+                </a>
+                <a href="/learn/pairwise-sequence-alignment/" class="learn-banner-card">
+                    <span class="learn-difficulty level-intermediate">Intermediate</span>
+                    <h4>Sequence Alignment</h4>
+                    <span class="learn-banner-card-meta">~20 min</span>
+                </a>
+                <a href="/learn/protein-structure-viewer/" class="learn-banner-card">
+                    <span class="learn-difficulty level-beginner">Beginner</span>
+                    <h4>Protein Structures</h4>
+                    <span class="learn-banner-card-meta">~10 min</span>
+                </a>
             </div>
         </div>
     </div>
@@ -310,6 +560,49 @@
                 </div>
             </div>
         </div>
+
+        <div class="social-proof-cta">
+            <a href="/signup" class="btn btn-primary">Join these teams on Cyanea <span class="btn-arrow">&rarr;</span></a>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials-section">
+    <div class="container">
+        <h2 class="section-heading">What scientists are saying</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <blockquote>"Cyanea has completely changed how we share genomic data between labs. The versioning system alone saved us weeks of confusion tracking dataset updates."</blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar"></div>
+                    <div>
+                        <strong>Dr. Maria Santos</strong>
+                        <span>Computational Biologist, Broad Institute</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <blockquote>"The Rust crate ecosystem is remarkable. We went from a 3-hour alignment job to 12 minutes with cyanea-align, and the WASM tools let our students learn without any setup."</blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar"></div>
+                    <div>
+                        <strong>Prof. James Wu</strong>
+                        <span>Bioinformatics Lead, EMBL-EBI</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <blockquote>"Finally a platform that treats protocols as first-class citizens. Fork, version, cite — it's GitHub for wet lab work. Our entire group has switched."</blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar"></div>
+                    <div>
+                        <strong>Dr. Priya Sharma</strong>
+                        <span>Group Leader, Sanger Institute</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -342,7 +635,10 @@
         </div>
 
         <div class="oss-crates">
-            <h3 class="oss-crates-heading">Core crates</h3>
+            <div class="oss-crates-header-row">
+                <h3 class="oss-crates-heading">Core crates</h3>
+                <a href="/labs" class="section-view-all">View all 13 crates <span class="btn-arrow">&rarr;</span></a>
+            </div>
             <div class="oss-crates-grid">
                 <a href="/labs" class="oss-crate-card">
                     <div class="oss-crate-header">
@@ -391,13 +687,55 @@
     </div>
 </section>
 
+<!-- Pricing Teaser -->
+<section class="pricing-teaser-section">
+    <div class="container">
+        <div class="pricing-teaser-grid">
+            <div class="pricing-teaser-card">
+                <div class="pricing-teaser-tier">Free</div>
+                <div class="pricing-teaser-price"><span>$0</span>/month</div>
+                <ul>
+                    <li>10 GB storage</li>
+                    <li>3 team members</li>
+                    <li>Community support</li>
+                </ul>
+                <a href="/signup" class="btn btn-outline" style="width:100%;justify-content:center;">Get Started Free</a>
+            </div>
+            <div class="pricing-teaser-card pricing-teaser-featured">
+                <div class="pricing-teaser-badge">Most Popular</div>
+                <div class="pricing-teaser-tier">Pro</div>
+                <div class="pricing-teaser-price"><span>$49</span>/user/month</div>
+                <ul>
+                    <li>100 GB per user</li>
+                    <li>Unlimited members</li>
+                    <li>Full API access</li>
+                </ul>
+                <a href="/signup" class="btn btn-primary" style="width:100%;justify-content:center;">Start Free Trial <span class="btn-arrow">&rarr;</span></a>
+            </div>
+            <div class="pricing-teaser-card">
+                <div class="pricing-teaser-tier">Enterprise</div>
+                <div class="pricing-teaser-price"><span>Custom</span></div>
+                <ul>
+                    <li>Unlimited storage</li>
+                    <li>On-premises deploy</li>
+                    <li>24/7 SLA support</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline" style="width:100%;justify-content:center;">Contact Sales</a>
+            </div>
+        </div>
+        <div class="pricing-teaser-footer">
+            <a href="/pricing" class="section-view-all">See full pricing details <span class="btn-arrow">&rarr;</span></a>
+        </div>
+    </div>
+</section>
+
 <!-- CTA -->
 <section class="cta-section">
     <div class="container">
         <div class="cta-inner">
             <img src="/icon.png" alt="Cyanea" class="cta-icon">
             <h2>Start sharing your research today</h2>
-            <p>Join the open community of scientists building the future of reproducible research.</p>
+            <p>Join 18,000+ scientists building the future of reproducible research.</p>
             <div class="cta-actions">
                 <a href="/signup" class="btn btn-white btn-large">Get Started Free <span class="btn-arrow">&rarr;</span></a>
                 <a href="/docs" class="btn btn-white-outline btn-large">Read the Docs</a>
