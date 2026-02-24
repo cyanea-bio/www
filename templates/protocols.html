@@ -3,27 +3,89 @@
 {% block title %}Protocols | {{ config.title }}{% endblock %}
 {% block description %}Browse reproducible bioinformatics and wet lab protocols shared by the community.{% endblock %}
 
+{% block structured_data %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Cyanea Protocols",
+    "description": "Browse reproducible bioinformatics and wet lab protocols shared by the community. Fork, adapt, and share with your team.",
+    "url": "{{ current_url | safe }}",
+    "provider": { "@id": "{{ config.base_url }}/#organization" },
+    "inLanguage": "en",
+    "keywords": ["protocols", "bioinformatics", "wet lab", "molecular biology", "library prep", "CRISPR"],
+    "mainEntity": {
+        "@type": "ItemList",
+        "numberOfItems": 3200,
+        "itemListElement": [
+            {
+                "@type": "HowTo",
+                "position": 1,
+                "name": "RNA Extraction with TRIzol",
+                "description": "Total RNA extraction using TRIzol reagent. Optimized for mammalian tissue samples.",
+                "url": "{{ config.base_url }}/protocols/trizol-rna-extraction/",
+                "totalTime": "PT3H",
+                "step": [{ "@type": "HowToStep", "text": "12 steps" }]
+            },
+            {
+                "@type": "HowTo",
+                "position": 2,
+                "name": "Chromium scRNA-seq v4",
+                "description": "Single-cell RNA-seq library preparation using the Chromium Next GEM Single Cell 3' Kit v4.",
+                "url": "{{ config.base_url }}/protocols/chromium-scrna-seq/",
+                "totalTime": "P2D",
+                "step": [{ "@type": "HowToStep", "text": "24 steps" }]
+            },
+            {
+                "@type": "HowTo",
+                "position": 3,
+                "name": "Gibson Assembly",
+                "description": "Gibson Assembly for seamless DNA cloning. One-step, isothermal assembly of multiple overlapping DNA fragments.",
+                "url": "{{ config.base_url }}/protocols/crispr-cas9-ko/",
+                "totalTime": "PT2H",
+                "step": [{ "@type": "HowToStep", "text": "8 steps" }]
+            }
+        ]
+    },
+    "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".hub-header h1", ".hub-header p", ".hub-how-step h3", ".hub-how-step p"]
+    }
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ config.base_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Protocols" }
+    ]
+}
+</script>
+{% endblock %}
+
 {% block content %}
 <div class="hub-page">
     <header class="hub-header">
         <h1>Protocols</h1>
         <p>Reproducible, version-controlled protocols for wet lab and computational biology. Fork, adapt, and share with your team.</p>
-        <div class="hub-search" aria-label="Search protocols">
+        <div class="hub-search" role="search" aria-label="Search protocols">
             <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             <span>Search protocols by name, technique, or category...</span>
         </div>
     </header>
 
-    <div class="hub-stats">
-        <div class="hub-stat">
+    <div class="hub-stats" role="group" aria-label="Protocol statistics">
+        <div class="hub-stat" aria-label="Over 3,200 protocols">
             <div class="hub-stat-value">3,200+</div>
             <div class="hub-stat-label">Protocols</div>
         </div>
-        <div class="hub-stat">
+        <div class="hub-stat" aria-label="Over 180 contributors">
             <div class="hub-stat-value">180+</div>
             <div class="hub-stat-label">Contributors</div>
         </div>
-        <div class="hub-stat">
+        <div class="hub-stat" aria-label="Over 12,000 forks">
             <div class="hub-stat-value">12k+</div>
             <div class="hub-stat-label">Forks</div>
         </div>
@@ -138,32 +200,32 @@
             <h2 class="section-heading">Browse by category</h2>
             <div class="hub-category-grid">
                 <a href="/protocols?category=molecular-biology" class="hub-category-card">
-                    <div class="hub-category-icon">&#x1F9EC;</div>
+                    <div class="hub-category-icon" aria-hidden="true">&#x1F9EC;</div>
                     <h3>Molecular Biology</h3>
                     <span class="hub-category-count">842 protocols</span>
                 </a>
                 <a href="/protocols?category=library-prep" class="hub-category-card">
-                    <div class="hub-category-icon">&#x1F4DA;</div>
+                    <div class="hub-category-icon" aria-hidden="true">&#x1F4DA;</div>
                     <h3>Library Prep</h3>
                     <span class="hub-category-count">489 protocols</span>
                 </a>
                 <a href="/protocols?category=sequencing" class="hub-category-card">
-                    <div class="hub-category-icon">&#x1F52C;</div>
+                    <div class="hub-category-icon" aria-hidden="true">&#x1F52C;</div>
                     <h3>Sequencing</h3>
                     <span class="hub-category-count">356 protocols</span>
                 </a>
                 <a href="/protocols?category=cell-culture" class="hub-category-card">
-                    <div class="hub-category-icon">&#x1F9EA;</div>
+                    <div class="hub-category-icon" aria-hidden="true">&#x1F9EA;</div>
                     <h3>Cell Culture</h3>
                     <span class="hub-category-count">531 protocols</span>
                 </a>
                 <a href="/protocols?category=computational" class="hub-category-card">
-                    <div class="hub-category-icon">&#x1F4BB;</div>
+                    <div class="hub-category-icon" aria-hidden="true">&#x1F4BB;</div>
                     <h3>Computational</h3>
                     <span class="hub-category-count">412 protocols</span>
                 </a>
                 <a href="/protocols?category=imaging" class="hub-category-card">
-                    <div class="hub-category-icon">&#x1F4F7;</div>
+                    <div class="hub-category-icon" aria-hidden="true">&#x1F4F7;</div>
                     <h3>Imaging</h3>
                     <span class="hub-category-count">287 protocols</span>
                 </a>
@@ -173,7 +235,7 @@
 
     <!-- Existing Catalog -->
     <div id="catalog">
-    <div class="hub-filters">
+    <div class="hub-filters" role="group" aria-label="Filter by type">
         <span class="hub-filter-pill active" aria-current="true">All</span>
         <span class="hub-filter-pill">Wet Lab</span>
         <span class="hub-filter-pill">Computational</span>
@@ -217,17 +279,17 @@
         <div>
             <div class="hub-sort-bar">
                 <span class="hub-sort-label">3,200 protocols</span>
-                <div class="hub-sort-options">
-                    <span class="active">Trending</span>
-                    <span>Most forked</span>
-                    <span>Recently updated</span>
+                <div class="hub-sort-options" role="tablist" aria-label="Sort order">
+                    <span class="active" role="tab" aria-selected="true">Trending</span>
+                    <span role="tab" aria-selected="false">Most forked</span>
+                    <span role="tab" aria-selected="false">Recently updated</span>
                 </div>
             </div>
 
             <div class="hub-grid">
                 <a href="/protocols/trizol-rna-extraction/" class="hub-card">
                     <div class="hub-card-header">
-                        <div class="hub-card-icon">&#x1F9EA;</div>
+                        <div class="hub-card-icon" aria-hidden="true">&#x1F9EA;</div>
                         <div class="hub-card-title-group">
                             <h3><span class="hub-card-org">broad-institute/</span><span class="hub-card-name">rna-extraction-trizol</span></h3>
                             <span class="hub-badge badge-popular">Popular</span>
@@ -249,7 +311,7 @@
 
                 <a href="/protocols/chromium-scrna-seq/" class="hub-card">
                     <div class="hub-card-header">
-                        <div class="hub-card-icon">&#x1F52C;</div>
+                        <div class="hub-card-icon" aria-hidden="true">&#x1F52C;</div>
                         <div class="hub-card-title-group">
                             <h3><span class="hub-card-org">10x-genomics/</span><span class="hub-card-name">chromium-scrnaseq-v4</span></h3>
                             <span class="hub-badge badge-featured">Featured</span>
@@ -271,7 +333,7 @@
 
                 <a href="/protocols/crispr-cas9-ko/" class="hub-card">
                     <div class="hub-card-header">
-                        <div class="hub-card-icon">&#x1F9EC;</div>
+                        <div class="hub-card-icon" aria-hidden="true">&#x1F9EC;</div>
                         <div class="hub-card-title-group">
                             <h3><span class="hub-card-org">addgene/</span><span class="hub-card-name">gibson-assembly</span></h3>
                         </div>
@@ -292,7 +354,7 @@
 
                 <a href="/protocols/dna-pcr-free-wgs/" class="hub-card">
                     <div class="hub-card-header">
-                        <div class="hub-card-icon">&#x1F4BB;</div>
+                        <div class="hub-card-icon" aria-hidden="true">&#x1F4BB;</div>
                         <div class="hub-card-title-group">
                             <h3><span class="hub-card-org">sanger-protocols/</span><span class="hub-card-name">whole-genome-illumina</span></h3>
                         </div>
@@ -313,7 +375,7 @@
 
                 <a href="/protocols/crispr-cas9-ko/" class="hub-card">
                     <div class="hub-card-header">
-                        <div class="hub-card-icon">&#x2702;&#xFE0F;</div>
+                        <div class="hub-card-icon" aria-hidden="true">&#x2702;&#xFE0F;</div>
                         <div class="hub-card-title-group">
                             <h3><span class="hub-card-org">openplant/</span><span class="hub-card-name">crispr-cas9-plant</span></h3>
                             <span class="hub-badge badge-new">New</span>
@@ -335,7 +397,7 @@
 
                 <a href="/protocols/adaptive-sampling/" class="hub-card">
                     <div class="hub-card-header">
-                        <div class="hub-card-icon">&#x1F9F0;</div>
+                        <div class="hub-card-icon" aria-hidden="true">&#x1F9F0;</div>
                         <div class="hub-card-title-group">
                             <h3><span class="hub-card-org">neb/</span><span class="hub-card-name">end-repair-a-tailing</span></h3>
                         </div>

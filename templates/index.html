@@ -1,5 +1,23 @@
 {% extends "base.html" %}
 
+{% block structured_data %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Cyanea — The Open Community for Life Science Research",
+    "description": "Share datasets, protocols, and experiments. Version everything. Collaborate openly. Built by scientists, for scientists.",
+    "url": "{{ config.base_url }}/",
+    "provider": { "@id": "{{ config.base_url }}/#organization" },
+    "inLanguage": "en",
+    "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".hero-title", ".hero-subtitle", ".value-card h3", ".value-card p"]
+    }
+}
+</script>
+{% endblock %}
+
 {% block content %}
 <!-- Hero -->
 <section class="hero hero-deep-sea">
@@ -15,29 +33,29 @@
             <a href="/signup" class="btn btn-white btn-large">Get Started Free <span class="btn-arrow">&rarr;</span></a>
             <a href="/datasets" class="btn btn-white-outline btn-large">Explore the Hub</a>
         </div>
-        <div class="hero-community-ticker">
-            <div class="ticker-item">
-                <span class="ticker-value">12,400+</span>
+        <div class="hero-community-ticker" role="group" aria-label="Platform statistics">
+            <div class="ticker-item" aria-label="Over 12,400 datasets">
+                <span class="ticker-value" aria-hidden="true">12,400+</span>
                 <span class="ticker-label">Datasets</span>
             </div>
-            <div class="ticker-divider"></div>
-            <div class="ticker-item">
-                <span class="ticker-value">3,200+</span>
+            <div class="ticker-divider" aria-hidden="true"></div>
+            <div class="ticker-item" aria-label="Over 3,200 protocols">
+                <span class="ticker-value" aria-hidden="true">3,200+</span>
                 <span class="ticker-label">Protocols</span>
             </div>
-            <div class="ticker-divider"></div>
-            <div class="ticker-item">
-                <span class="ticker-value">2,100+</span>
+            <div class="ticker-divider" aria-hidden="true"></div>
+            <div class="ticker-item" aria-label="Over 2,100 spaces">
+                <span class="ticker-value" aria-hidden="true">2,100+</span>
                 <span class="ticker-label">Spaces</span>
             </div>
-            <div class="ticker-divider"></div>
-            <div class="ticker-item">
-                <span class="ticker-value">18,000+</span>
+            <div class="ticker-divider" aria-hidden="true"></div>
+            <div class="ticker-item" aria-label="Over 18,000 scientists">
+                <span class="ticker-value" aria-hidden="true">18,000+</span>
                 <span class="ticker-label">Scientists</span>
             </div>
-            <div class="ticker-divider"></div>
-            <div class="ticker-item">
-                <span class="ticker-value">13</span>
+            <div class="ticker-divider" aria-hidden="true"></div>
+            <div class="ticker-item" aria-label="13 Rust crates">
+                <span class="ticker-value" aria-hidden="true">13</span>
                 <span class="ticker-label">Rust Crates</span>
             </div>
         </div>
@@ -53,56 +71,56 @@
         </div>
         <div class="explore-tasks-grid">
             <a href="/datasets?task=variant-calling" class="explore-task-card">
-                <div class="explore-task-icon">&#x1F9EC;</div>
+                <div class="explore-task-icon" aria-hidden="true">&#x1F9EC;</div>
                 <div class="explore-task-info">
                     <h4>Variant Calling</h4>
                     <span class="explore-task-count">1,840 datasets</span>
                 </div>
             </a>
             <a href="/datasets?task=rnaseq" class="explore-task-card">
-                <div class="explore-task-icon">&#x1F4CA;</div>
+                <div class="explore-task-icon" aria-hidden="true">&#x1F4CA;</div>
                 <div class="explore-task-info">
                     <h4>RNA-seq Analysis</h4>
                     <span class="explore-task-count">2,847 datasets</span>
                 </div>
             </a>
             <a href="/datasets?task=scrnaseq" class="explore-task-card">
-                <div class="explore-task-icon">&#x1F52C;</div>
+                <div class="explore-task-icon" aria-hidden="true">&#x1F52C;</div>
                 <div class="explore-task-info">
                     <h4>Single-Cell</h4>
                     <span class="explore-task-count">982 datasets</span>
                 </div>
             </a>
             <a href="/datasets?task=proteomics" class="explore-task-card">
-                <div class="explore-task-icon">&#x2697;</div>
+                <div class="explore-task-icon" aria-hidden="true">&#x2697;</div>
                 <div class="explore-task-info">
                     <h4>Proteomics</h4>
                     <span class="explore-task-count">423 datasets</span>
                 </div>
             </a>
             <a href="/datasets?task=metagenomics" class="explore-task-card">
-                <div class="explore-task-icon">&#x1F30D;</div>
+                <div class="explore-task-icon" aria-hidden="true">&#x1F30D;</div>
                 <div class="explore-task-info">
                     <h4>Metagenomics</h4>
                     <span class="explore-task-count">618 datasets</span>
                 </div>
             </a>
             <a href="/datasets?task=structural" class="explore-task-card">
-                <div class="explore-task-icon">&#x1F9EA;</div>
+                <div class="explore-task-icon" aria-hidden="true">&#x1F9EA;</div>
                 <div class="explore-task-info">
                     <h4>Structural Biology</h4>
                     <span class="explore-task-count">312 datasets</span>
                 </div>
             </a>
             <a href="/datasets?task=chip-seq" class="explore-task-card">
-                <div class="explore-task-icon">&#x1F3AF;</div>
+                <div class="explore-task-icon" aria-hidden="true">&#x1F3AF;</div>
                 <div class="explore-task-info">
                     <h4>ChIP-seq</h4>
                     <span class="explore-task-count">1,204 datasets</span>
                 </div>
             </a>
             <a href="/datasets?task=phylogenetics" class="explore-task-card">
-                <div class="explore-task-icon">&#x1F333;</div>
+                <div class="explore-task-icon" aria-hidden="true">&#x1F333;</div>
                 <div class="explore-task-info">
                     <h4>Phylogenetics</h4>
                     <span class="explore-task-count">287 datasets</span>
@@ -117,10 +135,10 @@
     <div class="container">
         <div class="explore-tasks-header">
             <h2 class="section-heading">Trending this week</h2>
-            <div class="trending-tabs">
-                <span class="trending-tab active">Datasets</span>
-                <span class="trending-tab">Protocols</span>
-                <span class="trending-tab">Spaces</span>
+            <div class="trending-tabs" role="tablist" aria-label="Trending categories">
+                <span class="trending-tab active" role="tab" aria-selected="true">Datasets</span>
+                <span class="trending-tab" role="tab" aria-selected="false">Protocols</span>
+                <span class="trending-tab" role="tab" aria-selected="false">Spaces</span>
             </div>
         </div>
         <p class="section-subheading">The most popular datasets, protocols, and spaces in the community right now.</p>
@@ -398,10 +416,10 @@
                 </div>
             </div>
             <div class="quickstart-code">
-                <div class="quickstart-code-tabs">
-                    <span class="quickstart-tab active">CLI</span>
-                    <span class="quickstart-tab">Python</span>
-                    <span class="quickstart-tab">Rust</span>
+                <div class="quickstart-code-tabs" role="tablist" aria-label="Code examples">
+                    <span class="quickstart-tab active" role="tab" aria-selected="true">CLI</span>
+                    <span class="quickstart-tab" role="tab" aria-selected="false">Python</span>
+                    <span class="quickstart-tab" role="tab" aria-selected="false">Rust</span>
                 </div>
                 <pre class="quickstart-pre"><code><span class="code-comment"># Install Cyanea CLI</span>
 <span class="code-prompt">$</span> curl -fsSL https://cyanea.bio/install | sh

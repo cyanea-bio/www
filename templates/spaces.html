@@ -3,27 +3,56 @@
 {% block title %}Spaces | {{ config.title }}{% endblock %}
 {% block description %}Collaborative research workspaces for bioinformatics.{% endblock %}
 
+{% block structured_data %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Cyanea Spaces",
+    "description": "Collaborative research workspaces for bioinformatics. Combine notebooks, data, protocols, and metadata — version-controlled and publication-ready.",
+    "url": "{{ current_url | safe }}",
+    "provider": { "@id": "{{ config.base_url }}/#organization" },
+    "inLanguage": "en",
+    "keywords": ["research workspace", "bioinformatics", "reproducible research", "FAIR", "notebooks", "collaborative science"],
+    "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".hub-header h1", ".hub-header p", ".hub-value-card h3", ".hub-value-card p"]
+    }
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ config.base_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Spaces" }
+    ]
+}
+</script>
+{% endblock %}
+
 {% block content %}
 <div class="hub-page">
     <header class="hub-header">
         <h1>Spaces</h1>
         <p>Collaborative research workspaces for bioinformatics. Combine notebooks, data, protocols, and metadata in one place — version-controlled, reproducible, and publication-ready.</p>
-        <div class="hub-search" aria-label="Search spaces">
+        <div class="hub-search" role="search" aria-label="Search spaces">
             <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             <span>Search spaces by name, organism, or topic...</span>
         </div>
     </header>
 
-    <div class="hub-stats">
-        <div class="hub-stat">
+    <div class="hub-stats" role="group" aria-label="Spaces statistics">
+        <div class="hub-stat" aria-label="Over 2,100 spaces">
             <div class="hub-stat-value">2,100+</div>
             <div class="hub-stat-label">Spaces</div>
         </div>
-        <div class="hub-stat">
+        <div class="hub-stat" aria-label="Over 480 contributors">
             <div class="hub-stat-value">480+</div>
             <div class="hub-stat-label">Contributors</div>
         </div>
-        <div class="hub-stat">
+        <div class="hub-stat" aria-label="Over 340 published">
             <div class="hub-stat-value">340+</div>
             <div class="hub-stat-label">Published</div>
         </div>
@@ -139,19 +168,19 @@
             <p class="section-subheading">Get started faster with pre-configured workspace templates. QC checklists, metadata schemas, and FAIR compliance scaffolding included.</p>
             <div class="hub-templates-grid">
                 <a href="/spaces/template-genomics/" class="hub-template-card">
-                    <div class="hub-template-icon">&#x1F9EC;</div>
+                    <div class="hub-template-icon" aria-hidden="true">&#x1F9EC;</div>
                     <h3>Genomics</h3>
                     <p>WGS/WES analysis workspace with variant calling notebooks, QC pipelines, and annotation tools.</p>
                     <span class="hub-template-meta">2 notebooks &middot; 1 protocol &middot; FAIR Gold</span>
                 </a>
                 <a href="/spaces/template-transcriptomics/" class="hub-template-card">
-                    <div class="hub-template-icon">&#x1F4CA;</div>
+                    <div class="hub-template-icon" aria-hidden="true">&#x1F4CA;</div>
                     <h3>Transcriptomics</h3>
                     <p>RNA-seq differential expression workspace with DESeq2, pathway analysis, and publication figures.</p>
                     <span class="hub-template-meta">3 notebooks &middot; 1 dataset &middot; FAIR Silver</span>
                 </a>
                 <a href="/spaces/template-metagenomics/" class="hub-template-card">
-                    <div class="hub-template-icon">&#x1F30D;</div>
+                    <div class="hub-template-icon" aria-hidden="true">&#x1F30D;</div>
                     <h3>Metagenomics</h3>
                     <p>Shotgun metagenomics workspace with taxonomic profiling, functional annotation, and diversity analysis.</p>
                     <span class="hub-template-meta">4 notebooks &middot; 2 protocols &middot; FAIR Silver</span>
@@ -162,7 +191,7 @@
 
     <!-- Existing Catalog -->
     <div id="catalog">
-    <div class="hub-filters">
+    <div class="hub-filters" role="group" aria-label="Filter by domain">
         <span class="hub-filter-pill active" aria-current="true">All</span>
         <span class="hub-filter-pill">Genomics</span>
         <span class="hub-filter-pill">Transcriptomics</span>
@@ -207,10 +236,10 @@
         <div>
             <div class="hub-sort-bar">
                 <span class="hub-sort-label">2,100 spaces</span>
-                <div class="hub-sort-options">
-                    <span class="active">Trending</span>
-                    <span>Most starred</span>
-                    <span>Recently updated</span>
+                <div class="hub-sort-options" role="tablist" aria-label="Sort order">
+                    <span class="active" role="tab" aria-selected="true">Trending</span>
+                    <span role="tab" aria-selected="false">Most starred</span>
+                    <span role="tab" aria-selected="false">Recently updated</span>
                 </div>
             </div>
 

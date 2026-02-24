@@ -3,6 +3,70 @@
 {% block title %}Pricing | {{ config.title }}{% endblock %}
 {% block description %}Simple, transparent pricing for teams of all sizes.{% endblock %}
 
+{% block structured_data %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Cyanea Pricing",
+    "description": "Simple, transparent pricing for teams of all sizes. Start free, scale as you grow.",
+    "url": "{{ current_url | safe }}",
+    "provider": { "@id": "{{ config.base_url }}/#organization" },
+    "mainEntity": {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How much does Cyanea cost?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Cyanea offers a free plan with 10 GB storage and 3 team members, a Pro plan at $49/user/month with 100 GB per user and unlimited members, and a custom Enterprise plan with unlimited storage and on-premises deployment."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is there a free trial?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, the Free plan is free forever with 10 GB storage and 3 team members. The Pro plan also includes a free trial period."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I self-host Cyanea?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, the Enterprise plan includes on-premises deployment options. Cyanea is open source and can be self-hosted with federation support."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is Cyanea HIPAA compliant?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "HIPAA compliance is available on the Enterprise plan, which includes dedicated infrastructure and 24/7 support with SLA."
+                }
+            }
+        ]
+    },
+    "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".pricing-header h1", ".pricing-header p", ".pricing-tier", ".pricing-price"]
+    }
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ config.base_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Pricing" }
+    ]
+}
+</script>
+{% endblock %}
+
 {% block content %}
 <div class="pricing-page">
     <header class="pricing-header">

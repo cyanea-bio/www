@@ -3,6 +3,85 @@
 {% block title %}Labs | {{ config.title }}{% endblock %}
 {% block description %}The Cyanea Rust crate ecosystem and browser-based tools for bioinformatics.{% endblock %}
 
+{% block structured_data %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Cyanea Labs — Rust Crate Ecosystem",
+    "description": "13 Rust crates and 6 browser tools for high-performance bioinformatics. From sequence parsing to GPU-accelerated analysis.",
+    "url": "{{ current_url | safe }}",
+    "provider": { "@id": "{{ config.base_url }}/#organization" },
+    "inLanguage": "en",
+    "keywords": ["Rust", "bioinformatics", "WebAssembly", "crates", "sequence analysis", "alignment"],
+    "mainEntity": {
+        "@type": "ItemList",
+        "numberOfItems": 13,
+        "itemListElement": [
+            {
+                "@type": "SoftwareApplication",
+                "position": 1,
+                "name": "cyanea-core",
+                "description": "Foundation types and traits shared across the ecosystem. Alphabets, coordinate systems, error types.",
+                "url": "{{ config.base_url }}/labs/cyanea-core/",
+                "applicationCategory": "DeveloperApplication",
+                "operatingSystem": "Cross-platform",
+                "license": "https://www.apache.org/licenses/LICENSE-2.0",
+                "programmingLanguage": "Rust"
+            },
+            {
+                "@type": "SoftwareApplication",
+                "position": 2,
+                "name": "cyanea-seq",
+                "description": "Biological sequence types — DNA, RNA, protein. 2-bit encoding, k-mer generation, reverse complement.",
+                "url": "{{ config.base_url }}/labs/cyanea-seq/",
+                "applicationCategory": "DeveloperApplication",
+                "operatingSystem": "Cross-platform",
+                "license": "https://www.apache.org/licenses/LICENSE-2.0",
+                "programmingLanguage": "Rust"
+            },
+            {
+                "@type": "SoftwareApplication",
+                "position": 3,
+                "name": "cyanea-io",
+                "description": "High-performance parsers and writers for FASTA, FASTQ, VCF, BAM/SAM, GFF3, BED, and more.",
+                "url": "{{ config.base_url }}/labs/cyanea-io/",
+                "applicationCategory": "DeveloperApplication",
+                "operatingSystem": "Cross-platform",
+                "license": "https://www.apache.org/licenses/LICENSE-2.0",
+                "programmingLanguage": "Rust"
+            },
+            {
+                "@type": "SoftwareApplication",
+                "position": 4,
+                "name": "cyanea-align",
+                "description": "Sequence alignment algorithms — Smith-Waterman, Needleman-Wunsch, minimap2-compatible chaining, and banded alignment with SIMD.",
+                "url": "{{ config.base_url }}/labs/cyanea-align/",
+                "applicationCategory": "DeveloperApplication",
+                "operatingSystem": "Cross-platform",
+                "license": "https://www.apache.org/licenses/LICENSE-2.0",
+                "programmingLanguage": "Rust"
+            }
+        ]
+    },
+    "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".hub-header h1", ".hub-header p"]
+    }
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ config.base_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Labs" }
+    ]
+}
+</script>
+{% endblock %}
+
 {% block content %}
 <div class="hub-page">
     <header class="hub-header">
@@ -10,16 +89,16 @@
         <p>13 Rust crates and 6 browser tools for high-performance bioinformatics. From sequence parsing to GPU-accelerated analysis, built for correctness and speed.</p>
     </header>
 
-    <div class="hub-stats">
-        <div class="hub-stat">
+    <div class="hub-stats" role="group" aria-label="Labs statistics">
+        <div class="hub-stat" aria-label="13 crates">
             <div class="hub-stat-value">13</div>
             <div class="hub-stat-label">Crates</div>
         </div>
-        <div class="hub-stat">
+        <div class="hub-stat" aria-label="6 browser tools">
             <div class="hub-stat-value">6</div>
             <div class="hub-stat-label">Browser Tools</div>
         </div>
-        <div class="hub-stat">
+        <div class="hub-stat" aria-label="Apache 2.0 license">
             <div class="hub-stat-value">Apache 2.0</div>
             <div class="hub-stat-label">License</div>
         </div>

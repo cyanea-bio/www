@@ -3,6 +3,75 @@
 {% block title %}Learn | {{ config.title }}{% endblock %}
 {% block description %}Interactive bioinformatics simulations powered by WebAssembly. Explore life science concepts through hands-on, browser-based learning.{% endblock %}
 
+{% block structured_data %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "CourseList",
+    "name": "Cyanea Learn — Interactive Bioinformatics Simulations",
+    "description": "10 interactive, browser-based bioinformatics simulations powered by Rust and WebAssembly. From DNA transcription to GPU-accelerated alignment.",
+    "url": "{{ current_url | safe }}",
+    "provider": { "@id": "{{ config.base_url }}/#organization" },
+    "inLanguage": "en",
+    "numberOfItems": 10,
+    "itemListElement": [
+        {
+            "@type": "Course",
+            "position": 1,
+            "name": "DNA Transcription",
+            "description": "Watch a DNA sequence get transcribed into mRNA and translated into a protein chain.",
+            "url": "{{ config.base_url }}/learn/dna-transcription/",
+            "educationalLevel": "Beginner",
+            "timeRequired": "PT10M",
+            "isAccessibleForFree": true,
+            "provider": { "@id": "{{ config.base_url }}/#organization" },
+            "hasCourseInstance": {
+                "@type": "CourseInstance",
+                "courseMode": "online",
+                "courseWorkload": "PT10M"
+            }
+        },
+        {
+            "@type": "Course",
+            "position": 2,
+            "name": "Pairwise Sequence Alignment",
+            "description": "Step through Needleman-Wunsch and Smith-Waterman algorithms cell by cell.",
+            "url": "{{ config.base_url }}/learn/pairwise-sequence-alignment/",
+            "educationalLevel": "Intermediate",
+            "timeRequired": "PT20M",
+            "isAccessibleForFree": true,
+            "provider": { "@id": "{{ config.base_url }}/#organization" }
+        },
+        {
+            "@type": "Course",
+            "position": 3,
+            "name": "Protein Structure Viewer",
+            "description": "Explore protein structures in 3D. Toggle representations, color by secondary structure.",
+            "url": "{{ config.base_url }}/learn/protein-structure-viewer/",
+            "educationalLevel": "Beginner",
+            "timeRequired": "PT10M",
+            "isAccessibleForFree": true,
+            "provider": { "@id": "{{ config.base_url }}/#organization" }
+        }
+    ],
+    "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".learn-hero h1", ".learn-hero p", ".learn-why-card h3", ".learn-why-card p"]
+    }
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ config.base_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Learn" }
+    ]
+}
+</script>
+{% endblock %}
+
 {% block content %}
 <!-- Learn Hero -->
 <section class="learn-hero">
@@ -14,16 +83,16 @@
             <a href="/learn/dna-transcription/" class="btn btn-primary btn-large">Start with DNA Transcription <span class="btn-arrow">&rarr;</span></a>
             <a href="#catalog" class="btn btn-outline btn-large">Browse All Courses</a>
         </div>
-        <div class="learn-hero-stats">
-            <div class="learn-hero-stat">
+        <div class="learn-hero-stats" role="group" aria-label="Learn statistics">
+            <div class="learn-hero-stat" aria-label="10 simulations">
                 <span class="learn-hero-stat-value">10</span>
                 <span class="learn-hero-stat-label">Simulations</span>
             </div>
-            <div class="learn-hero-stat">
+            <div class="learn-hero-stat" aria-label="6 domains">
                 <span class="learn-hero-stat-value">6</span>
                 <span class="learn-hero-stat-label">Domains</span>
             </div>
-            <div class="learn-hero-stat">
+            <div class="learn-hero-stat" aria-label="Free forever">
                 <span class="learn-hero-stat-value">Free</span>
                 <span class="learn-hero-stat-label">Forever</span>
             </div>

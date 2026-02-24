@@ -3,27 +3,83 @@
 {% block title %}Datasets | {{ config.title }}{% endblock %}
 {% block description %}Browse and discover bioinformatics datasets shared by the community.{% endblock %}
 
+{% block structured_data %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "DataCatalog",
+    "name": "Cyanea Datasets",
+    "description": "Browse and discover bioinformatics datasets shared by the community. From reference genomes to single-cell atlases.",
+    "url": "{{ current_url | safe }}",
+    "provider": { "@id": "{{ config.base_url }}/#organization" },
+    "inLanguage": "en",
+    "keywords": ["bioinformatics", "genomics", "datasets", "FASTA", "FASTQ", "VCF", "RNA-seq", "scRNA-seq"],
+    "dataset": [
+        {
+            "@type": "Dataset",
+            "name": "gnomAD v4",
+            "description": "Genome aggregation database v4 — variant frequencies across 807,162 individuals from diverse populations.",
+            "url": "{{ config.base_url }}/datasets/gnomad-v4-1/",
+            "creator": { "@type": "Organization", "name": "Broad Institute" },
+            "license": "https://creativecommons.org/licenses/by/4.0/",
+            "keywords": ["VCF", "H. sapiens", "population genetics"]
+        },
+        {
+            "@type": "Dataset",
+            "name": "Allen Brain Cell Atlas",
+            "description": "Single-cell RNA-seq atlas of the adult mouse brain with 4.1 million cells across 300+ cell types.",
+            "url": "{{ config.base_url }}/datasets/cellxgene-census-2024/",
+            "creator": { "@type": "Organization", "name": "Allen Institute" },
+            "keywords": ["h5ad", "M. musculus", "scRNA-seq"]
+        },
+        {
+            "@type": "Dataset",
+            "name": "Pf7k",
+            "description": "Plasmodium falciparum 7,000 genomes project — whole genome sequencing of malaria parasites from 28 endemic countries.",
+            "url": "{{ config.base_url }}/datasets/1000-genomes-30x/",
+            "creator": { "@type": "Organization", "name": "Sanger Institute" },
+            "keywords": ["FASTQ", "VCF", "P. falciparum"]
+        }
+    ],
+    "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".hub-header h1", ".hub-header p", ".hub-stat"]
+    }
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ config.base_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Datasets" }
+    ]
+}
+</script>
+{% endblock %}
+
 {% block content %}
 <div class="hub-page">
     <header class="hub-header">
         <h1>Datasets</h1>
         <p>Browse, discover, and share bioinformatics datasets. From reference genomes to single-cell atlases, find the data you need.</p>
-        <div class="hub-search" aria-label="Search datasets">
+        <div class="hub-search" role="search" aria-label="Search datasets">
             <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             <span>Search datasets by name, organism, or format...</span>
         </div>
     </header>
 
-    <div class="hub-stats">
-        <div class="hub-stat">
+    <div class="hub-stats" role="group" aria-label="Dataset statistics">
+        <div class="hub-stat" aria-label="Over 12,400 datasets">
             <div class="hub-stat-value">12,400+</div>
             <div class="hub-stat-label">Datasets</div>
         </div>
-        <div class="hub-stat">
+        <div class="hub-stat" aria-label="Over 350 organizations">
             <div class="hub-stat-value">350+</div>
             <div class="hub-stat-label">Organizations</div>
         </div>
-        <div class="hub-stat">
+        <div class="hub-stat" aria-label="89 terabytes total size">
             <div class="hub-stat-value">89 TB</div>
             <div class="hub-stat-label">Total Size</div>
         </div>
@@ -98,42 +154,42 @@
             <h2 class="section-heading">Explore by organism</h2>
             <div class="hub-organism-grid">
                 <a href="/datasets?organism=h-sapiens" class="hub-organism-card">
-                    <div class="hub-organism-emoji">&#x1F9D1;</div>
+                    <div class="hub-organism-emoji" aria-hidden="true">&#x1F9D1;</div>
                     <h3>H. sapiens</h3>
                     <span class="hub-organism-count">4,281 datasets</span>
                 </a>
                 <a href="/datasets?organism=m-musculus" class="hub-organism-card">
-                    <div class="hub-organism-emoji">&#x1F401;</div>
+                    <div class="hub-organism-emoji" aria-hidden="true">&#x1F401;</div>
                     <h3>M. musculus</h3>
                     <span class="hub-organism-count">2,103 datasets</span>
                 </a>
                 <a href="/datasets?organism=a-thaliana" class="hub-organism-card">
-                    <div class="hub-organism-emoji">&#x1F33F;</div>
+                    <div class="hub-organism-emoji" aria-hidden="true">&#x1F33F;</div>
                     <h3>A. thaliana</h3>
                     <span class="hub-organism-count">891 datasets</span>
                 </a>
                 <a href="/datasets?organism=d-melanogaster" class="hub-organism-card">
-                    <div class="hub-organism-emoji">&#x1FAB0;</div>
+                    <div class="hub-organism-emoji" aria-hidden="true">&#x1FAB0;</div>
                     <h3>D. melanogaster</h3>
                     <span class="hub-organism-count">743 datasets</span>
                 </a>
                 <a href="/datasets?organism=c-elegans" class="hub-organism-card">
-                    <div class="hub-organism-emoji">&#x1FAB1;</div>
+                    <div class="hub-organism-emoji" aria-hidden="true">&#x1FAB1;</div>
                     <h3>C. elegans</h3>
                     <span class="hub-organism-count">412 datasets</span>
                 </a>
                 <a href="/datasets?organism=s-cerevisiae" class="hub-organism-card">
-                    <div class="hub-organism-emoji">&#x1F9EB;</div>
+                    <div class="hub-organism-emoji" aria-hidden="true">&#x1F9EB;</div>
                     <h3>S. cerevisiae</h3>
                     <span class="hub-organism-count">389 datasets</span>
                 </a>
                 <a href="/datasets?organism=d-rerio" class="hub-organism-card">
-                    <div class="hub-organism-emoji">&#x1F41F;</div>
+                    <div class="hub-organism-emoji" aria-hidden="true">&#x1F41F;</div>
                     <h3>D. rerio</h3>
                     <span class="hub-organism-count">301 datasets</span>
                 </a>
                 <a href="/datasets?organism=e-coli" class="hub-organism-card">
-                    <div class="hub-organism-emoji">&#x1F9AB;</div>
+                    <div class="hub-organism-emoji" aria-hidden="true">&#x1F9AB;</div>
                     <h3>E. coli</h3>
                     <span class="hub-organism-count">278 datasets</span>
                 </a>
@@ -150,7 +206,7 @@
             </div>
             <div class="hub-recent-uploads">
                 <a href="/datasets/encode4-atac/" class="hub-recent-item">
-                    <span class="hub-recent-icon">&#x1F4CA;</span>
+                    <span class="hub-recent-icon" aria-hidden="true">&#x1F4CA;</span>
                     <div class="hub-recent-info">
                         <span class="hub-recent-name"><span class="hub-card-org">encode/</span>atac-seq-human-tissues</span>
                         <span class="hub-recent-desc">ATAC-seq chromatin accessibility across 25 human tissues</span>
@@ -159,7 +215,7 @@
                     <span class="hub-recent-time">2h ago</span>
                 </a>
                 <a href="/datasets/gtex-v9/" class="hub-recent-item">
-                    <span class="hub-recent-icon">&#x1F9EC;</span>
+                    <span class="hub-recent-icon" aria-hidden="true">&#x1F9EC;</span>
                     <div class="hub-recent-info">
                         <span class="hub-recent-name"><span class="hub-card-org">gtex-consortium/</span>v9-rnaseq</span>
                         <span class="hub-recent-desc">GTEx v9 RNA-seq expression data across 54 tissues</span>
@@ -168,7 +224,7 @@
                     <span class="hub-recent-time">5h ago</span>
                 </a>
                 <a href="/datasets/mouse-brain-scrna/" class="hub-recent-item">
-                    <span class="hub-recent-icon">&#x1F9E0;</span>
+                    <span class="hub-recent-icon" aria-hidden="true">&#x1F9E0;</span>
                     <div class="hub-recent-info">
                         <span class="hub-recent-name"><span class="hub-card-org">brain-initiative/</span>mouse-motor-cortex</span>
                         <span class="hub-recent-desc">Single-cell transcriptomes from mouse primary motor cortex</span>
@@ -177,7 +233,7 @@
                     <span class="hub-recent-time">8h ago</span>
                 </a>
                 <a href="/datasets/soil-microbiome/" class="hub-recent-item">
-                    <span class="hub-recent-icon">&#x1F30D;</span>
+                    <span class="hub-recent-icon" aria-hidden="true">&#x1F30D;</span>
                     <div class="hub-recent-info">
                         <span class="hub-recent-name"><span class="hub-card-org">earth-microbiome/</span>soil-16s-amplicon</span>
                         <span class="hub-recent-desc">16S rRNA amplicon sequencing from global soil samples</span>
@@ -186,7 +242,7 @@
                     <span class="hub-recent-time">12h ago</span>
                 </a>
                 <a href="/datasets/cancer-genome/" class="hub-recent-item">
-                    <span class="hub-recent-icon">&#x1F9AB;</span>
+                    <span class="hub-recent-icon" aria-hidden="true">&#x1F9AB;</span>
                     <div class="hub-recent-info">
                         <span class="hub-recent-name"><span class="hub-card-org">tcga/</span>brca-rnaseq-counts</span>
                         <span class="hub-recent-desc">TCGA breast cancer RNA-seq read counts and metadata</span>
@@ -200,7 +256,7 @@
 
     <!-- Existing Catalog -->
     <div id="catalog">
-    <div class="hub-filters">
+    <div class="hub-filters" role="group" aria-label="Filter by format">
         <span class="hub-filter-pill active" aria-current="true">All</span>
         <span class="hub-filter-pill">FASTA/FASTQ</span>
         <span class="hub-filter-pill">VCF</span>
@@ -249,17 +305,17 @@
         <div>
             <div class="hub-sort-bar">
                 <span class="hub-sort-label">12,400 datasets</span>
-                <div class="hub-sort-options">
-                    <span class="active">Trending</span>
-                    <span>Most downloads</span>
-                    <span>Recently updated</span>
+                <div class="hub-sort-options" role="tablist" aria-label="Sort order">
+                    <span class="active" role="tab" aria-selected="true">Trending</span>
+                    <span role="tab" aria-selected="false">Most downloads</span>
+                    <span role="tab" aria-selected="false">Recently updated</span>
                 </div>
             </div>
 
             <div class="hub-grid">
                 <a href="/datasets/gnomad-v4-1/" class="hub-card">
                     <div class="hub-card-header">
-                        <div class="hub-card-icon">&#x1F9EC;</div>
+                        <div class="hub-card-icon" aria-hidden="true">&#x1F9EC;</div>
                         <div class="hub-card-title-group">
                             <h3><span class="hub-card-org">broad-institute/</span><span class="hub-card-name">gnomad-v4</span></h3>
                             <span class="hub-badge badge-popular">Popular</span>
@@ -281,7 +337,7 @@
 
                 <a href="/datasets/ensembl-release-112/" class="hub-card">
                     <div class="hub-card-header">
-                        <div class="hub-card-icon">&#x1F4CA;</div>
+                        <div class="hub-card-icon" aria-hidden="true">&#x1F4CA;</div>
                         <div class="hub-card-title-group">
                             <h3><span class="hub-card-org">embl-ebi/</span><span class="hub-card-name">ensembl-113-grch38</span></h3>
                         </div>
@@ -302,7 +358,7 @@
 
                 <a href="/datasets/1000-genomes-30x/" class="hub-card">
                     <div class="hub-card-header">
-                        <div class="hub-card-icon">&#x1F9AB;</div>
+                        <div class="hub-card-icon" aria-hidden="true">&#x1F9AB;</div>
                         <div class="hub-card-title-group">
                             <h3><span class="hub-card-org">sanger-pathogens/</span><span class="hub-card-name">pf7k</span></h3>
                             <span class="hub-badge badge-new">New</span>
@@ -324,7 +380,7 @@
 
                 <a href="/datasets/cellxgene-census-2024/" class="hub-card">
                     <div class="hub-card-header">
-                        <div class="hub-card-icon">&#x1F9E0;</div>
+                        <div class="hub-card-icon" aria-hidden="true">&#x1F9E0;</div>
                         <div class="hub-card-title-group">
                             <h3><span class="hub-card-org">allen-institute/</span><span class="hub-card-name">abc-atlas</span></h3>
                             <span class="hub-badge badge-featured">Featured</span>
@@ -346,7 +402,7 @@
 
                 <a href="/datasets/1000-genomes-30x/" class="hub-card">
                     <div class="hub-card-header">
-                        <div class="hub-card-icon">&#x1F30D;</div>
+                        <div class="hub-card-icon" aria-hidden="true">&#x1F30D;</div>
                         <div class="hub-card-title-group">
                             <h3><span class="hub-card-org">1000genomes/</span><span class="hub-card-name">phase3-grch38</span></h3>
                         </div>
@@ -367,7 +423,7 @@
 
                 <a href="/datasets/encode4-atac/" class="hub-card">
                     <div class="hub-card-header">
-                        <div class="hub-card-icon">&#x1F33F;</div>
+                        <div class="hub-card-icon" aria-hidden="true">&#x1F33F;</div>
                         <div class="hub-card-title-group">
                             <h3><span class="hub-card-org">tair/</span><span class="hub-card-name">araport11</span></h3>
                         </div>

@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{{ config.title }}{% endblock %}</title>
     <meta name="description" content="{% block description %}{{ config.description }}{% endblock %}">
+    <meta name="robots" content="index, follow">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="theme-color" content="#FFFFFF">
     <meta name="color-scheme" content="light">
+    <meta name="author" content="{{ config.extra.org_name }}">
 
     <!-- Canonical -->
     <link rel="canonical" href="{{ current_url | safe }}">
@@ -28,6 +31,8 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ current_url | safe }}">
     <meta property="og:image" content="{% block og_image %}{{ config.base_url }}/og-default.png{% endblock %}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="{{ config.extra.org_name }}">
     <meta property="og:locale" content="en_US">
 
@@ -48,22 +53,49 @@
                 "@id": "{{ config.base_url }}/#organization",
                 "name": "{{ config.extra.org_name }}",
                 "url": "{{ config.base_url }}",
-                "logo": "{{ config.base_url }}{{ config.extra.org_logo }}",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "{{ config.base_url }}{{ config.extra.org_logo }}",
+                    "width": 512,
+                    "height": 512
+                },
+                "image": "{{ config.base_url }}/og-default.png",
                 "description": "{{ config.extra.org_description }}",
+                "foundingDate": "2024",
+                "knowsAbout": [
+                    "Bioinformatics",
+                    "Genomics",
+                    "Computational Biology",
+                    "Sequence Analysis",
+                    "Proteomics",
+                    "Single-cell RNA-seq",
+                    "Metagenomics",
+                    "Open Science"
+                ],
                 "sameAs": [
                     "{{ config.extra.github_url }}",
                     "https://twitter.com/{{ config.extra.twitter_handle }}"
-                ]
+                ],
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "contactType": "customer support",
+                    "url": "{{ config.base_url }}/contact",
+                    "availableLanguage": "English"
+                }
             },
             {
                 "@type": "WebSite",
                 "@id": "{{ config.base_url }}/#website",
                 "name": "{{ config.extra.org_name }}",
                 "url": "{{ config.base_url }}",
+                "inLanguage": "en",
                 "publisher": { "@id": "{{ config.base_url }}/#organization" },
                 "potentialAction": {
                     "@type": "SearchAction",
-                    "target": "{{ config.base_url }}/datasets/?q={search_term_string}",
+                    "target": {
+                        "@type": "EntryPoint",
+                        "urlTemplate": "{{ config.base_url }}/datasets/?q={search_term_string}"
+                    },
                     "query-input": "required name=search_term_string"
                 }
             }
@@ -79,7 +111,7 @@
     <a href="#main-content" class="sr-only sr-only-focusable">Skip to main content</a>
 
     {% block header %}
-    <div class="announcement-bar" role="banner">
+    <div class="announcement-bar" role="status">
         <div class="announcement-inner">
             <span class="announcement-badge">New</span>
             <span class="announcement-text">Cyanea Labs v0.9 is out — GPU-accelerated alignment, Python bindings, and 3 new crates.</span>
@@ -89,7 +121,7 @@
     <header class="site-header" role="banner">
         <nav class="nav-container" aria-label="Main">
             <a href="/" class="logo">
-                <img src="/icon.png" alt="Cyanea" class="logo-mark" width="34" height="34">
+                <img src="/icon.png" alt="Cyanea home" class="logo-mark" width="34" height="34">
                 <span class="logo-text">Cyanea</span>
             </a>
             <ul class="nav-links" id="mobile-nav">
@@ -101,7 +133,7 @@
                 <a href="/login" class="btn btn-ghost">Log in</a>
                 <a href="/signup" class="btn btn-primary">Get Started Free</a>
             </div>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav">
+            <button class="mobile-menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -158,8 +190,8 @@
             <div class="footer-bottom">
                 <p>&copy; {{ now() | date(format="%Y") }} Cyanea. All rights reserved.</p>
                 <div class="social-links">
-                    <a href="{{ config.extra.github_url }}" aria-label="GitHub">GitHub</a>
-                    <a href="https://twitter.com/{{ config.extra.twitter_handle }}" aria-label="Twitter">Twitter</a>
+                    <a href="{{ config.extra.github_url }}" aria-label="Cyanea on GitHub">GitHub</a>
+                    <a href="https://twitter.com/{{ config.extra.twitter_handle }}" aria-label="Cyanea on Twitter">Twitter</a>
                 </div>
             </div>
         </div>
