@@ -46,16 +46,16 @@ org_description = "Modern bioinformatics platform for genomic data management an
 
 # Navigation
 [[extra.nav]]
-name = "Datasets"
-url = "/datasets"
+name = "Spaces"
+url = "/spaces"
 
 [[extra.nav]]
 name = "Protocols"
 url = "/protocols"
 
 [[extra.nav]]
-name = "Spaces"
-url = "/spaces"
+name = "Datasets"
+url = "/datasets"
 
 [[extra.nav]]
 name = "Labs"
