@@ -26,7 +26,7 @@ Interested in Cyanea for your organization? Our sales team can help you find the
 
 ### Social
 
-- [GitHub](https://github.com/cyanea-io)
+- [GitHub](https://github.com/cyanea-bio)
 - [Twitter](https://twitter.com/cyanea_io)
 
 ### Office

@@ -35,7 +35,7 @@ include_content = true
 [extra]
 # Site-wide variables
 author = "Cyanea Team"
-github_url = "https://github.com/cyanea-io"
+github_url = "https://github.com/cyanea-bio"
 twitter_handle = "cyanea_io"
 
 # SEO / Open Graph
