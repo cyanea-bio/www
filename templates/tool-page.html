@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} | Labs | {{ config.title }}{% endblock %}
+{% block description %}{{ page.description | default(value=config.description) }}{% endblock %}
+{% block og_title %}{{ page.title }}{% endblock %}
+{% block og_description %}{{ page.description | default(value=config.description) }}{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "{{ page.title }}",
+    "description": "{{ page.description | default(value='') }}",
+    "url": "{{ current_url | safe }}",
+    "applicationCategory": "Science",
+    "operatingSystem": "Web browser",
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+    }
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ config.base_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Labs", "item": "{{ config.base_url }}/labs/" },
+        { "@type": "ListItem", "position": 3, "name": "{{ page.title }}" }
+    ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="detail-page tool-page">
+    <div class="detail-header">
+        <nav aria-label="Breadcrumb">
+            <ol class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="/labs/">Labs</a></li>
+                <li aria-current="page">{{ page.title }}</li>
+            </ol>
+        </nav>
+        <div class="tool-title-row">
+            <h1>
+                {% if page.extra.org %}<span class="detail-org">{{ page.extra.org }}/</span>{% endif %}{{ page.title }}
+            </h1>
+            <span class="hub-badge badge-wasm">WASM</span>
+            {% if page.extra.badge %}
+            <span class="hub-badge badge-{{ page.extra.badge }}">{{ page.extra.status }}</span>
+            {% endif %}
+        </div>
+        <div class="detail-meta">
+            {% if page.extra.tags %}
+            {% for tag in page.extra.tags %}
+            <span>{{ tag }}</span>
+            {% endfor %}
+            {% endif %}
+            {% if page.extra.updated %}<span>Updated {{ page.extra.updated }}</span>{% endif %}
+        </div>
+    </div>
+
+    <div class="detail-body">
+        <div class="detail-main">
+            {% if page.description %}
+            <p class="detail-description">{{ page.description }}</p>
+            {% endif %}
+
+            <div class="detail-content">
+                {{ page.content | safe }}
+            </div>
+
+            {% if page.extra.format_tags %}
+            <div class="detail-tags-section">
+                <h4>Supported Formats</h4>
+                <div class="detail-tags">
+                    {% for tag in page.extra.format_tags %}
+                    <span class="hub-card-tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if page.extra.tags %}
+            <div class="detail-tags-section">
+                <h4>Tags</h4>
+                <div class="detail-tags">
+                    {% for tag in page.extra.tags %}
+                    <span class="hub-card-tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <aside class="detail-sidebar">
+            <div class="detail-stat-card">
+                {% if page.extra.likes %}
+                <div class="detail-stat">
+                    <span class="detail-stat-label">Likes</span>
+                    <span class="detail-stat-value">{{ page.extra.likes }}</span>
+                </div>
+                {% endif %}
+                {% if page.extra.updated %}
+                <div class="detail-stat">
+                    <span class="detail-stat-label">Updated</span>
+                    <span class="detail-stat-value">{{ page.extra.updated }}</span>
+                </div>
+                {% endif %}
+                {% if page.extra.status %}
+                <div class="detail-stat">
+                    <span class="detail-stat-label">Status</span>
+                    <span class="detail-stat-value">{{ page.extra.status }}</span>
+                </div>
+                {% endif %}
+                {% if page.extra.powered_by %}
+                <div class="detail-stat tool-powered-by">
+                    <span class="detail-stat-label">Powered by</span>
+                    <span class="detail-stat-value">
+                        {% for crate in page.extra.powered_by %}
+                        <a href="/labs/{{ crate }}/" class="tool-dep-link">{{ crate }}</a>{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </span>
+                </div>
+                {% endif %}
+            </div>
+            <a href="/labs/" class="btn btn-outline btn-small">&larr; Back to Labs</a>
+        </aside>
+    </div>
+</div>
+{% endblock %}
