@@ -1,0 +1,199 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} | Labs | {{ config.title }}{% endblock %}
+{% block description %}{{ page.description | default(value=config.description) }}{% endblock %}
+{% block og_title %}{{ page.title }}{% endblock %}
+{% block og_description %}{{ page.description | default(value=config.description) }}{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "name": "{{ page.title }}",
+    "description": "{{ page.description | default(value='') }}",
+    "url": "{{ current_url | safe }}",
+    "codeRepository": "{{ config.extra.github_url }}",
+    "programmingLanguage": "Rust",
+    {% if page.extra.license %}"license": "{{ page.extra.license }}",{% endif %}
+    {% if page.extra.version %}"version": "{{ page.extra.version }}",{% endif %}
+    {% if page.extra.tags %}"keywords": [{% for tag in page.extra.tags %}"{{ tag }}"{% if not loop.last %}, {% endif %}{% endfor %}],{% endif %}
+    "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ config.base_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Labs", "item": "{{ config.base_url }}/labs/" },
+        { "@type": "ListItem", "position": 3, "name": "{{ page.title }}" }
+    ]
+}
+</script>
+{% endblock %}
+
+{% block head %}
+{% if page.extra.has_playground %}
+<link rel="preload" href="/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="detail-page crate-page">
+    <div class="detail-header">
+        <nav aria-label="Breadcrumb">
+            <ol class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="/labs/">Labs</a></li>
+                <li aria-current="page">{{ page.title }}</li>
+            </ol>
+        </nav>
+        <div class="crate-title-row">
+            <h1 class="crate-name">{{ page.title }}</h1>
+            {% if page.extra.version %}<span class="hub-badge badge-popular">v{{ page.extra.version }}</span>{% endif %}
+            {% if page.extra.layer %}<span class="crate-layer-badge layer-{{ page.extra.layer | lower }}">{{ page.extra.layer }}</span>{% endif %}
+        </div>
+        {% if page.extra.tagline %}
+        <p class="crate-tagline">{{ page.extra.tagline }}</p>
+        {% endif %}
+        <div class="detail-meta crate-meta">
+            {% if page.extra.layer %}<span>{{ page.extra.layer }} layer</span>{% endif %}
+            {% if page.extra.license %}<span>{{ page.extra.license }}</span>{% endif %}
+            {% if page.extra.functions %}<span>{{ page.extra.functions | length }} functions</span>{% endif %}
+            {% if page.extra.has_playground %}<span>Interactive playground</span>{% endif %}
+        </div>
+    </div>
+
+    <div class="detail-body">
+        <div class="detail-main">
+            {% if page.description %}
+            <p class="detail-description">{{ page.description }}</p>
+            {% endif %}
+
+            {% if page.extra.has_playground %}
+            <div class="crate-playground">
+                <h4>Playground</h4>
+                <div class="crate-playground-container" id="playground-container">
+                    <div class="sim-loading">Loading playground&hellip;</div>
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="detail-content">
+                {{ page.content | safe }}
+            </div>
+
+            {% if page.extra.functions %}
+            <div class="crate-api-section">
+                <h4>API Surface</h4>
+                <div class="crate-api-table">
+                    {% for fn in page.extra.functions %}
+                    <div class="crate-api-row">
+                        <span class="crate-api-name">{{ fn.name }}</span>
+                        <span class="crate-api-sig">{{ fn.sig }}</span>
+                        <span class="crate-api-desc">{{ fn.desc }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if page.extra.depends_on %}
+            <div class="crate-deps">
+                <div class="crate-dep-group">
+                    <h4>Depends on</h4>
+                    <div class="crate-dep-pills">
+                        {% for dep in page.extra.depends_on %}
+                        <a href="/labs/{{ dep }}/" class="crate-dep-link labs-crate-pill">{{ dep }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if page.extra.depended_by %}
+            <div class="crate-deps">
+                <div class="crate-dep-group">
+                    <h4>Depended on by</h4>
+                    <div class="crate-dep-pills">
+                        {% for dep in page.extra.depended_by %}
+                        <a href="/labs/{{ dep }}/" class="crate-dep-link labs-crate-pill">{{ dep }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if page.extra.tags %}
+            <div class="detail-tags-section">
+                <h4>Tags</h4>
+                <div class="detail-tags">
+                    {% for tag in page.extra.tags %}
+                    <span class="hub-card-tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <aside class="detail-sidebar">
+            <div class="detail-stat-card">
+                {% if page.extra.version %}
+                <div class="detail-stat">
+                    <span class="detail-stat-label">Version</span>
+                    <span class="detail-stat-value">{{ page.extra.version }}</span>
+                </div>
+                {% endif %}
+                {% if page.extra.layer %}
+                <div class="detail-stat">
+                    <span class="detail-stat-label">Layer</span>
+                    <span class="detail-stat-value">{{ page.extra.layer }}</span>
+                </div>
+                {% endif %}
+                {% if page.extra.wasm_module %}
+                <div class="detail-stat">
+                    <span class="detail-stat-label">WASM Module</span>
+                    <span class="detail-stat-value">{{ page.extra.wasm_module }}</span>
+                </div>
+                {% endif %}
+                {% if page.extra.license %}
+                <div class="detail-stat">
+                    <span class="detail-stat-label">License</span>
+                    <span class="detail-stat-value">{{ page.extra.license }}</span>
+                </div>
+                {% endif %}
+                {% if page.extra.functions %}
+                <div class="detail-stat">
+                    <span class="detail-stat-label">Functions</span>
+                    <span class="detail-stat-value">{{ page.extra.functions | length }}</span>
+                </div>
+                {% endif %}
+            </div>
+
+            {% if page.extra.source_url or page.extra.docs_url or page.extra.registry_url %}
+            <div class="crate-external-links">
+                {% if page.extra.source_url %}
+                <a href="{{ page.extra.source_url }}" class="crate-ext-link">Source</a>
+                {% endif %}
+                {% if page.extra.docs_url %}
+                <a href="{{ page.extra.docs_url }}" class="crate-ext-link">Docs</a>
+                {% endif %}
+                {% if page.extra.registry_url %}
+                <a href="{{ page.extra.registry_url }}" class="crate-ext-link">{{ page.extra.registry_name | default(value="crates.io") }}</a>
+                {% endif %}
+            </div>
+            {% endif %}
+
+            <a href="/labs/" class="btn btn-outline btn-small">&larr; Back to Labs</a>
+        </aside>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% if page.extra.has_playground %}
+<script type="module" src="/js/crates/{{ page.slug }}.js"></script>
+{% endif %}
+{% endblock %}
