@@ -12,6 +12,7 @@ wasm_module = ""
 has_playground = false
 license = "Apache-2.0"
 source_url = "https://github.com/cyanea-bio/labs/tree/main/cyanea-gpu"
+docs_url = "https://docs.cyanea.bio/rust/gpu/"
 registry_url = "https://crates.io/crates/cyanea-gpu"
 registry_name = "crates.io"
 depends_on = ["cyanea-core"]

@@ -12,6 +12,7 @@ wasm_module = "cyanea_wasm"
 has_playground = true
 license = "Apache-2.0"
 source_url = "https://github.com/cyanea-bio/labs/tree/main/cyanea-align"
+docs_url = "https://docs.cyanea.bio/rust/align/"
 registry_url = "https://crates.io/crates/cyanea-align"
 registry_name = "crates.io"
 depends_on = ["cyanea-core", "cyanea-seq", "cyanea-io"]

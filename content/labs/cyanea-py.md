@@ -12,6 +12,7 @@ wasm_module = ""
 has_playground = false
 license = "Apache-2.0"
 source_url = "https://github.com/cyanea-bio/labs/tree/main/cyanea-py"
+docs_url = "https://docs.cyanea.bio/python/"
 registry_url = "https://pypi.org/project/cyanea-py/"
 registry_name = "PyPI"
 depends_on = ["cyanea-core", "cyanea-seq", "cyanea-io", "cyanea-align", "cyanea-omics", "cyanea-stats", "cyanea-ml", "cyanea-chem", "cyanea-struct", "cyanea-phylo"]

@@ -12,6 +12,7 @@ wasm_module = "cyanea_wasm"
 has_playground = false
 license = "Apache-2.0"
 source_url = "https://github.com/cyanea-bio/labs/tree/main/cyanea-wasm"
+docs_url = "https://docs.cyanea.bio/wasm/"
 registry_url = "https://crates.io/crates/cyanea-wasm"
 registry_name = "crates.io"
 depends_on = ["cyanea-core", "cyanea-seq", "cyanea-io", "cyanea-align", "cyanea-omics", "cyanea-stats", "cyanea-ml", "cyanea-chem", "cyanea-struct", "cyanea-phylo"]

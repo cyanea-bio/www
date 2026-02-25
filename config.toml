@@ -67,4 +67,4 @@ url = "/learn"
 
 [[extra.nav]]
 name = "Docs"
-url = "/docs"
+url = "https://docs.cyanea.bio"
