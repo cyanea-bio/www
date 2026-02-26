@@ -932,6 +932,65 @@ p { margin: 0; color: $gray-600; }
     .btn { width: 100%; justify-content: center; }
 }
 
+.pricing-faq {
+    max-width: 52rem;
+    margin: 0 auto 6rem;
+    padding: 0 2rem;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 2.5rem;
+    }
+}
+
+.pricing-faq-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+}
+
+.pricing-faq-item {
+    border-bottom: 1px solid $gray-100;
+
+    &:first-child { border-top: 1px solid $gray-100; }
+
+    summary {
+        padding: 1.25rem 0;
+        font-size: 1rem;
+        font-weight: 600;
+        color: $gray-900;
+        cursor: pointer;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &::-webkit-details-marker { display: none; }
+
+        &::after {
+            content: '+';
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: $gray-400;
+            transition: transform 0.15s;
+            flex-shrink: 0;
+            margin-left: 1rem;
+        }
+    }
+
+    &[open] summary::after {
+        content: '\2212';
+    }
+
+    p {
+        padding: 0 0 1.25rem;
+        font-size: 0.9375rem;
+        color: $gray-500;
+        line-height: 1.6;
+        margin: 0;
+    }
+}
+
 // ─── Blog ─────────────────────────────────────────
 .blog-listing {
     padding: 4rem 0;
