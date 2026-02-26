@@ -860,7 +860,7 @@ p { margin: 0; color: $gray-600; }
     margin: 0 auto 6rem;
     padding: 0 2rem;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
     align-items: start;
 }
@@ -1385,14 +1385,16 @@ p { margin: 0; color: $gray-600; }
     .oss-stats { flex-direction: row; gap: 1rem; }
     .oss-stat { flex: 1; flex-direction: column; gap: 0.5rem; text-align: center; }
     .pricing-grid {
-        grid-template-columns: 1fr;
-        max-width: 480px; margin-left: auto; margin-right: auto;
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 720px; margin-left: auto; margin-right: auto;
     }
 }
 
 @media (max-width: 768px) {
     .nav-links, .nav-actions { display: none; }
     .mobile-menu-toggle { display: flex; }
+    .pricing-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .pricing-teaser-grid { grid-template-columns: 1fr; max-width: 400px; }
 
     h1 { font-size: 2.25rem; }
     h2 { font-size: 2rem; }
@@ -4571,9 +4573,9 @@ a.tool-dep-link {
 
 .pricing-teaser-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
-    max-width: 900px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
@@ -5067,7 +5069,7 @@ a.tool-dep-link {
     .quickstart-inner { grid-template-columns: 1fr; }
     .learn-banner { grid-template-columns: 1fr; }
     .learn-bottom-cta-inner { grid-template-columns: 1fr; }
-    .pricing-teaser-grid { grid-template-columns: 1fr; max-width: 400px; }
+    .pricing-teaser-grid { grid-template-columns: repeat(2, 1fr); max-width: 600px; }
     .activity-grid { grid-template-columns: 1fr; }
     .activity-item { border-right: none !important; }
 }

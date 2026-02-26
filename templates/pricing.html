@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}Pricing | {{ config.title }}{% endblock %}
-{% block description %}Simple, transparent pricing for teams of all sizes.{% endblock %}
+{% block description %}Local-first by default. Upgrade when you need team collaboration or server compute.{% endblock %}
 
 {% block structured_data %}
 <script type="application/ld+json">
@@ -9,7 +9,7 @@
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Cyanea Pricing",
-    "description": "Simple, transparent pricing for teams of all sizes. Start free, scale as you grow.",
+    "description": "Local-first by default. Upgrade when you need team collaboration or server compute.",
     "url": "{{ current_url | safe }}",
     "provider": { "@id": "{{ config.base_url }}/#organization" },
     "mainEntity": {
@@ -20,7 +20,7 @@
                 "name": "How much does Cyanea cost?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Cyanea offers a free plan with 10 GB storage and 3 team members, a Pro plan at $49/user/month with 100 GB per user and unlimited members, and a custom Enterprise plan with unlimited storage and on-premises deployment."
+                    "text": "Cyanea offers a free plan with 1 GB storage and WASM-only compute, a Pro plan at $39/month with 50 GB storage and server-side execution, a Team plan at $499/workspace/month with 200 GB and 10 members, and a custom Enterprise plan with unlimited storage and on-premises deployment."
                 }
             },
             {
@@ -28,7 +28,7 @@
                 "name": "Is there a free trial?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, the Free plan is free forever with 10 GB storage and 3 team members. The Pro plan also includes a free trial period."
+                    "text": "Yes, the Free plan is free forever with 1 GB storage and local WASM-based compute. Pro and Team plans also include a free trial period."
                 }
             },
             {
@@ -45,6 +45,14 @@
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "HIPAA compliance is available on the Enterprise plan, which includes dedicated infrastructure and 24/7 support with SLA."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is WASM-only compute?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Free plan users run notebook code locally in the browser via WebAssembly (WASM). This is fast and private — your data never leaves your machine. Server-side execution for languages like Elixir is available on Pro and above."
                 }
             }
         ]
@@ -70,8 +78,8 @@
 {% block content %}
 <div class="pricing-page">
     <header class="pricing-header">
-        <h1>Simple, transparent pricing</h1>
-        <p>Start free, scale as you grow. No hidden fees, no surprises.</p>
+        <h1>Local-first by default</h1>
+        <p>Upgrade when you need team collaboration or server compute. No hidden fees.</p>
     </header>
 
     <div class="pricing-grid">
@@ -82,13 +90,15 @@
                 <span class="amount">$0</span>
                 <span class="period">/month</span>
             </div>
-            <p class="pricing-description">Perfect for individual researchers and small projects.</p>
+            <p class="pricing-description">For individual researchers exploring locally.</p>
             <ul class="pricing-features">
-                <li>Up to 10 GB storage</li>
-                <li>3 team members</li>
+                <li>1 GB storage</li>
+                <li>Solo (1 member)</li>
+                <li>WASM-only compute</li>
+                <li>Public spaces only</li>
+                <li>20 versions per notebook</li>
+                <li>Rate-limited API</li>
                 <li>Community support</li>
-                <li>Basic analytics</li>
-                <li>Standard pipelines</li>
             </ul>
             <div class="pricing-cta">
                 <a href="/signup" class="btn btn-secondary">Get Started</a>
@@ -99,18 +109,42 @@
         <div class="pricing-card featured" aria-label="Pro plan - recommended">
             <div class="pricing-tier">Pro</div>
             <div class="pricing-price">
-                <span class="amount">$49</span>
-                <span class="period">/user/month</span>
+                <span class="amount">$39</span>
+                <span class="period">/month</span>
             </div>
-            <p class="pricing-description">For growing research teams that need more power.</p>
+            <p class="pricing-description">For researchers who need server compute and privacy.</p>
             <ul class="pricing-features">
-                <li>100 GB storage per user</li>
-                <li>Unlimited team members</li>
-                <li>Priority support</li>
-                <li>Advanced analytics</li>
+                <li>50 GB storage</li>
+                <li>200 MB max file size</li>
+                <li>Server-side execution</li>
+                <li>Public + private spaces</li>
+                <li>Unlimited versions</li>
                 <li>Full API access</li>
-                <li>Custom integrations</li>
-                <li>Custom pipelines</li>
+                <li>Priority support</li>
+            </ul>
+            <div class="pricing-cta">
+                <a href="/signup" class="btn btn-primary">Start Free Trial</a>
+            </div>
+        </div>
+
+        <!-- Team -->
+        <div class="pricing-card" aria-label="Team plan">
+            <div class="pricing-tier">Team</div>
+            <div class="pricing-price">
+                <span class="amount">$499</span>
+                <span class="period">/workspace/month</span>
+            </div>
+            <p class="pricing-description">For research groups that collaborate together.</p>
+            <ul class="pricing-features">
+                <li>200 GB storage</li>
+                <li>10 members included</li>
+                <li>More compute</li>
+                <li>Public + private spaces</li>
+                <li>Unlimited versions</li>
+                <li>Full API access</li>
+                <li>Basic audit logs</li>
+                <li>SSO (coming soon)</li>
+                <li>Priority support + SLA</li>
             </ul>
             <div class="pricing-cta">
                 <a href="/signup" class="btn btn-primary">Start Free Trial</a>
@@ -126,10 +160,12 @@
             <p class="pricing-description">For organizations with advanced requirements.</p>
             <ul class="pricing-features">
                 <li>Unlimited storage</li>
-                <li>Dedicated infrastructure</li>
-                <li>24/7 support with SLA</li>
-                <li>HIPAA compliance</li>
+                <li>Unlimited members</li>
+                <li>Dedicated compute</li>
                 <li>On-premises deployment</li>
+                <li>HIPAA compliance</li>
+                <li>Custom API limits</li>
+                <li>24/7 support with SLA</li>
                 <li>Dedicated account manager</li>
                 <li>Custom training</li>
             </ul>

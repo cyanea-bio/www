@@ -1,6 +1,6 @@
 +++
 title = "Pricing"
-description = "Simple, transparent pricing for teams of all sizes."
+description = "Local-first by default. Upgrade when you need team collaboration or server compute."
 template = "pricing.html"
-draft = true
+draft = false
 +++
