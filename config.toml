@@ -37,6 +37,7 @@ include_content = true
 author = "Cyanea Team"
 github_url = "https://github.com/cyanea-bio"
 twitter_handle = "cyanea_io"
+app_url = "https://app.cyanea.bio"
 
 # SEO / Open Graph
 og_image = "/og-default.png"  # TODO: Create 1200x630 OG image asset

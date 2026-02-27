@@ -1,2 +1,6 @@
 # Redirect www to apex
 https://www.cyanea.bio/* https://cyanea.bio/:splat 301
+
+# Auth routes → app
+/login https://app.cyanea.bio/auth/login 301
+/signup https://app.cyanea.bio/auth/register 301

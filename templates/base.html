@@ -130,8 +130,8 @@
                 {% endfor %}
             </ul>
             <div class="nav-actions">
-                <a href="/login" class="btn btn-ghost">Log in</a>
-                <a href="/signup" class="btn btn-primary">Get Started Free</a>
+                <a href="{{ config.extra.app_url }}/auth/login" class="btn btn-ghost">Log in</a>
+                <a href="{{ config.extra.app_url }}/auth/register" class="btn btn-primary">Get Started Free</a>
             </div>
             <button class="mobile-menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav">
                 <span></span>
